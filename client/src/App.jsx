@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Contact from "./pages/Contact";
 import Features from "./pages/Features";
 import About from "./pages/About";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
 
