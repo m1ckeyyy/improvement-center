@@ -13,8 +13,8 @@ export default function Login() {
 	return (
 		<div className={styles.body}>
 			<div className={styles.container}>
-				<div className={styles["login-left"]}>
-					<div className={styles["login-header"]} ref={header}>
+				<div className={styles.loginLeft}>
+					<div className={styles.loginHeader} ref={header}>
 						<h1 data-value="IMPROVEMENT" className={styles.improvement}>
 							IMPROVEMENT
 						</h1>
@@ -26,13 +26,13 @@ export default function Login() {
 							Sign In to Your Account
 						</p>
 					</div>
-					<form className={styles["login-form"]}>
-						<div className={styles["login-form-content"]}>
-							<div className={`${styles["form-item"]} ${styles["email"]}`}>
+					<form className={styles.loginForm}>
+						<div className={styles.loginFormContent}>
+							<div className={styles.formItem}>
 								<label>Enter Email</label>
 								<input type="text" id="email" autoFocus />
 							</div>
-							<div className={`${styles["form-item"]} ${styles["password"]}`}>
+							<div className={`${styles.formItem} ${styles.password}`}>
 								<label>Enter Password</label>
 								<input type="password" id="password" />
 								<div className={styles.checkbox}>
@@ -48,14 +48,11 @@ export default function Login() {
 
 							<div className={styles.buttons}>
 								<div className={styles.line}></div>
-								<button type="submit" className={styles["submit-btn"]}>
+								<button type="submit" className={styles.submitBtn}>
 									Sign In
 								</button>
-								<button className={styles["create-account-btn"]}>
-									<Link
-										to="/register"
-										className={styles["create-account-href"]}
-									>
+								<button className={styles.createAccountBtn}>
+									<Link to="/register" className={styles.createAccountHref}>
 										Create Account
 									</Link>
 								</button>
@@ -63,7 +60,7 @@ export default function Login() {
 						</div>
 					</form>
 				</div>
-				<div className={styles["login-right"]}>
+				<div className={styles.loginRight}>
 					<img src="images/login-img.png" />
 				</div>
 			</div>

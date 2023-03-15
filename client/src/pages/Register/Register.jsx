@@ -15,8 +15,8 @@ export default function Register() {
 	return (
 		<div className={styles.body}>
 			<div className={styles.container}>
-				<div className={styles["login-left"]}>
-					<div className={styles["login-header"]} ref={header}>
+				<div className={styles.loginLeft}>
+					<div className={styles.loginHeader} ref={header}>
 						<h1 data-value="IMPROVEMENT" className={styles.improvement}>
 							IMPROVEMENT
 						</h1>
@@ -27,13 +27,13 @@ export default function Register() {
 							Getting started is quick and simple, just fill out the info below!
 						</p>
 					</div>
-					<form className={styles["login-form"]}>
-						<div className={styles["login-form-content"]}>
-							<div className={`${styles["form-item"]} ${styles["email"]}`}>
+					<form className={styles.loginForm}>
+						<div className={styles.loginFormContent}>
+							<div className={styles.formItem}>
 								<label>Enter Email</label>
 								<input type="text" id="email" autoFocus />
 							</div>
-							<div className={`${styles["form-item"]} ${styles["password"]}`}>
+							<div className={`${styles.formItem} ${styles.password}`}>
 								<label>Enter Password</label>
 								<input type="password" id="password" />
 								<div className={styles.checkbox}>
@@ -46,20 +46,18 @@ export default function Register() {
 									</label>
 								</div>
 							</div>
-							<div
-								className={`${styles["form-item"]} ${styles["repeat-password"]}`}
-							>
+							<div className={`${styles.formItem} ${styles.repeatPassword}`}>
 								<label>Repeat Password</label>
 								<input type="text" id="repeat-password" />
 							</div>
 							<div className={styles.buttons}>
 								<div className={styles.line}></div>
 
-								<button type="submit" className={styles["submit-btn"]}>
+								<button type="submit" className={styles.submitBtn}>
 									Sign Up
 								</button>
-								<button className={styles["login-btn"]}>
-									<Link to="/login" className={styles["login-href"]}>
+								<button className={styles.loginBtn}>
+									<Link to="/login" className={styles.loginHref}>
 										Already a user?
 									</Link>
 								</button>
@@ -67,61 +65,9 @@ export default function Register() {
 						</div>
 					</form>
 				</div>
-				<div className={styles["login-right"]}>
+				<div className={styles.loginRight}>
 					<img src="images/img3.png" />
 				</div>
-			</div>
-		</div>
-	);
-	return (
-		<div className={styles.container}>
-			<div className={styles["login-left"]}>
-				<div className={styles["login-header"]}>
-					<h1 data-value="IMPROVEMENT" className={styles.improvement}>
-						IMPROVEMENT
-					</h1>
-					<h1 data-value="CENTER" className={styles.center}>
-						CENTER
-					</h1>
-					<p>
-						Getting started is quick and simple, just fill out the info below!
-					</p>
-				</div>
-				<form className={styles["login-form"]}>
-					<div className={styles["login-form-content"]}>
-						<div className={`${styles["form-item"]} ${styles["email"]}`}>
-							<label>Enter Email</label>
-							<input type="text" id="email" autoFocus />
-						</div>
-						<div className={`${styles["form-item"]} ${styles["password"]}`}>
-							<label>Enter Password</label>
-							<input type="password" id="password" />
-							<div className={styles.checkbox}>
-								<input type="checkbox" id="rememberMeCheckbox" />
-								<label
-									htmlFor="rememberMeCheckbox"
-									className={styles.checkboxLabel}
-								>
-									Remember Me
-								</label>
-							</div>
-						</div>
-						<div className={styles.buttons}>
-							<div className={styles.line}></div>
-							<button type="submit" className={styles["submit-btn"]}>
-								Sign In
-							</button>
-							<button className={styles["login-btn"]}>
-								<Link to="/login" className={styles["login-href"]}>
-									Already a user?
-								</Link>
-							</button>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div className={styles["login-right"]}>
-				<img src="images/frog1.png" />
 			</div>
 		</div>
 	);

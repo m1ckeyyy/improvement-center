@@ -25,7 +25,7 @@ $secondary-color: #3e54ac;
 	border-radius: 10px;
 	overflow: hidden;
 }
-.login-left {
+.loginLeft {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -33,7 +33,7 @@ $secondary-color: #3e54ac;
 	padding: 50px 50px 60px 50px;
 	background-color: white;
 }
-.login-right {
+.loginRight {
 	background-color: #eee;
 	display: flex;
 	justify-content: center;
@@ -43,7 +43,7 @@ $secondary-color: #3e54ac;
 		filter: brightness(1);
 	}
 }
-.login-header {
+.loginHeader {
 	margin-bottom: 50px;
 	text-align: center;
 	justify-content: center;
@@ -65,14 +65,14 @@ $secondary-color: #3e54ac;
 		opacity: 0.7;
 	}
 }
-.login-form {
+.loginForm {
 	width: 450px;
 }
 .checkboxLabel,
 #rememberMeCheckbox {
 	cursor: pointer;
 }
-.form-item label:not(.checkboxLabel) {
+.formItem label:not(.checkboxLabel) {
 	display: inline-block;
 	background-color: white;
 	margin-bottom: 10px;
@@ -81,7 +81,7 @@ $secondary-color: #3e54ac;
 	transform: translate(30px, -10px);
 	font-size: 14px;
 }
-.form-item {
+.formItem {
 	width: 80%;
 }
 input[type="text"],
@@ -114,7 +114,7 @@ input[type="checkbox"]:checked {
 	color: red;
 	transition: background-color 0.3s ease-in-out;
 }
-.login-form-content {
+.loginFormContent {
 	display: flex;
 	gap: 35px;
 	flex-direction: column;
@@ -128,7 +128,7 @@ input[type="checkbox"]:checked {
 	display: flex;
 	justify-content: space-evenly;
 }
-.submit-btn {
+.submitBtn {
 	font-family: $montserrat;
 	position: relative;
 	background-image: linear-gradient(204deg, $primary-color, $secondary-color);
@@ -160,7 +160,7 @@ input[type="checkbox"]:checked {
 		opacity: 1;
 	}
 }
-.login-btn {
+.loginBtn {
 	display: flex;
 	align-items: center;
 	font-family: $montserrat;
@@ -194,7 +194,7 @@ input[type="checkbox"]:checked {
 		opacity: 1;
 	}
 }
-.login-href {
+.loginHref {
 	text-decoration: none;
 	color: white;
 }
@@ -219,7 +219,7 @@ input[type="checkbox"]:checked {
 	.container {
 		grid-template-columns: 100% 0%;
 	}
-	.login-right {
+	.loginRight {
 		display: none;
 	}
 
@@ -227,7 +227,7 @@ input[type="checkbox"]:checked {
 	input[type="password"] {
 		width: 100%;
 	}
-	.login-form-content {
+	.loginFormContent {
 		display: flex;
 		align-items: center;
 	}
@@ -239,7 +239,7 @@ input[type="checkbox"]:checked {
 	}
 }
 @media (max-width: 360px) {
-	.login-form {
+	.loginForm {
 		width: 360px;
 	}
 }
