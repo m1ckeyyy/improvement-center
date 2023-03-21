@@ -14,13 +14,13 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <div className={styles.header}>
+          <img
+            src="/images/logo3.png"
+            alt="Logo"
+            className={styles.logo}
+            onClick={handleLogoClick}
+          />
           <nav className={styles.navbar}>
-            <img
-              src="/images/logo3.png"
-              alt="Logo"
-              className={styles.logo}
-              onClick={handleLogoClick}
-            />
             <Link to="/tools" className={styles.navbarElement}>
               Tools
             </Link>

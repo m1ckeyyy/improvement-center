@@ -1,8 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 .container {
+  font-family: "DM Sans", sans-serif;
   height: 100vh;
   background-color: #ffbf80;
   background-image: url("images/man-with-a-book.jpg");
@@ -11,19 +17,24 @@
 }
 .logo {
   cursor: pointer;
-  width: 600px;
-  //   background-image: url("images/logo1.png");
-  //   z-index: 1;
+  width: 350px;
 }
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 50px;
+  display: inline;
 }
 .navbarElement {
-  text-decoration: none;
-  font-size: 20px;
-  color: black;
-  text-transform: uppercase;
+  display: inline;
 }
+// .navbar {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   margin-right: 50px;
+// }
+// .navbarElement {
+//   display: inline-block;
+//   text-decoration: none;
+//   font-size: 20px;
+//   color: black;
+//   text-transform: uppercase;
+// }
