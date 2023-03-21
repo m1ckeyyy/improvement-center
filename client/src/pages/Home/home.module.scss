@@ -1,11 +1,29 @@
-
 * {
   margin: 0;
   padding: 0;
 }
 .container {
   height: 100vh;
-  background-color: red;
+  background-color: #ffbf80;
   background-image: url("images/man-with-a-book.jpg");
   background-size: cover;
+  background-position: center center;
+}
+.logo {
+  cursor: pointer;
+  width: 600px;
+  //   background-image: url("images/logo1.png");
+  //   z-index: 1;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 50px;
+}
+.navbarElement {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  text-transform: uppercase;
 }
