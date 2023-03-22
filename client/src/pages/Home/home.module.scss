@@ -10,31 +10,110 @@
 .container {
   font-family: "DM Sans", sans-serif;
   height: 100vh;
-  background-color: #ffbf80;
-  background-image: url("images/man-with-a-book.jpg");
+  background-color: #092035;
+  //   background-image: url("images/man-with-a-book.jpg");
   background-size: cover;
   background-position: center center;
 }
 .logo {
   cursor: pointer;
-  width: 350px;
+  //   width: 350px;
+  display: flex;
+  align-items: center;
+  span {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
 }
 .navbar {
-  display: inline;
+  display: flex;
 }
 .navbarElement {
-  display: inline;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: 0 30px;
+  transition: all 0.2s ease;
+  &:hover {
+    color: aqua;
+  }
 }
-// .navbar {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   margin-right: 50px;
-// }
-// .navbarElement {
-//   display: inline-block;
-//   text-decoration: none;
-//   font-size: 20px;
-//   color: black;
-//   text-transform: uppercase;
-// }
+.active {
+  color: greenyellow;
+}
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  padding: 28px 12%;
+  transition: all 0.2s ease;
+}
+.main {
+  display: flex;
+  align-items: center;
+  a {
+    margin-right: 25px;
+    margin-left: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500px;
+    transition: all 0.2s ease;
+    &:hover {
+      color: greenyellow;
+    }
+  }
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+.user svg {
+  color: greenyellow;
+}
+.menuIcon {
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 1280px) {
+  .header {
+    padding: 14px 2%;
+  }
+  .navbar {
+    a {
+      padding: 5px 0;
+    }
+  }
+}
+@media (max-width: 1090px) {
+  .menuIcon {
+    display: block;
+  }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    right: 2%;
+    width: 270px;
+    height: 29vh;
+    background: lightgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  a{
+	  display: block;
+	  margin: 12px 0;
+	  padding: 0px 25px;
+  }
+  }
+}
