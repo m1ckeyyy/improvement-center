@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const startEffect = (element) => {
 	const letters = "ABCDEFGHIJKLMNOPQRSTWVUXYZ";
@@ -22,7 +22,7 @@ const startEffect = (element) => {
 
 export const useHeaderEffect = (headers) => {
 	headers = [headers.children[0], headers.children[1]];
-
+	// useEffect(() => {
 	const intervals = [];
 	headers.forEach((header, index) => {
 		setTimeout(() => {
@@ -41,4 +41,5 @@ export const useHeaderEffect = (headers) => {
 		intervals.forEach(clearInterval);
 		console.log(intervals);
 	};
+	// }, [headers]);
 };
