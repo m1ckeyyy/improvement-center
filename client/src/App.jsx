@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useTransition } from "react";
+import LoadingScreen from "./pages/effects/LoadingScreen";
 
 const About = lazy(() => import("./pages/About"));
 const Login = lazy(() => import("./pages/Login/Login"));
@@ -18,7 +19,7 @@ function App() {
   return (
     <>
       <SuspenseRouter window={window}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

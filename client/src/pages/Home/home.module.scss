@@ -4,174 +4,175 @@ $primary-color: #b4e4ff;
 $secondary-color: #3e54ac;
 $accent-color: white;
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	text-decoration: none;
-	list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 .container {
-	font-family: "DM Sans", sans-serif;
-	height: 100vh;
-	// background-color: #092035;
-	background: linear-gradient(338deg, $primary-color, $secondary-color);
-
-	//   background-image: url("images/man-with-a-book.jpg");
-	background-size: cover;
-	background-position: center center;
+  font-family: "DM Sans", sans-serif;
+  height: 100vh;
+  // background-color: #092035;
+  background: linear-gradient(338deg, $primary-color, $secondary-color);
+  //   background-image: url("images/man-with-a-book.jpg");
+  background-size: cover;
+  background-position: center center;
 }
 .logo {
-	cursor: pointer;
-	//   width: 350px;
-	display: flex;
-	align-items: center;
-	span {
-		margin-left: 10px;
-		color: white;
-		font-size: 2rem;
-		font-weight: 500;
-	}
+  cursor: pointer;
+  //   width: 350px;
+  display: flex;
+  align-items: center;
+  span {
+    margin-left: 10px;
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+  }
 }
 
 .navbar {
-	display: flex;
+  display: flex;
 }
 .navbarElement {
-	position: relative;
-	color: white;
-	font-size: 1.1rem;
-	font-weight: 500;
-	padding: 5px 0;
-	margin: 0 30px;
-	transition: all 0.2s ease;
-	&::after {
-		content: "";
-		position: absolute;
-		background-color: $primary-color;
-		height: 3px;
-		width: 0;
-		left: -10%;
-		bottom: -3px;
-		border-radius: 30px;
-	}
-	&:hover {
-		color: $primary-color;
-		&::after {
-			width: 120%;
-			left: -10%;
-			bottom: -3px;
-			transition: all 0.3s ease;
-		}
-	}
+  position: relative;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: 0 30px;
+  transition: all 0.2s ease;
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: $primary-color;
+    height: 3px;
+    width: 0;
+    left: -10%;
+    bottom: -3px;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+  }
+  &:hover {
+    color: $primary-color;
+    &::after {
+      width: 120%;
+      left: -10%;
+      bottom: -3px;
+      transition: all 0.3s ease;
+    }
+  }
 }
 
 .active {
-	color: $accent-color;
+  color: $accent-color;
 }
 .header {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	right: 0;
-	z-index: 1000;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: transparent;
-	padding: 28px 12%;
-	transition: all 0.2s ease;
-	.title {
-		font-family: "Inconsolata", monospace;
-	}
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  padding: 28px 12%;
+  transition: all 0.2s ease;
+  .title {
+    font-family: "Inconsolata", monospace;
+  }
 }
 .main {
-	display: flex;
-	align-items: center;
-	a span {
-		position: relative;
-		// margin-right: 25px;
-		// margin-left: 10px;
-		margin: 10px 25px 10px 10px;
+  display: flex;
+  align-items: center;
+  a span {
+    position: relative;
+    // margin-right: 25px;
+    // margin-left: 10px;
+    margin: 10px 25px 10px 10px;
 
-		color: white;
-		font-size: 1.1rem;
-		font-weight: 500px;
-		transition: all 0.2s ease;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500px;
+    transition: all 0.2s ease;
 
-		&::after {
-			content: "";
-			position: absolute;
-			background-color: $primary-color;
-			height: 3px;
-			width: 0;
-			left: -5%;
-			bottom: -8px;
-			border-radius: 30px;
-		}
-		&:hover {
-			color: $primary-color;
-			&::after {
-				width: 110%;
-				transition: all 0.3s ease;
-			}
-		}
-	}
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: $primary-color;
+      height: 3px;
+      width: 0;
+      left: -5%;
+      bottom: -8px;
+      border-radius: 30px;
+      transition: all 0.2s ease;
+    }
+    &:hover {
+      color: $primary-color;
+      &::after {
+        width: 110%;
+        transition: all 0.3s ease;
+      }
+    }
+  }
 }
 .user {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .menuIcon {
-	color: white;
-	font-size: 35px;
-	cursor: pointer;
-	display: none;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  display: none;
 }
 @media (max-width: 1280px) {
-	.header {
-		padding: 14px 2%;
-	}
-	.navbar {
-		a {
-			padding: 5px 0;
-		}
-	}
+  .header {
+    padding: 14px 2%;
+  }
+  .navbar {
+    a {
+      padding: 5px 0;
+    }
+  }
 }
 @media (max-width: 960px) {
-	.menuIcon {
-		display: block;
-	}
-	.navbar {
-		position: absolute;
-		top: 100%;
-		right: -100%;
-		width: 270px;
-		height: 29vh;
-		background: lightgreen;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		border-radius: 10px;
-		transition: all 0.2s ease;
-		a {
-			display: block;
-			margin: 12px 0;
-			padding: 0px 25px;
-			transition: all 0.5s ease;
-			&:hover {
-				color: black;
-				transform: translateX(5px);
-			}
-		}
-	}
-	.active {
-		color: #092035;
-	}
+  .menuIcon {
+    display: block;
+  }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 270px;
+    height: 29vh;
+    background: lightgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    a {
+      display: block;
+      margin: 12px 0;
+      padding: 0px 25px;
+      transition: all 0.5s ease;
+      &:hover {
+        color: black;
+        transform: translateX(5px);
+      }
+    }
+  }
+  .active {
+    color: #092035;
+  }
 }
 .menuOpen.navbar {
-	right: 2%;
+  right: 2%;
 }
 .menuIcon {
-	transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
