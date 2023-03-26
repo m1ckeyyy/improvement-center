@@ -15,6 +15,7 @@ const handleLogoClick = () => {
     behavior: "smooth",
   });
 };
+
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
@@ -29,7 +30,12 @@ export default function Home() {
             <AiOutlineHome
               color="#b4e4ff"
               size="28px"
-              style={{ marginRight: "4px", marginBottom: "4px" }}
+              style={{
+                marginRight: "4px",
+                marginBottom: "4px",
+                minWidth: "28px",
+                minHeight: "28px",
+              }}
             />
             <span className={styles.title}>Improvement Center</span>
           </Link>
@@ -52,6 +58,22 @@ export default function Home() {
             <li>
               <Link to="/tools" className={styles.navbarElement}>
                 Tools
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/login"
+                className={`${styles.navbarElement} ${styles.phoneMedia}`}
+              >
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/register"
+                className={`${styles.navbarElement} ${styles.phoneMedia}`}
+              >
+                Register
               </Link>
             </li>
           </ul>
