@@ -21,8 +21,12 @@ const startEffect = (element) => {
 };
 
 export const useHeaderEffect = (headers) => {
-	headers = [headers.children[0], headers.children[1]];
-	// useEffect(() => {
+	if (headers.innerText.toUpperCase() === "ULTIMATE") {
+		headers = [headers];
+	} else {
+		headers = [headers.children[0], headers.children[1]];
+	}
+	if (!headers[0]) return;
 	const intervals = [];
 	headers.forEach((header, index) => {
 		setTimeout(() => {
@@ -41,5 +45,4 @@ export const useHeaderEffect = (headers) => {
 		intervals.forEach(clearInterval);
 		console.log(intervals);
 	};
-	// }, [headers]);
 };

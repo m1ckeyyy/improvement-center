@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Navbar from "./../Navbar/Navbar";
 import styles from "./home.module.scss";
 import { Link } from "react-router-dom";
+import { useHeaderEffect } from "./../effects/hackerEffect";
 
 const Home = () => {
+	const ultimate = useRef(null);
+	useEffect(() => {
+		// useHeaderEffect(ultimate.current);
+	}, []);
+
 	return (
 		<div className={styles.container}>
 			<Navbar />
 			<section className={styles.mainSection}>
 				<div className={styles.mainContent}>
-					<h1 className={styles.mainHeading}>The Ultimate Productivity Hub</h1>
+					<h1 className={styles.mainHeading}>
+						The{" "}
+						<span ref={ultimate} data-value="ULTIMATE">
+							Ultimate
+						</span>{" "}
+						Productivity Hub
+					</h1>
 					<p className={styles.mainDescription}>
-						Tired of having all your productivity-related apps in 10 different
-						places? All your productivity tools in one place with Improvement
-						Center
+						All your productivity tools in one place with Improvement Center
 					</p>
 					<div className={styles.quoteContainer}>
 						<p className={styles.quote}>
