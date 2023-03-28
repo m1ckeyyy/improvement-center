@@ -198,7 +198,13 @@ $accent-color: white;
 		width: 200px;
 		height: 150px;
 		// height: 14vh;
-		background: rgb(143 177 194);
+		background: linear-gradient(
+			342deg,
+			rgba(2, 0, 36, 1) 43%,
+			rgba(62, 90, 202, 1) 94%
+		);
+
+		border: 1px solid white;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
@@ -221,7 +227,10 @@ $accent-color: white;
 		}
 	}
 	.active {
-		color: #092035;
+		color: white;
+		padding: 3px 10px 3px 10px !important;
+		border: 1px solid white;
+		border-radius: 10px;
 	}
 }
 @media (max-width: 670px) {

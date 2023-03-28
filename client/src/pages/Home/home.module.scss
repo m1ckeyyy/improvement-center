@@ -12,12 +12,19 @@ $poppins: "Poppins", sans-serif;
 $DM: "DM Sans", sans-serif;
 
 .container {
-	background: black;
+	background-color: black;
+	// background-color: rgb(8, 8, 8);
 	color: white;
-	height: 100vh;
+	// height: 100vh;
+	// width: 100vw;
 }
 .mainContent {
-	padding: 30px 230px 0 230px;
+	background: black;
+	display: flex;
+	flex-direction: column;
+	padding: 30px 12% 0 12%;
+	height: calc(100vh - 100px);
+	width: 100%;
 }
 .mainHeading {
 	font-family: $nunito;
@@ -30,15 +37,15 @@ $DM: "DM Sans", sans-serif;
 	font-weight: 400;
 	font-size: 4em;
 	text-align: left;
-	padding-top: 30px;
+	padding-top: 45px;
 	margin-bottom: 50px;
 }
-// .quote {
-// 	font-family: $poppins;
-// 	font-size: 1em;
-// 	text-align: right;
-// 	padding-top: 30px;
-// }
+
+.btnContainer {
+	display: flex;
+	// justify-content: center;
+	// height: 100%;
+}
 .btnGetStarted {
 	font-family: $DM;
 	font-size: 2em;
@@ -46,14 +53,18 @@ $DM: "DM Sans", sans-serif;
 	background-color: $secondary-color;
 	border-radius: 30px;
 	padding: 5px 30px;
+
 	text-decoration: none;
 	color: white;
 	border: 2px solid transparent;
 	opacity: 1;
-	animation: fade 3.5s infinite ease-in-out;
+	animation: fade 3.2s infinite ease-in-out;
+	transition: margin-left 0.4s ease;
 
 	&:hover {
 		border: 2px solid white;
+		margin-left: 30px;
+		transition: margin-left 0.4s ease;
 	}
 }
 @keyframes fade {
@@ -75,5 +86,30 @@ $DM: "DM Sans", sans-serif;
 	100% {
 		// opacity: 1;
 		background-color: $secondary-color;
+	}
+}
+@media (max-width: 1294px) {
+	.mainContent {
+		padding: 30px 5% 0 5%;
+	}
+}
+@media (max-width: 1093px) {
+	.mainContent {
+		height: calc(100vh + 100px);
+	}
+}
+@media (max-width: 822px) {
+	.mainHeading {
+		font-size: 4em;
+	}
+	.mainDescription {
+		font-size: 2em;
+	}
+	.btnContainer {
+		justify-content: flex-end;
+	}
+
+	.btnGetStarted {
+		font-size: 1.5em;
 	}
 }

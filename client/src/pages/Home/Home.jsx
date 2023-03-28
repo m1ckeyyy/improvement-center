@@ -21,21 +21,18 @@ const Home = () => {
 						<span ref={ultimate} data-value="ULTIMATE">
 							Ultimate
 						</span>{" "}
+						<br />
 						Productivity Hub
 					</h1>
 					<p className={styles.mainDescription}>
-						"The secret of getting ahead is getting started." - Mark Twain
+						"The secret of getting ahead is getting started." <br />- Mark Twain
 					</p>
-					{/* <div className={styles.quoteContainer}>
-						<p className={styles.quote}>
-							"The secret of getting ahead is getting started." - Mark Twain
-						</p>
-					</div> */}
-
 					{/* change this to scroll to tools seciton👇 */}
-					<Link to="/tools" className={styles.btnGetStarted}>
-						So Get Started
-					</Link>
+					<div className={styles.btnContainer}>
+						<Link to="/tools" className={styles.btnGetStarted}>
+							So Get Started
+						</Link>
+					</div>
 				</div>
 			</section>
 		</div>
