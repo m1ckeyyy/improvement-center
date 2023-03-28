@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Navbar from "./../Navbar/Navbar";
 import styles from "./home.module.scss";
+import { BsMouse } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useHeaderEffect } from "./../effects/hackerEffect";
 
@@ -23,13 +24,15 @@ const Home = () => {
 						Productivity Hub
 					</h1>
 					<p className={styles.mainDescription}>
-						All your productivity tools in one place with Improvement Center
+						"The secret of getting ahead is getting started." - Mark Twain
 					</p>
-					<div className={styles.quoteContainer}>
+					{/* <div className={styles.quoteContainer}>
 						<p className={styles.quote}>
 							"The secret of getting ahead is getting started." - Mark Twain
 						</p>
-					</div>
+					</div> */}
+
+					{/* change this to scroll to tools seciton👇 */}
 					<Link to="/tools" className={styles.btnGetStarted}>
 						So Get Started
 					</Link>
