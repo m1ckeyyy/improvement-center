@@ -13,10 +13,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import SuspenseRouter from "./SuspenseRouter";
 
-// on launch hacker animation every 7s
-
 function App() {
-	//   const [isPending, startTransition] = useTransition();
 	return (
 		<>
 			<SuspenseRouter window={window}>
