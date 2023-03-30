@@ -5,7 +5,7 @@
 
 $primary-color: rgb(137, 195, 230);
 $secondary-color: rgb(62 90 202);
-$animation-color: rgb(18, 37, 114);
+$animation-color: rgb(113, 219, 205, 0.6);
 $accent-color: white;
 $nunito: "Nunito Sans", sans-serif;
 $poppins: "Poppins", sans-serif;
@@ -19,32 +19,43 @@ $DM: "DM Sans", sans-serif;
 	// width: 100vw;
 }
 .mainContent {
+	position: relative;
 	background: black;
 	display: flex;
 	flex-direction: column;
-	padding: 30px 12% 0 12%;
+	padding: 30px 14% 0 14%;
 	height: calc(100vh - 100px);
 	width: 100%;
 }
 .mainHeading {
 	font-family: $nunito;
 	text-transform: uppercase;
-	font-size: 6em;
-	text-align: right;
+	font-size: 4em;
+	// text-align: right;
+	z-index: 2;
+
+	color: white;
+	-webkit-text-stroke: 1px black;
+	-moz-text-stroke: 1px black;
 }
 .mainDescription {
 	font-family: $nunito;
 	font-weight: 400;
-	font-size: 4em;
+	font-size: 2em;
 	text-align: left;
 	padding-top: 45px;
 	margin-bottom: 50px;
+	z-index: 2;
 }
-
+.womanImg {
+	position: absolute;
+	top: 0;
+	right: 14%;
+	z-index: 1;
+	width: 550px;
+}
 .btnContainer {
 	display: flex;
-	// justify-content: center;
-	// height: 100%;
 }
 .btnGetStarted {
 	font-family: $DM;

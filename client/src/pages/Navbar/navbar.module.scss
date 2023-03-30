@@ -198,13 +198,13 @@ $accent-color: white;
 		width: 200px;
 		height: 150px;
 		// height: 14vh;
-		background: linear-gradient(
-			342deg,
-			rgba(2, 0, 36, 1) 43%,
-			rgba(62, 90, 202, 1) 94%
-		);
-
-		border: 1px solid white;
+		// background: linear-gradient(
+		// 	342deg,
+		// 	rgba(2, 0, 36, 1) 43%,
+		// 	rgba(62, 90, 202, 1) 94%
+		// );
+		background-color: rgb(118, 136, 209);
+		// border: 1px solid white;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
@@ -228,8 +228,8 @@ $accent-color: white;
 	}
 	.active {
 		color: white;
-		padding: 3px 10px 3px 10px !important;
-		border: 1px solid white;
+		// padding: 3px 10px 3px 10px !important;
+		// border: 1px solid white;
 		border-radius: 10px;
 	}
 }

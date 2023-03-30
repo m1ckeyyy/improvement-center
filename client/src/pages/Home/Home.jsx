@@ -27,6 +27,8 @@ const Home = () => {
 					<p className={styles.mainDescription}>
 						"The secret of getting ahead is getting started." <br />- Mark Twain
 					</p>
+					<img src="images/wmn3.png" alt="woman" className={styles.womanImg} />
+
 					{/* change this to scroll to tools seciton👇 */}
 					<div className={styles.btnContainer}>
 						<Link to="/tools" className={styles.btnGetStarted}>
