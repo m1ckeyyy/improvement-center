@@ -4,254 +4,254 @@ $primary-color: #b4e4ff;
 $secondary-color: #3e54ac;
 $accent-color: white;
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	text-decoration: none;
-	list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 .navContainer {
-	font-family: "DM Sans", sans-serif;
-	height: 150px;
-	// background: linear-gradient(338deg, $primary-color, $secondary-color);
-	background-size: cover;
-	background-position: center center;
+  font-family: "DM Sans", sans-serif;
+  height: 150px;
+  // background: linear-gradient(338deg, $primary-color, $secondary-color);
+  background-size: cover;
+  background-position: center center;
 }
 .logo {
-	cursor: pointer;
-	//   width: 350px;
-	display: flex;
-	align-items: center;
-	span {
-		margin-left: 10px;
-		color: white;
-		font-size: 2rem;
-		font-weight: 500;
-	}
+  cursor: pointer;
+  //   width: 350px;
+  display: flex;
+  align-items: center;
+  span {
+    margin-left: 10px;
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+  }
 }
 .animatedLogoIcon {
-	transition: transform 0.5s ease-out;
-	&:hover {
-		transform: rotate(30deg);
-	}
+  transition: transform 0.5s ease-out;
+  &:hover {
+    transform: rotate(30deg);
+  }
 }
 .navbar {
-	display: flex;
+  display: flex;
 }
 .navbarElement {
-	position: relative;
-	color: white;
-	font-size: 1.1rem;
-	font-weight: 500;
-	padding: 5px 0;
-	margin: 0 30px;
-	transition: all 0.2s ease;
-	&::after {
-		content: "";
-		position: absolute;
-		background-color: $primary-color;
-		height: 3px;
-		width: 0;
-		left: -10%;
-		bottom: -3px;
-		border-radius: 30px;
-		transition: all 0.2s ease;
-	}
-	&::before {
-		content: "";
-		font-size: 30px;
-		position: absolute;
-		transform: translate(250px, 100px);
-		transition: transform 0.3s ease;
-	}
-	&:hover {
-		color: $primary-color;
-		&::after {
-			width: 120%;
-			left: -10%;
-			bottom: -3px;
-			transition: all 0.3s ease;
-		}
-	}
+  position: relative;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: 0 30px;
+  transition: all 0.2s ease;
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: $primary-color;
+    height: 3px;
+    width: 0;
+    left: -10%;
+    bottom: -3px;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+  }
+  &::before {
+    content: "";
+    font-size: 30px;
+    position: absolute;
+    transform: translate(250px, 100px);
+    transition: transform 0.3s ease;
+  }
+  &:hover {
+    color: $primary-color;
+    &::after {
+      width: 120%;
+      left: -10%;
+      bottom: -3px;
+      transition: all 0.3s ease;
+    }
+  }
 }
 
 .active {
-	color: $accent-color;
+  color: $accent-color;
 }
 .header {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	right: 0;
-	z-index: 1000;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: transparent;
-	padding: 28px 12%;
-	transition: all 0.2s ease;
-	.title {
-		font-family: "Inconsolata", monospace;
-		text-transform: uppercase;
-	}
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  padding: 28px 12%;
+  transition: all 0.2s ease;
+  .title {
+    font-family: "Inconsolata", monospace;
+    text-transform: uppercase;
+  }
 }
 .main {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 
-	a span {
-		display: flex;
+  a span {
+    display: flex;
 
-		position: relative;
-		// margin-right: 25px;
-		// margin-left: 10px;
-		margin: 10px 25px 10px 10px;
+    position: relative;
+    // margin-right: 25px;
+    // margin-left: 10px;
+    margin: 10px 25px 10px 10px;
 
-		color: white;
-		font-size: 1.1rem;
-		font-weight: 500px;
-		transition: all 0.2s ease;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500px;
+    transition: all 0.2s ease;
 
-		&::after {
-			content: "";
-			position: absolute;
-			background-color: $primary-color;
-			height: 3px;
-			width: 0;
-			left: -5%;
-			bottom: -8px;
-			border-radius: 30px;
-			transition: all 0.2s ease;
-		}
-		&:hover {
-			color: $primary-color;
-			&::after {
-				width: 110%;
-				transition: all 0.3s ease;
-			}
-		}
-	}
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: $primary-color;
+      height: 3px;
+      width: 0;
+      left: -5%;
+      bottom: -8px;
+      border-radius: 30px;
+      transition: all 0.2s ease;
+    }
+    &:hover {
+      color: $primary-color;
+      &::after {
+        width: 110%;
+        transition: all 0.3s ease;
+      }
+    }
+  }
 }
 .user {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .menuIcon {
-	color: white;
-	font-size: 35px;
-	cursor: pointer;
-	display: none;
-	transition: all 1s ease-in-out;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  display: none;
+  transition: all 1s ease-in-out;
 }
 .menuOpen.navbar {
-	right: 2%;
+  right: 2%;
 }
 .phoneMedia {
-	display: none;
-	height: 0;
+  display: none;
+  height: 0;
 }
 @media (max-width: 1280px) {
-	.header {
-		padding: 14px 2%;
-	}
-	.navbar {
-		a {
-			padding: 5px 0;
-		}
-	}
+  .header {
+    padding: 14px 2%;
+  }
+  .navbar {
+    a {
+      padding: 5px 0;
+    }
+  }
 }
 @media (max-width: 960px) {
-	.phoneMedia {
-		display: none;
-	}
-	.menuIcon {
-		display: block;
-	}
-	.navbarElement {
-		&::before {
-			content: "←";
-		}
-		&:hover {
-			&::before {
-				transform: translate(130px, -10px);
-				transition: transform 0.3s ease;
-			}
-		}
-	}
-	.phoneMedia {
-		&::before {
-			content: "←";
-		}
-		&:hover {
-			&::before {
-				transform: translate(130px, -3px);
-				transition: transform 0.3s ease;
-			}
-		}
-	}
-	.navbar {
-		padding: 15px 0 0 0;
-		position: absolute;
-		top: 100%;
-		right: -100%;
-		width: 200px;
-		height: 150px;
-		// height: 14vh;
-		// background: linear-gradient(
-		// 	342deg,
-		// 	rgba(2, 0, 36, 1) 43%,
-		// 	rgba(62, 90, 202, 1) 94%
-		// );
-		background-color: rgb(118, 136, 209);
-		// border: 1px solid white;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
+  .phoneMedia {
+    display: none;
+  }
+  .menuIcon {
+    display: block;
+  }
+  .navbarElement {
+    &::before {
+      content: "←";
+    }
+    &:hover {
+      &::before {
+        transform: translate(130px, -10px);
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+  .phoneMedia {
+    &::before {
+      content: "←";
+    }
+    &:hover {
+      &::before {
+        transform: translate(130px, -3px);
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+  .navbar {
+    padding: 15px 0 0 0;
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 200px;
+    height: 150px;
+    // height: 14vh;
+    // background: linear-gradient(
+    // 	342deg,
+    // 	rgba(2, 0, 36, 1) 43%,
+    // 	rgba(62, 90, 202, 1) 94%
+    // );
+    background-color: rgb(118, 136, 209);
+    // border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
-		align-items: flex-start;
+    align-items: flex-start;
 
-		border-radius: 10px;
-		transition: all 0.2s ease;
-		a {
-			// display: flex;
-			margin: 12px 0;
-			transition: all 0.5s ease;
-			&:hover {
-				color: #0d304f;
-				transform: translateX(5px);
-			}
-		}
-		li {
-			padding-left: 15px;
-		}
-	}
-	.active {
-		color: white;
-		// padding: 3px 10px 3px 10px !important;
-		// border: 1px solid white;
-		border-radius: 10px;
-	}
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    a {
+      // display: flex;
+      margin: 12px 0;
+      transition: all 0.5s ease;
+      &:hover {
+        color: #0d304f;
+        transform: translateX(5px);
+      }
+    }
+    li {
+      padding-left: 15px;
+    }
+  }
+  .active {
+    color: white;
+    // padding: 3px 10px 3px 10px !important;
+    // border: 1px solid white;
+    border-radius: 10px;
+  }
 }
 @media (max-width: 670px) {
-	.phoneMedia {
-		display: flex;
-		align-items: center;
-		height: auto;
-		margin: 0;
-	}
-	.navbar {
-		padding: 10px;
-		height: 250px;
-		a {
-			margin: 0;
-			display: flex;
-		}
-	}
-	.main {
-		a {
-			display: none;
-			//   margin: 12px 0;
-		}
-	}
+  .phoneMedia {
+    display: flex;
+    align-items: center;
+    height: auto;
+    margin: 0;
+  }
+  .navbar {
+    padding: 10px;
+    height: 250px;
+    a {
+      margin: 0;
+      display: flex;
+    }
+  }
+  .main {
+    a {
+      display: none;
+      //   margin: 12px 0;
+    }
+  }
 }
