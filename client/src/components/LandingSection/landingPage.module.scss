@@ -11,7 +11,6 @@ $nunito: "Nunito Sans", sans-serif;
 $poppins: "Poppins", sans-serif;
 $DM: "DM Sans", sans-serif;
 
-
 .mainContent {
   overflow-x: hidden;
   flex-wrap: wrap;
@@ -97,6 +96,64 @@ $DM: "DM Sans", sans-serif;
     transition: margin-left 0.4s ease;
   }
 }
+.scrollIcon {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -3vh);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: flow 3s ease-in-out infinite;
+}
+
+.scrollIcon:hover + .arrowIcon {
+  opacity: 1;
+}
+.arrowIcon {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -3vh);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: arrowFlow 3s ease-in-out infinite;
+  &:hover {
+    transform: scale(2);
+  }
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+@keyframes flow {
+  0% {
+    transform: translateY(-2vh);
+  }
+  50% {
+    transform: translateY(-3vh);
+  }
+  100% {
+    transform: translateY(-2vh);
+  }
+}
+@keyframes arrowFlow {
+  0% {
+    transform: translateY(1.5vh);
+  }
+  50% {
+    transform: translateY(0.5vh);
+  }
+  100% {
+    transform: translateY(1.5vh);
+  }
+}
 @keyframes fade {
   0% {
     // opacity: 1;
@@ -126,11 +183,7 @@ $DM: "DM Sans", sans-serif;
     justify-content: flex-end;
   }
 }
-// @media (max-width: 1093px) {
-// 	.mainContent {
-// 		height: calc(100vh + 100px);
-// 	}
-// }
+
 @media (max-width: 1095px) {
   .rightContent {
     display: none;
@@ -151,7 +204,7 @@ $DM: "DM Sans", sans-serif;
     &:hover {
       border: 2px solid white;
       margin-left: 0px;
-      transform: translate(0px, -10px);
+      transform: translate(0px, -7px);
       transition: transform 0.4s ease;
     }
   }
