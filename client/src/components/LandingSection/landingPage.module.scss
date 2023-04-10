@@ -73,6 +73,7 @@ $DM: "DM Sans", sans-serif;
 .btnContainer {
   display: flex;
   align-items: center;
+  cursor: pointer;
   //   height: 30%;
 }
 .btnGetStarted {
@@ -235,5 +236,35 @@ $DM: "DM Sans", sans-serif;
   .womanImg {
     max-width: 400px;
     transform: translateY(10px);
+  }
+}
+@media (max-width: 660px) {
+  .mainContent {
+    padding-top: 22vh;
+  }
+}
+@media (max-width: 538px) {
+  .mainHeading {
+    font-size: 3em;
+  }
+  .mainDescription {
+    font-size: 1.5em;
+  }
+  .btnGetStarted {
+    font-size: 1.5em;
+  }
+  .scrollIcon {
+    display: none;
+  }
+}
+@media (max-width: 393px) {
+  .mainHeading {
+    font-size: 2em;
+  }
+  .mainDescription {
+    font-size: 1em;
+  }
+  .btnGetStarted {
+    font-size: 1em;
   }
 }

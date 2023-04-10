@@ -6,7 +6,7 @@ import {
   AiOutlineMenu,
   AiOutlineClose,
 } from "react-icons/ai";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const handleLogoClick = () => {
@@ -18,6 +18,36 @@ const handleLogoClick = () => {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const controlNav = () => {
+    const currentScrollY = window.scrollY;
+    // console.log(`current: ${currentScrollY} prev: ${prevScrollY}`);
+
+    if (currentScrollY > prevScrollY) {
+      setShowNav(false);
+      setPrevScrollY(currentScrollY);
+    } else {
+      setShowNav(true);
+      setPrevScrollY(currentScrollY);
+      return;
+    }
+
+    // console.log(showNav);
+    if (window.scrollY > 100) {
+      setShowNav(false);
+    } else {
+      setShowNav(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNav);
+    return () => {
+      window.removeEventListener("scroll", controlNav);
+    };
+  });
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -25,7 +55,7 @@ export default function Navbar() {
   return (
     <>
       <div className={styles.navContainer}>
-        <header className={styles.header}>
+        <header className={`${styles.header} ${showNav ? "" : styles.hideNav}`}>
           <Link to="/" className={styles.logo} onClick={handleLogoClick}>
             <AiOutlineHome
               className={styles.animatedLogoIcon}

@@ -27,9 +27,9 @@ const LandingPage = () => {
             "The secret of getting ahead is getting started." <br />- Mark Twain
           </p>
           <div className={styles.btnContainer}>
-            <Link to="/tools" className={styles.btnGetStarted}>
+            <div to="/" className={styles.btnGetStarted}>
               So Get Started
-            </Link>
+            </div>
           </div>
           <BsMouse color="white" className={styles.scrollIcon} />
           <AiOutlineDown color="white" className={styles.arrowIcon} />
