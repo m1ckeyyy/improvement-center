@@ -1,4 +1,8 @@
 .container {
   height: 100vh;
-  background-color: gray;
+  background: linear-gradient(
+    47deg,
+    rgb(146 177 192) 54%,
+    rgb(23 168 188) 100%
+  );
 }
