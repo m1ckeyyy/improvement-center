@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import Navbar from "./../Navbar/Navbar.jsx";
 import LandingPage from "./../../components/LandingSection/LandingSection";
 import ToolsSection from "./../../components/ToolsSection/ToolsSection";
