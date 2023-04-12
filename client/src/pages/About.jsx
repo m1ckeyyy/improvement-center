@@ -14,5 +14,4 @@ export default function About() {
 	- Configure Authentication States
 		> user not auth { 🗣 | Login | Register }
 		> user auth { 🗣 (or profile icon) | <Username> | Logout }
-
 */
