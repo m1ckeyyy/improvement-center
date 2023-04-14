@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+.container {
+	overflow-x: hidden;
+
+	height: 80vh;
+	background: linear-gradient(
+		47deg,
+		rgb(168, 186, 206) 10%,
+		rgb(20, 32, 34) 100%
+	);
+}
+.aboutSection {
+	display: flex;
+	justify-content: center;
+}
+.aboutHeader {
+	padding: 50px;
+	font-size: 3em;
+	font-weight: bold;
+	font-family: "DM Sans", sans-serif;
+	color: white;
+	transform: translateY(-50%);
+	opacity: 0;
+	// z-index: -1;
+	// letter-spacing: 100px;
+	// transition: letter-spacing 1s ease-in;
+}
+.runAboutHeaderEffect {
+	opacity: 1;
+	transform: translateY(0);
+	transition: all 0.5s ease-in;
+	// letter-spacing: 10px;
+	// transition: letter-spacing 1s ease-in;
+}
