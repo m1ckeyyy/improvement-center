@@ -106,19 +106,21 @@ $accent-color: white;
 		text-transform: uppercase;
 	}
 }
-.hideNav + .scrollIcon,
-.navBackground + .scrollIcon {
-	// transform: translate(0, 500%) !important;
-	// transition: transform 0.3s ease;
+.iconContainer {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+.hideNav + .iconContainer .scrollIcon,
+.navBackground + .iconContainer .scrollIcon {
 	bottom: -10%;
-	// transform: translateX(-100%);
 	transition: bottom 0.3s ease;
 }
 
 .scrollIcon {
 	position: fixed;
 	bottom: 9%;
-	left: 50%;
 	transform: translate(0, -3vh);
 	width: 30px;
 	height: 50px;
