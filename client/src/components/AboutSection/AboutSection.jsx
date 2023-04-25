@@ -22,16 +22,15 @@ const AboutSection = () => {
 
   return (
     <div className={styles.container} id="about" ref={aboutRef}>
+      <div
+        className={`${styles.aboutHeader} ${
+          showContent ? styles.runAboutHeaderEffect : ""
+        }`}
+      >
+        ABOUT ME
+      </div>
       <section className={styles.aboutSection}>
         <div className={styles.leftContent}>
-          <div
-            className={`${styles.aboutHeader} ${
-              showContent ? styles.runAboutHeaderEffect : ""
-            }`}
-          >
-            ABOUT ME
-          </div>
-
           <div className={styles.aboutText}>
             <p>
               Hi, I'm <span>Mikolaj Krawczynski</span>, the creator of this
@@ -40,8 +39,22 @@ const AboutSection = () => {
             </p>
             <br />
             <p>
-              You can find me on <span>GitHub</span> and <span>LinkedIn</span>,
-              where I share my latest projects.
+              You can find me on{" "}
+              <span>
+                <a href="https://github.com/m1ckeyyy" target="_blank">
+                  GitHub
+                </a>
+              </span>{" "}
+              and{" "}
+              <span>
+                <a
+                  href="https://www.linkedin.com/in/mikolaj-krawczynski-a82ba5240/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </span>
+              , where I share my latest projects.
             </p>
             <br />
 
@@ -53,7 +66,7 @@ const AboutSection = () => {
         </div>
         <div className={styles.rightContent}>
           <img
-            src="images/presenter2.png"
+            src="images/presenter3.png"
             alt="presenter"
             className={styles.presenterImg}
           />

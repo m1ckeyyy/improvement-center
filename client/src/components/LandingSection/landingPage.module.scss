@@ -15,11 +15,7 @@ $DM: "DM Sans", sans-serif;
   overflow-x: hidden;
   flex-wrap: wrap;
   position: relative;
-  background: linear-gradient(
-    47deg,
-    rgba(83, 109, 121, 1) 54%,
-    rgba(46, 164, 180, 1) 100%
-  );
+  background: linear-gradient(47deg, rgb(32 63 64) 41%, rgb(82 201 204) 100%);
   display: flex;
   padding: 22vh 10% 29vh 10%;
   min-height: 700px;
@@ -132,22 +128,22 @@ $DM: "DM Sans", sans-serif;
 @keyframes fade {
   0% {
     // opacity: 1;
-    background-color: rgb(24 44 54);
+    background-color: rgb(67 159 162);
   }
   10% {
     // opacity: 1;
-    background-color: rgb(24 44 54);
+    background-color: rgb(67 159 162);
   }
   30% {
     // opacity: 0.8;
-    background-color: $animation-color;
+    background-color: rgb(10 80 81);
   }
   50% {
-    background-color: rgb(24 44 54);
+    background-color: rgb(67 159 162);
   }
   100% {
     // opacity: 1;
-    background-color: rgb(24 44 54);
+    background-color: rgb(67 159 162);
   }
 }
 @media (max-width: 1280px) {
