@@ -1,34 +1,70 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
 .container {
-	overflow-x: hidden;
-	min-height: 700px;
-	height: 80vh;
-	background: linear-gradient(
-		47deg,
-		rgb(168, 186, 206) 10%,
-		rgb(20, 32, 34) 100%
-	);
+  overflow: hidden;
+  min-height: 700px;
+  height: 100vh;
+  //   background-color: #a2d5d6;
+  background: linear-gradient(
+    39deg,
+    rgba(99, 205, 208, 1) 7%,
+    rgba(162, 213, 214, 1) 35%
+  );
 }
 .aboutSection {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  padding-top: 40px;
+
+  //   justify-content: center;
 }
 .aboutHeader {
-	padding: 50px;
-	font-size: 3em;
-	font-weight: bold;
-	font-family: "DM Sans", sans-serif;
-	color: white;
-	transform: translateY(-50%);
-	opacity: 0;
-	// z-index: -1;
-	// letter-spacing: 100px;
-	// transition: letter-spacing 1s ease-in;
+  padding: 12% 6%;
+  font-size: 4em;
+  font-weight: bold;
+  font-family: "Nunito Sans", sans-serif;
+  color: black;
+  transform: translateY(-50%);
+  opacity: 0;
+
+  //   letter-spacing: 7px;
+  // z-index: -1;
+  // letter-spacing: 100px;
+  // transition: letter-spacing 1s ease-in;
 }
 .runAboutHeaderEffect {
-	opacity: 1;
-	transform: translateY(0);
-	transition: all 0.5s ease-out;
-	// letter-spacing: 10px;
-	// transition: letter-spacing 1s ease-in;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease-out;
+  // letter-spacing: 10px;
+  // transition: letter-spacing 1s ease-in;
+}
+.leftContent {
+  flex: 1 0 50%;
+}
+.rightContent {
+  flex: 1 0 50%;
+  margin-top: 60px;
+}
+.presenterImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.aboutText {
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5em;
+  margin-left: 5%;
+
+  background-color: #63cdd0;
+  border-radius: 30px;
+  padding: 10px 5px 10px 20px;
+  span {
+    // border: 2px solid red;
+    background-color: #bbf2f2;
+    border-radius: 20px;
+    padding: 2px 7px;
+  }
 }

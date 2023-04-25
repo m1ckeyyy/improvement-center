@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useTransition } from "react";
 import LoadingScreen from "./pages/effects/LoadingScreen";
 
-const About = lazy(() => import("./pages/About"));
+// const About = lazy(() => import("./pages/About/About"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const Home = lazy(() => import("./pages/Home/Home"));
@@ -20,10 +20,10 @@ function App() {
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            {/* <Route path="/about" element={<About />} /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/tools" element={<Tools />} />
+            {/* <Route path="/#tools" element={<Tools />} /> */}
           </Routes>
         </Suspense>
       </SuspenseRouter>

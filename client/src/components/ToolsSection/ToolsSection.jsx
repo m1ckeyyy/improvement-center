@@ -22,7 +22,6 @@ const ToolsSection = () => {
 								alt="pomodoro"
 								className={styles.pomodoroImg}
 							/>
-
 							<a href="#">
 								Go To Pomodoro <BsArrowUpRightSquare size="22" />
 							</a>
