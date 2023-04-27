@@ -1,4 +1,6 @@
 // import Navbar from "./../../components/Navbar";
+import { Link } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 import styles from "./navbar.module.scss";
 import {
   AiOutlineHome,
@@ -8,12 +10,12 @@ import {
 } from "react-icons/ai";
 import { BsMouse } from "react-icons/bs";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 const handleLogoClick = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
+  scroll.scrollTo(0, {
+    duration: 1000,
+    smooth: "easeInOutQuint",
   });
 };
 
@@ -87,6 +89,7 @@ export default function Navbar() {
           >
             <li>
               <a
+                onClick={handleLogoClick}
                 href="#"
                 className={`${styles.navbarElement} ${styles.active}`}
               >
@@ -94,46 +97,69 @@ export default function Navbar() {
               </a>
             </li>
             <li>
-              <a href="#about" className={styles.navbarElement}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#tools" className={styles.navbarElement}>
+              <Link
+                to="tools"
+                smooth={true}
+                offset={20}
+                duration={500}
+                className={styles.navbarElement}
+              >
                 Tools
-              </a>
+              </Link>
+              {/* <a
+                // onClick={scrollToAbout}
+                href="#about"
+                className={styles.navbarElement}
+              >
+                About
+              </a> */}
             </li>
             <li>
               <Link
+                to="about"
+                smooth={true}
+                offset={-30}
+                duration={500}
+                className={styles.navbarElement}
+              >
+                About
+              </Link>
+
+              {/* <a href="#tools" className={styles.navbarElement}>
+                Tools
+              </a> */}
+            </li>
+            <li>
+              <RouterLink
                 to="/login"
                 className={`${styles.navbarElement} ${styles.phoneMedia}`}
               >
                 <AiOutlineUser style={{ marginRight: "3px" }} />
                 Login
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link
+              <RouterLink
                 to="/register"
                 className={`${styles.navbarElement} ${styles.phoneMedia}`}
               >
                 <AiOutlineUser style={{ marginRight: "3px" }} />
                 Register
-              </Link>
+              </RouterLink>
             </li>
           </ul>
           <div className={styles.main}>
-            <Link to="/login" className={styles.user}>
+            <RouterLink to="/login" className={styles.user}>
               <AiOutlineUser
                 color="#b4e4ff"
                 size="28px"
                 style={{ marginRight: "7px" }}
               />
               <span>Login</span>
-            </Link>
-            <Link to="/register">
+            </RouterLink>
+            <RouterLink to="/register">
               <span>Register</span>
-            </Link>
+            </RouterLink>
             <div tabIndex="0">
               {isMenuOpen ? (
                 <AiOutlineClose

@@ -9,304 +9,305 @@ $primary-color: black;
 $secondary-color: rgba(91, 209, 160, 0.5);
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 .body {
-	padding: 0;
-	margin: 0;
-	background: black;
-	padding: 40px;
-	font-family: $montserrat;
+  padding: 0;
+  margin: 0;
+  background: black;
+  padding: 40px;
+  font-family: $montserrat;
 }
 .container {
-	min-height: calc(100vh - 40px * 2);
-	display: grid;
-	grid-template-columns: 50% 50%;
-	border-radius: 10px;
-	overflow: hidden;
+  min-height: calc(100vh - 40px * 2);
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .loginLeft {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 50px 50px 60px 50px;
-	background-color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 50px 60px 50px;
+  background-color: white;
 }
 .loginRight {
-	z-index: 1;
-	background-color: rgb(95, 134, 218);
-	display: flex;
-	justify-content: center;
-	img {
-		width: 100%;
-		object-fit: cover;
-		filter: brightness(1);
-	}
+  z-index: 1;
+  background-color: rgb(95, 134, 218);
+  display: flex;
+  justify-content: center;
+  img {
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(1);
+  }
 }
 .iconsContainer {
-	position: absolute;
-	left: 5%;
-	bottom: 5%;
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
 }
 .loginHeader {
-	margin-bottom: 50px;
-	text-align: center;
-	justify-content: center;
+  margin-bottom: 50px;
+  text-align: center;
+  justify-content: center;
 
-	.improvement {
-		font-weight: normal;
-		margin: 0;
-		font-family: $inconsolata;
-		font-size: 60px;
-	}
-	.center {
-		font-weight: normal;
-		margin: 0;
-		margin-bottom: 35px;
-		font-family: $inconsolata;
-		font-size: 60px;
-	}
-	p {
-		opacity: 0.7;
-	}
+  .improvement {
+    font-weight: normal;
+    margin: 0;
+    font-family: $inconsolata;
+    font-size: 60px;
+  }
+  .center {
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 35px;
+    font-family: $inconsolata;
+    font-size: 60px;
+  }
+  p {
+    opacity: 0.7;
+  }
 }
 .loginForm {
-	width: 450px;
+  width: 450px;
 }
 .checkboxLabel,
 #rememberMeCheckbox {
-	cursor: pointer;
+  cursor: pointer;
 }
 .formItem label:not(.checkboxLabel) {
-	display: inline-block;
-	background-color: white;
-	margin-bottom: 10px;
-	position: absolute;
-	padding: 0 10px;
-	transform: translate(30px, -10px);
-	font-size: 14px;
+  display: inline-block;
+  background-color: white;
+  margin-bottom: 10px;
+  position: absolute;
+  padding: 0 10px;
+  transform: translate(30px, -10px);
+  font-size: 14px;
 }
 .formItem {
-	width: 80%;
-}
-input[type="text"],
-input[type="password"] {
-	border: 1px solid gray;
-	height: 55px;
-	padding: 0 26px;
-	width: 100%;
-	font-size: 17px;
-	border-radius: 100px;
-	letter-spacing: 0.7px;
-	// transition: border 0.1s linear;
-	// transition: padding 0.1s linear;
-	&:hover {
-		padding: 0 25px;
-		border: 2px solid gray;
-	}
-}
-input[type="password"] {
-	letter-spacing: 3px;
+  width: 80%;
+  input[type="text"],
+  input[type="password"] {
+    border: 1px solid gray;
+    height: 55px;
+    padding: 0 26px;
+    width: 100%;
+    font-size: 17px;
+    border-radius: 100px;
+    letter-spacing: 0.7px;
+    // transition: border 0.1s linear;
+    // transition: padding 0.1s linear;
+    &:hover {
+      padding: 0 25px;
+      border: 2px solid gray;
+    }
+  }
+  input[type="password"] {
+    letter-spacing: 3px;
+  }
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    background-color: #b4e4ff;
+  }
+  input[type="checkbox"]:checked {
+    // background-color: $primary-color;
+    color: red;
+    transition: background-color 0.3s ease-in-out;
+  }
 }
 
-input[type="checkbox"] {
-	width: 20px;
-	height: 20px;
-	background-color: #b4e4ff;
-}
-input[type="checkbox"]:checked {
-	// background-color: $primary-color;
-	color: red;
-	transition: background-color 0.3s ease-in-out;
-}
 .loginFormContent {
-	display: flex;
-	gap: 35px;
-	flex-direction: column;
-	// width: 80%;
-	align-items: center;
+  display: flex;
+  gap: 35px;
+  flex-direction: column;
+  // width: 80%;
+  align-items: center;
 }
 .buttons {
-	position: relative;
-	margin-top: 20px;
-	width: 80%;
-	display: flex;
-	justify-content: space-evenly;
+  position: relative;
+  margin-top: 20px;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
 }
 .submitBtn {
-	font-family: $montserrat;
-	position: relative;
-	background-image: linear-gradient(204deg, $primary-color, $secondary-color);
-	z-index: 1;
-	border: 1px solid gray;
-	color: white;
-	padding: 1rem;
-	border-radius: 100px;
-	text-align: center;
-	font-size: 18px;
-	height: 55px;
-	cursor: pointer;
-	width: 40%;
-	margin-top: 35px;
-	&::before {
-		border-radius: 100px;
-		position: absolute;
-		content: "";
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-image: linear-gradient(20deg, darkgray, $secondary-color);
-		z-index: -1;
-		transition: opacity 0.3s linear;
-		opacity: 0;
-	}
-	&:hover::before {
-		opacity: 1;
-	}
+  font-family: $montserrat;
+  position: relative;
+  background-image: linear-gradient(204deg, $primary-color, $secondary-color);
+  z-index: 1;
+  border: 1px solid gray;
+  color: white;
+  padding: 1rem;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 18px;
+  height: 55px;
+  cursor: pointer;
+  width: 40%;
+  margin-top: 35px;
+  &::before {
+    border-radius: 100px;
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(20deg, darkgray, $secondary-color);
+    z-index: -1;
+    transition: opacity 0.3s linear;
+    opacity: 0;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
 }
 .loginBtn {
-	display: flex;
-	align-items: center;
-	font-family: $montserrat;
-	position: relative;
-	background-image: linear-gradient(204deg, $primary-color, $secondary-color);
-	z-index: 1;
-	border: 1px solid gray;
-	color: white;
-	padding: 1rem;
-	border-radius: 100px;
-	text-align: center;
-	font-size: 18px;
-	height: 55px;
-	cursor: pointer;
-	width: 40%;
-	margin-top: 35px;
-	&::before {
-		border-radius: 100px;
-		position: absolute;
-		content: "";
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-image: linear-gradient(20deg, darkgray, $secondary-color);
-		z-index: -1;
-		transition: opacity 0.3s linear;
-		opacity: 0;
-	}
-	&:hover::before {
-		opacity: 1;
-	}
+  display: flex;
+  align-items: center;
+  font-family: $montserrat;
+  position: relative;
+  background-image: linear-gradient(204deg, $primary-color, $secondary-color);
+  z-index: 1;
+  border: 1px solid gray;
+  color: white;
+  padding: 1rem;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 18px;
+  height: 55px;
+  cursor: pointer;
+  width: 40%;
+  margin-top: 35px;
+  &::before {
+    border-radius: 100px;
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(20deg, darkgray, $secondary-color);
+    z-index: -1;
+    transition: opacity 0.3s linear;
+    opacity: 0;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
 }
 .loginHref {
-	text-decoration: none;
-	color: white;
+  text-decoration: none;
+  color: white;
 }
 .line {
-	position: absolute;
-	border: 0.5px solid gray;
-	height: 0px;
-	bottom: 25px;
-	width: 300%;
+  position: absolute;
+  border: 0.5px solid gray;
+  height: 0px;
+  bottom: 25px;
+  width: 300%;
 }
 .password {
-	position: relative;
+  position: relative;
 }
 .checkbox {
-	display: flex;
-	gap: 5px;
-	align-items: center;
-	position: absolute;
-	top: 160px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  position: absolute;
+  top: 160px;
 }
 @media (max-width: 868px) {
-	.loginForm {
-		width: 360px;
-	}
-	.loginHeader {
-		margin-bottom: 50px;
-		text-align: center;
-		justify-content: center;
-		.improvement {
-			font-size: 45px;
-		}
-		.center {
-			font-size: 45px;
-		}
-		p {
-			opacity: 0.7;
-			font-size: 16px;
-		}
-	}
+  .loginForm {
+    width: 360px;
+  }
+  .loginHeader {
+    margin-bottom: 50px;
+    text-align: center;
+    justify-content: center;
+    .improvement {
+      font-size: 45px;
+    }
+    .center {
+      font-size: 45px;
+    }
+    p {
+      opacity: 0.7;
+      font-size: 16px;
+    }
+  }
 }
 
 @media (max-width: 740px) {
-	.loginForm {
-		width: 450px;
-	}
+  .loginForm {
+    width: 450px;
+  }
 
-	.loginHeader {
-		.improvement {
-			font-size: 60px;
-		}
-		.center {
-			font-size: 60px;
-		}
-		p {
-			opacity: 0.7;
-			font-size: 14px;
-		}
-	}
+  .loginHeader {
+    .improvement {
+      font-size: 60px;
+    }
+    .center {
+      font-size: 60px;
+    }
+    p {
+      opacity: 0.7;
+      font-size: 14px;
+    }
+  }
 
-	.container {
-		grid-template-columns: 100% 0%;
-	}
-	.loginRight {
-		display: none;
-	}
+  .container {
+    grid-template-columns: 100% 0%;
+  }
+  .loginRight {
+    display: none;
+  }
 
-	input[type="text"],
-	input[type="password"] {
-		width: 100%;
-	}
-	.loginFormContent {
-		display: flex;
-		align-items: center;
-	}
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+  }
+  .loginFormContent {
+    display: flex;
+    align-items: center;
+  }
 }
 @media (max-width: 438px) {
-	.body {
-		padding: 0;
-		background: white;
-	}
+  .body {
+    padding: 0;
+    background: white;
+  }
 }
 @media (max-width: 370px) {
-	.loginForm {
-		width: 360px;
-	}
-	.loginHeader {
-		margin-bottom: 50px;
-		text-align: center;
-		justify-content: center;
-		.improvement {
-			font-weight: normal;
-			margin: 0;
-			font-family: $inconsolata;
-			font-size: 45px;
-		}
-		.center {
-			font-weight: normal;
-			margin: 0;
-			margin-bottom: 35px;
-			font-family: $inconsolata;
-			font-size: 45px;
-		}
-		p {
-			opacity: 0.7;
-			font-size: 14px;
-		}
-	}
+  .loginForm {
+    width: 360px;
+  }
+  .loginHeader {
+    margin-bottom: 50px;
+    text-align: center;
+    justify-content: center;
+    .improvement {
+      font-weight: normal;
+      margin: 0;
+      font-family: $inconsolata;
+      font-size: 45px;
+    }
+    .center {
+      font-weight: normal;
+      margin: 0;
+      margin-bottom: 35px;
+      font-family: $inconsolata;
+      font-size: 45px;
+    }
+    p {
+      opacity: 0.7;
+      font-size: 14px;
+    }
+  }
 }
