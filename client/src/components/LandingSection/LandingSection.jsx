@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { Link } from "react-scroll";
 import styles from "./landingPage.module.scss";
 // import { BsMouse } from "react-icons/bs";
 // import { AiOutlineDown } from "react-icons/ai";
@@ -32,13 +33,15 @@ const LandingPage = () => {
             "The secret of getting ahead is getting started." <br />- Mark Twain
           </p>
           <div className={styles.btnContainer}>
-            <a
-              href="#tools"
+            <Link
+              smooth={true}
+              offset={20}
+              duration={500}
+              to="tools"
               className={styles.btnGetStarted}
-              // onClick={handleScrollClick}
             >
               So Get Started
-            </a>
+            </Link>
           </div>
         </div>
         <div className={styles.rightContent}>
