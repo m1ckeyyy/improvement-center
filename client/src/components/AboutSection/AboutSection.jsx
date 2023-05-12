@@ -7,7 +7,7 @@ const AboutSection = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("handleScroll called", aboutRef.current, showContent);
+      // console.log("handleScroll called", aboutRef.current, showContent);
       if (
         aboutRef.current &&
         window.scrollY + window.innerHeight > aboutRef.current.offsetTop + 100
