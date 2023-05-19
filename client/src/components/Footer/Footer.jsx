@@ -22,7 +22,7 @@ const Footer = () => {
         <a href="#" onClick={handleHomeClick}>
           <h3> Home</h3>
         </a>
-        <br />
+        {/* <br /> */}
         <Link
           to="tools"
           smooth={true}
@@ -32,7 +32,7 @@ const Footer = () => {
         >
           <h3>Tools</h3>
         </Link>
-        <br />
+        {/* <br /> */}
         <Link
           to="about"
           smooth={true}
