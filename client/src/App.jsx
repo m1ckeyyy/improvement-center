@@ -5,7 +5,11 @@ import LoadingScreen from "./pages/effects/LoadingScreen";
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const Home = lazy(() => import("./pages/Home/Home"));
-const Tools = lazy(() => import("./pages/Tools/Tools"));
+// const Tools = lazy(() => import("./pages/Tools/Tools"));
+const Pomodoro = lazy(() =>
+  import("./pages/Tools/PomodoroTimer/PomodoroTimer")
+);
+
 // const Navbar = lazy(() => import("./pages/Navbar/Navbar"));
 
 import { Route, Routes } from "react-router-dom";
@@ -23,6 +27,8 @@ function App() {
             {/* <Route path="/about" element={<About />} /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/pomodoro" element={<Pomodoro />} />
+
             {/* <Route path="/#tools" element={<Tools />} /> */}
           </Routes>
         </Suspense>
