@@ -20,7 +20,13 @@ export function usePomodoroTimer() {
 		JSON.parse(localStorage.getItem("music")) || "on"
 	);
 
-	const saveTimerState = () => {
+	
+
+	const clearTimerState = () => {
+		localStorage.removeItem("timerState");
+	};
+
+	const handlePageRefresh = () => {
 		const timerState = {
 			timePassed,
 			workMode,
@@ -30,14 +36,6 @@ export function usePomodoroTimer() {
 			music,
 		};
 		localStorage.setItem("timerState", JSON.stringify(timerState));
-	};
-
-	const clearTimerState = () => {
-		localStorage.removeItem("timerState");
-	};
-
-	const handlePageRefresh = () => {
-		saveTimerState();
 	};
 
 	useEffect(() => {
