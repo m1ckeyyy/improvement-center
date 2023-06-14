@@ -2,93 +2,62 @@
 // @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
 .container {
-  font-family: "Inconsolata", monospace;
-  overflow: hidden;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(
-    18deg,
-    rgb(23, 37, 37) 6%,
-    rgb(32, 63, 64) 68%,
-    rgb(6 26 148) 100%,
-    rgb(6 26 148) 100%
-  );
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+	font-family: "Inconsolata", monospace;
+	overflow: hidden;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(
+		18deg,
+		rgb(23, 37, 37) 6%,
+		rgb(32, 63, 64) 68%,
+		rgb(6 26 148) 100%,
+		rgb(6 26 148) 100%
+	);
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
 }
 .app {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  min-height: 350px;
-  max-height: 90vh;
-  height: 450px;
-  width: 80%;
-  max-width: 900px;
-  background-color: white;
-  border-radius: 8px;
-  padding-right: 5%;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	min-height: 350px;
+	max-height: 90vh;
+	height: 450px;
+	width: 80%;
+	max-width: 900px;
+	background-color: white;
+	border-radius: 8px;
+	padding-right: 5%;
 }
 .pomodoroImg {
-  position: absolute;
-  top: -30px;
-  right: -25px;
-  height: 100px;
+	position: absolute;
+	top: -30px;
+	right: -25px;
+	height: 100px;
 }
 .timer {
-  height: 100%;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 4em;
-  // padding-left: 6%;
-  // padding-top: 3%;
-  width: 42%;
+	height: 100%;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 4em;
+	// padding-left: 6%;
+	// padding-top: 3%;
+	width: 42%;
 }
-.workTimer {
+.controls {
+	display: flex;
+	width: 58%;
+	align-items: flex-end;
+	justify-content: space-evenly;
+	padding-bottom: 20px;
 }
-.circleWrapper {
-  position: relative;
-  width: 200px; /* Adjust the size as needed */
-  height: 200px;
-}
-
-.circle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #e3e3e3; /* Set the default color */
-}
-
-.progressBar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #4287f5; /* Set the progress bar color */
-  transform-origin: center;
-  transform: rotate(-90deg);
-  animation: progressAnimation 1500ms linear forwards; /* Adjust the animation duration as needed */
-}
-
-@keyframes progressAnimation {
-  0% {
-    transform: rotate(-90deg);
-  }
-  100% {
-    transform: rotate(
-      calc(-90deg + (360deg * var(--progress)))
-    ); /* --progress is a CSS variable representing the progress value */
-  }
+.controls > * {
+	margin-right: 10px;
 }
