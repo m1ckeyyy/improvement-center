@@ -17,12 +17,15 @@ const ToolsSection = () => {
                 Boost productivity and focus with the power of the pomodoro
                 technique
               </p>
-              <img
-                src="images/pomodoro2.png"
-                alt="pomodoro"
-                className={styles.pomodoroImg}
-              />
+
               <a href="/pomodoro">
+                <img
+                  src="images/pomodoro2.png"
+                  alt="pomodoro"
+                  className={styles.pomodoroImg}
+                />
+              </a>
+              <a href="/pomodoro" className={styles.hyperlink}>
                 Go To Pomodoro <BsArrowUpRightSquare size="22" />
               </a>
             </div>
@@ -32,12 +35,14 @@ const ToolsSection = () => {
                 Form good habits and break bad ones with our powerful habit
                 tracker
               </p>
-              <img
-                src="images/habittracker.png"
-                alt="habittracker"
-                className={styles.habitTrackerImg}
-              />
-              <a href="#">
+              <a href="/habittracker">
+                <img
+                  src="images/habittracker.png"
+                  alt="habittracker"
+                  className={styles.habitTrackerImg}
+                />
+              </a>
+              <a href="/habittracker" className={styles.hyperlink}>
                 Go To Habit Tracker
                 <BsArrowUpRightSquare size="22" />
               </a>
@@ -48,12 +53,14 @@ const ToolsSection = () => {
                 Reflect on your day and discover new insights with our daily
                 journaling
               </p>
-              <img
-                src="images/journal.png"
-                alt="journal"
-                className={styles.journalImg}
-              />
-              <a href="#">
+              <a href="/journal">
+                <img
+                  src="images/journal.png"
+                  alt="journal"
+                  className={styles.journalImg}
+                />
+              </a>
+              <a href="/journal" className={styles.hyperlink}>
                 Go To Daily Journal
                 <BsArrowUpRightSquare size="22" />
               </a>

@@ -1,18 +1,13 @@
 import React, { lazy, Suspense, useTransition } from "react";
-import LoadingScreen from "./pages/effects/LoadingScreen";
+import { Route, Routes } from "react-router-dom";
 
-// const About = lazy(() => import("./pages/About/About"));
+import LoadingScreen from "./pages/effects/LoadingScreen";
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const Home = lazy(() => import("./pages/Home/Home"));
-// const Tools = lazy(() => import("./pages/Tools/Tools"));
 const Pomodoro = lazy(() =>
   import("./pages/Tools/PomodoroTimer/PomodoroTimer")
 );
-
-// const Navbar = lazy(() => import("./pages/Navbar/Navbar"));
-
-import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import SuspenseRouter from "./SuspenseRouter";
@@ -24,12 +19,9 @@ function App() {
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/about" element={<About />} /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/pomodoro" element={<Pomodoro />} />
-
-            {/* <Route path="/#tools" element={<Tools />} /> */}
           </Routes>
         </Suspense>
       </SuspenseRouter>
