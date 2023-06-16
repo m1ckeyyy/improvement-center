@@ -1,7 +1,3 @@
-## IMPROVEMENT CENTER
-
-
-# Developing in progress... 👷
-
-
-# Preview: https://improvementcenter.netlify.app/
+# IMPROVEMENT CENTER
+### Developing in progress... 👷
+Preview: https://improvementcenter.netlify.app/
