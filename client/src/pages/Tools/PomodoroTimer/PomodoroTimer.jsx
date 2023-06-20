@@ -15,14 +15,14 @@ function PomodoroTimer() {
   const [secondsLeft, setSecondsLeft] = useState(workTime * 60);
   const [currentSection, setCurrentSection] = useState("work");
 
-  //start/stop
   useEffect(() => {
     const timer = setInterval(() => {
       if (isRunning & (secondsLeft > 0)) {
         setSecondsLeft((prev) => prev - 1);
       } else if (secondsLeft === 0) {
         if (currentSection === "work") {
-setCurrentSection("break");
+          // post request to server about finished session (dateStarted, timeTaken)
+          setCurrentSection("break");
           setSecondsLeft(breakTime * 60);
         } else {
           setCurrentSection("work");
@@ -41,8 +41,20 @@ setCurrentSection("break");
   };
   const handleReset = () => {
     setIsRunning(false);
-    setSecondsLeft(workTime * 60);
-    setCurrentSection("work");
+    if (currentSection === "work") {
+      setSecondsLeft(workTime * 60);
+    } else if (currentSection === "break") setSecondsLeft(breakTime * 60);
+    // setCurrentSection("work");
+  };
+  const handleSkipSection = () => {
+    setIsRunning(true);
+    if (currentSection === "work") {
+      setCurrentSection("break");
+      setSecondsLeft(breakTime * 60);
+    } else if (currentSection === "break") {
+      setCurrentSection("work");
+      setSecondsLeft(workTime * 60);
+    }
   };
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
