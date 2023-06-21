@@ -43,3 +43,17 @@
 		transform: scale(1.1);
 	}
 }
+.submitBtn {
+	position: absolute;
+	bottom: -2%;
+	font-size: 20px;
+	background: white;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+.workTimePreference,
+.breakTimePreference {
+	input {
+		background-color: #cecfff;
+	}
+}
