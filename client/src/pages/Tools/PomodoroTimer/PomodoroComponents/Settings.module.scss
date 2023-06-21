@@ -1,0 +1,45 @@
+.container {
+	position: absolute;
+	min-height: 350px;
+	max-height: 90vh;
+	height: 450px;
+	width: 100%;
+	max-width: 900px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.settingsContainer {
+	// position: absolute;
+	// min-height: 350px;
+	// max-height: 90vh;
+	// height: 450px;
+	// width: 70%;
+	// max-width: 900px;
+	background-color: rgb(42, 43, 95);
+	border-radius: 20px;
+	color: white;
+	width: 45%;
+	height: 90%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.closeBtn {
+	color: white;
+	background: none;
+	border: none;
+	cursor: pointer;
+	// background-color: red;
+	position: absolute;
+	right: 1.5%;
+	bottom: 3%;
+	font-size: 30px;
+	display: flex;
+	transition: transform 0.3s ease;
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.1);
+	}
+}
