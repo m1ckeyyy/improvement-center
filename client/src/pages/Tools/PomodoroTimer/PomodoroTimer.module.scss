@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&display=swap");
-// @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
-.container {
+/*.container {
   font-family: "Inconsolata", monospace;
   overflow: hidden;
   height: 100vh;
@@ -19,7 +18,9 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-}
+}*/
+
+/*//////////////////////////////////////////////////*/
 .app {
   display: flex;
   justify-content: space-between;
@@ -31,49 +32,26 @@
   max-width: 900px;
   background-color: white;
   border-radius: 8px;
-  // padding-right: 5%;
 }
-.pomodoroImg {
-  position: absolute;
-  top: -30px;
-  right: -25px;
-  height: 100px;
-}
-// .timer {
-// 	height: 100%;
-// 	color: black;
-// 	display: flex;
-// 	flex-direction: column;
-// 	align-items: center;
-// 	justify-content: center;
-// 	font-size: 4em;
-// 	// padding-left: 6%;
-// 	// padding-top: 3%;
-// 	width: 42%;
-// }
-.controls {
-  display: flex;
-  width: 58%;
-  align-items: flex-end;
-  justify-content: space-evenly;
-  padding-bottom: 20px;
-}
-.controls > * {
-  margin-right: 10px;
-}
-/*//////////////////////////////////////////////////*/
 .overlayContainer {
   font-family: "Inconsolata", monospace;
   overflow: hidden;
   height: 100vh;
   margin: 0;
   padding: 0;
+  //   background: linear-gradient(
+  //     18deg,
+  //     rgb(23, 37, 37) 6%,
+  //     rgb(32, 63, 64) 68%,
+  //     rgb(6 26 148) 100%,
+  //     rgb(6 26 148) 100%
+  //   );
   background: linear-gradient(
     18deg,
-    rgb(23, 37, 37) 6%,
-    rgb(32, 63, 64) 68%,
-    rgb(6 26 148) 100%,
-    rgb(6 26 148) 100%
+    rgb(207 70 40) 6%,
+    rgb(42 43 95) 68%,
+    rgb(42 43 95) 100%,
+    rgb(209 55 30) 100%
   );
   color: white;
   display: flex;
@@ -94,7 +72,6 @@
   color: black;
   .seconds {
     cursor: pointer;
-    // background-color: red;
   }
 }
 
