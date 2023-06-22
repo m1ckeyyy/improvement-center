@@ -1,59 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+
 .container {
-	position: absolute;
-	min-height: 350px;
-	max-height: 90vh;
-	height: 450px;
-	width: 100%;
-	max-width: 900px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  position: absolute;
+  min-height: 350px;
+  max-height: 90vh;
+  height: 450px;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .settingsContainer {
-	// position: absolute;
-	// min-height: 350px;
-	// max-height: 90vh;
-	// height: 450px;
-	// width: 70%;
-	// max-width: 900px;
-	background-color: rgb(42, 43, 95);
-	border-radius: 20px;
-	color: white;
-	width: 45%;
-	height: 90%;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  background-color: rgb(42, 43, 95);
+  border-radius: 20px;
+  color: white;
+  width: 45%;
+  height: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    padding-top: 10px;
+  }
+  h4 {
+    margin-top: 18px;
+    margin-bottom: 11px;
+  }
 }
-.closeBtn {
-	color: white;
-	background: none;
-	border: none;
-	cursor: pointer;
-	// background-color: red;
-	position: absolute;
-	right: 1.5%;
-	bottom: 3%;
-	font-size: 30px;
-	display: flex;
-	transition: transform 0.3s ease;
-	&:hover {
-		cursor: pointer;
-		transform: scale(1.1);
-	}
+.iconButtons {
+  position: absolute;
+  right: 1.5%;
+  bottom: 3%;
+  display: flex;
+  button {
+    background: none;
+    border: none;
+  }
+  svg {
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+}
+.submitBtnWrap {
+  position: absolute;
+  width: 100%;
+  //   height: 100px;
+  bottom: -2%;
+  left: -9%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 .submitBtn {
-	position: absolute;
-	bottom: -2%;
-	font-size: 20px;
-	background: white;
-	border: 1px solid black;
-	border-radius: 10px;
+  padding: 4px 21px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  position: absolute;
+  bottom: -2%;
+  font-size: 20px;
+  background: #ff9f22;
+  border: 2px solid black;
+  cursor: pointer;
+  border-radius: 15px 5px;
+  transition: transform 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    transform: translateX(3px);
+  }
 }
 .workTimePreference,
 .breakTimePreference {
-	input {
-		background-color: #cecfff;
-	}
+  padding-bottom: 5px;
+  input {
+    font-family: "Inconsolata", monospace;
+    font-size: 0.9em;
+    border-radius: 2px;
+    border: none;
+    border-bottom: 2px solid #13d7cb;
+  }
+}
+.switchDisplay,
+.toggleNotifications {
+  button {
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Inconsolata", monospace;
+    color: white;
+    border: none;
+    border-bottom: 1px solid #13d7cb;
+    background: none;
+    padding: 0;
+    padding-bottom: 1px;
+    cursor: pointer;
+  }
+}
+.backgroundMusic,
+.alarmSound,
+.toggleNotifications,
+.switchDisplay {
+  padding-bottom: 8px;
 }
