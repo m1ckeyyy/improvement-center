@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Settings.module.scss";
 import { BiExit, BiHomeAlt, BiUser } from "react-icons/bi";
+import BackgroundMusicOptions from "./BackgroundMusic";
 const Settings = ({
   workTime,
   breakTime,
   setWorkTimePreference,
   setBreakTimePreference,
   toggleVisibility,
+  timeFormat,
+  setTimeFormat,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const applySettings = (e) => {
     e.preventDefault();
     toggleVisibility();
@@ -38,15 +43,33 @@ const Settings = ({
 
           <div className={styles.backgroundMusic}>
             <span>Background Music: </span>
+            <button type="button">
+              <BackgroundMusicOptions isOpen={isOpen} setIsOpen={setIsOpen} />
+            </button>
           </div>
+
           <div className={styles.alarmSound}>
             <span>Alarm Sound: </span>
           </div>
 
           <div className={styles.switchDisplay}>
             <span>Time Format: </span>
-            <button type="button">Minutes</button>
+            <button
+              type="button"
+              onClick={() =>
+                setTimeFormat((prev) => {
+                  if (prev === "minutes") {
+                    return "percentages";
+                  } else {
+                    return "minutes";
+                  }
+                })
+              }
+            >
+              {timeFormat === "minutes" ? "Minutes" : "Percentage"}
+            </button>
           </div>
+
           <div className={styles.toggleNotifications}>
             <span>Notifications: </span>
             <button type="button">ON</button>

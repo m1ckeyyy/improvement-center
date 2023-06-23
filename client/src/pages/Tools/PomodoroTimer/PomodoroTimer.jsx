@@ -10,6 +10,7 @@ import "react-circular-progressbar/dist/styles.css";
 import Button from "./PomodoroComponents/Button";
 import Settings from "./PomodoroComponents/Settings";
 function PomodoroTimer() {
+  const [timeFormat, setTimeFormat] = useState("minutes");
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [workTime, setWorkTimePreference] = useState(25); // 25 minutes in seconds
   const [breakTime, setBreakTimePreference] = useState(5); // 5 minutes in seconds
@@ -36,7 +37,7 @@ function PomodoroTimer() {
     return () => {
       clearInterval(timer);
     };
-  }, [isRunning, secondsLeft, currentSection]); //workTime, breakTime
+  }, [isRunning, secondsLeft, currentSection]);
 
   useEffect(() => {
     switch (currentSection) {
@@ -73,10 +74,19 @@ function PomodoroTimer() {
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}`;
+    if (timeFormat === "minutes") {
+      return `${minutes.toString().padStart(2, "0")}:${seconds
+        .toString()
+        .padStart(2, "0")}`;
+    } else {
+      const totalSeconds =
+        currentSection === "work" ? workTime * 60 : breakTime * 60;
+      const progress = 100 - (timeInSeconds / totalSeconds) * 100;
+      console.log(timeInSeconds, totalSeconds);
+      return `${Math.ceil(progress)}%`;
+    }
   };
+  
   const toggleVisibility = (event) => {
     setSettingsVisible((prev) => !prev);
   };
@@ -110,15 +120,10 @@ function PomodoroTimer() {
             setWorkTimePreference={setWorkTimePreference}
             setBreakTimePreference={setBreakTimePreference}
             toggleVisibility={toggleVisibility}
+            timeFormat={timeFormat}
+            setTimeFormat={setTimeFormat}
           />
         )}
-        {/* <div>
-				<BsFillGearFill
-					size="30"
-					color="lightblue"
-					className={styles.gearIcon}
-				/>
-			</div> */}
       </div>
     </div>
   );
