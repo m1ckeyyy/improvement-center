@@ -1,0 +1,33 @@
+.backgroundMusicOptions {
+  position: relative;
+}
+.dropdownMenu {
+  display: flex;
+  align-items: stretch;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  background-color: black;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dropdownMenu li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdownMenu li:hover {
+  background-color: rgb(44, 44, 44);
+}
+.selected {
+  background-color: rgb(26, 25, 25);
+  border-bottom: 1px solid #13d7cb;
+}

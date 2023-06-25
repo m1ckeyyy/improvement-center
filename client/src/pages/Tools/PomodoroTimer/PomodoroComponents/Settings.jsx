@@ -42,7 +42,7 @@ const Settings = ({
           <h4>Other Settings</h4>
 
           <div className={styles.backgroundMusic}>
-            <span>Background Music: </span>
+            <span>Music: </span>
             <button type="button">
               <BackgroundMusicOptions isOpen={isOpen} setIsOpen={setIsOpen} />
             </button>
