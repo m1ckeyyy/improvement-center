@@ -1,41 +1,44 @@
 import React, { useState } from "react";
 import styles from "./BackgroundMusic.module.scss";
 
-const BackgroundMusicOptions = ({ isOpen, setIsOpen }) => {
-  const [selectedOption, setSelectedOption] = useState("OFF");
+const BackgroundMusicOptions = ({ isOpen, setIsOpen,selectedMusicOption,setSelectedMusicOption }) => {
 
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
   };
 
   const selectOption = (option) => {
-    setSelectedOption(option);
+    setSelectedMusicOption(option);
     setIsOpen(false);
   };
-  console.log(selectedOption);
+  console.log(selectedMusicOption);
   return (
     <div className={styles.backgroundMusicOptions}>
-      <div className={styles.selectedOption} onClick={toggleDropdown}>
-        {selectedOption}
+      <div className={styles.selectedMusicOption} onClick={toggleDropdown}>
+        {selectedMusicOption}
       </div>
       {isOpen && (
         <ul className={styles.dropdownMenu}>
           <li
             className={` ${
-              selectedOption === "Brown Noise" ? styles.selected : ""
+              selectedMusicOption === "Brown Noise" ? styles.selected : ""
             }`}
             onClick={() => selectOption("Brown Noise")}
           >
             Brown Noise
           </li>
           <li
-            className={` ${selectedOption === "Rain" ? styles.selected : ""}`}
+            className={` ${
+              selectedMusicOption === "Rain" ? styles.selected : ""
+            }`}
             onClick={() => selectOption("Rain")}
           >
             Rain
           </li>
           <li
-            className={` ${selectedOption === "OFF" ? styles.selected : ""}`}
+            className={` ${
+              selectedMusicOption === "OFF" ? styles.selected : ""
+            }`}
             onClick={() => selectOption("OFF")}
           >
             OFF

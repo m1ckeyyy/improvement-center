@@ -10,6 +10,8 @@ const Settings = ({
   toggleVisibility,
   timeFormat,
   setTimeFormat,
+  selectedMusicOption,
+  setSelectedMusicOption
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,7 +46,7 @@ const Settings = ({
           <div className={styles.backgroundMusic}>
             <span>Music: </span>
             <button type="button">
-              <BackgroundMusicOptions isOpen={isOpen} setIsOpen={setIsOpen} />
+              <BackgroundMusicOptions isOpen={isOpen} setIsOpen={setIsOpen} selectedMusicOption={selectedMusicOption} setSelectedMusicOption={setSelectedMusicOption}/>
             </button>
           </div>
 

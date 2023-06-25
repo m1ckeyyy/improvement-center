@@ -9,6 +9,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Button from "./PomodoroComponents/Button";
 import Settings from "./PomodoroComponents/Settings";
+
 function PomodoroTimer() {
   const [timeFormat, setTimeFormat] = useState("minutes");
   const [settingsVisible, setSettingsVisible] = useState(false);
@@ -17,6 +18,7 @@ function PomodoroTimer() {
   const [isRunning, setIsRunning] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(workTime * 60);
   const [currentSection, setCurrentSection] = useState("work");
+  const [selectedMusicOption, setSelectedMusicOption] = useState("OFF");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -86,7 +88,7 @@ function PomodoroTimer() {
       return `${Math.ceil(progress)}%`;
     }
   };
-  
+
   const toggleVisibility = (event) => {
     setSettingsVisible((prev) => !prev);
   };
@@ -122,6 +124,8 @@ function PomodoroTimer() {
             toggleVisibility={toggleVisibility}
             timeFormat={timeFormat}
             setTimeFormat={setTimeFormat}
+            selectedMusicOption={selectedMusicOption}
+            setSelectedMusicOption={setSelectedMusicOption}
           />
         )}
       </div>
