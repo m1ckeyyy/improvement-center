@@ -22,70 +22,73 @@
 
 /*//////////////////////////////////////////////////*/
 .app {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  min-height: 350px;
-  max-height: 90vh;
-  height: 450px;
-  width: 80%;
-  max-width: 900px;
-  background-color: white;
-  border-radius: 8px;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	min-height: 350px;
+	max-height: 90vh;
+	height: 450px;
+	width: 80%;
+	max-width: 900px;
+	background-color: white;
+	border-radius: 8px;
 }
 .overlayContainer {
-  font-family: "Inconsolata", monospace;
-  overflow: hidden;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  //   background: linear-gradient(
-  //     18deg,
-  //     rgb(23, 37, 37) 6%,
-  //     rgb(32, 63, 64) 68%,
-  //     rgb(6 26 148) 100%,
-  //     rgb(6 26 148) 100%
-  //   );
-  background: linear-gradient(
-    18deg,
-    rgb(207 70 40) 6%,
-    rgb(42 43 95) 68%,
-    rgb(42 43 95) 100%,
-    rgb(209 55 30) 100%
-  );
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+	font-family: "Inconsolata", monospace;
+	overflow: hidden;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	//   background: linear-gradient(
+	//     18deg,
+	//     rgb(23, 37, 37) 6%,
+	//     rgb(32, 63, 64) 68%,
+	//     rgb(6 26 148) 100%,
+	//     rgb(6 26 148) 100%
+	//   );
+	background: linear-gradient(
+		18deg,
+		rgb(207 70 40) 6%,
+		rgb(42 43 95) 68%,
+		rgb(42 43 95) 100%,
+		rgb(209 55 30) 100%
+	);
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
 }
 .gearButton {
-  position: absolute;
-  bottom: 10px;
-  transition: transform 0.3s ease;
-  &:hover {
-    cursor: pointer;
-    transform: rotate(20deg) scale(1.2);
-  }
+	position: absolute;
+	bottom: 10px;
+	transition: transform 0.3s ease;
+	&:hover {
+		cursor: pointer;
+		transform: rotate(20deg) scale(1.2);
+	}
 }
 .timer {
-  color: black;
-  .seconds {
-    cursor: pointer;
-  }
+	color: black;
+	.seconds {
+		cursor: pointer;
+	}
 }
 
 .buttons {
-  border-radius: 8px;
-  background-color: lightcyan;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  > * {
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 5px;
-  }
+	border-radius: 8px;
+	background-color: lightcyan;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	> * {
+		cursor: pointer;
+		background: none;
+		border: none;
+		padding: 5px;
+	}
+}
+.circularProgressBar {
+	cursor: pointer;
 }
