@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
 import { RxReset } from "react-icons/rx";
 import { BsSkipForward, BsFillGearFill } from "react-icons/bs";
+import { MdAlarmOff } from "react-icons/md";
+
 import {
 	CircularProgressbarWithChildren,
 	buildStyles,
@@ -127,8 +129,30 @@ function PomodoroTimer() {
 								strokeLinecap: "butt",
 								rotation: 1 / 2 + 1 / 8,
 								trailColor: "lightgray",
+								textColor: "#0a789b",
+								pathColor: "#0a789b",
 							})}
 						/>
+					</div>
+					<div className={styles.controls}>
+						{isRunning ? (
+							<AiOutlinePlayCircle
+								color="#0a789b"
+								size="3em"
+								cursor="pointer"
+								onClick={handleStartStop}
+							/>
+						) : (
+							<AiOutlinePauseCircle
+								color="#0a789b"
+								size="3em"
+								cursor="pointer"
+								onClick={handleStartStop}
+							/>
+						)}
+
+						<MdAlarmOff color="#0a789b" size="3em" cursor="pointer" />
+						<BsSkipForward color="#0a789b" size="3em" cursor="pointer" />
 					</div>
 					{/* <div onClick={handleStartStop} className={styles.seconds}>
 						{formatTime(secondsLeft)}

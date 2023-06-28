@@ -92,3 +92,19 @@
 .circularProgressBar {
 	cursor: pointer;
 }
+.controls {
+	> * {
+		margin-right: 10px;
+		transition: transform 0.3s ease;
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.1);
+		}
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+	:nth-child(2) {
+		margin-right: 13px;
+	}
+}
