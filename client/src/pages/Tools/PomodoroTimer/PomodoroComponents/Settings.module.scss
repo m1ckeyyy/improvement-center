@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 
 .container {
+	filter: brightness(100%) !important;
 	position: absolute;
 	min-height: 350px;
 	max-height: 90vh;

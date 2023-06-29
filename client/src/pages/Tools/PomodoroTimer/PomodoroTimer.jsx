@@ -11,7 +11,6 @@ import {
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Settings from "./PomodoroComponents/Settings";
-// import sound from "./../../../../public/sounds/startSound.mp3";
 
 import endSoundFile from "/sounds/endSound.mp3";
 import startSoundFile from "/sounds/startSound.mp3";
@@ -136,14 +135,14 @@ function PomodoroTimer() {
 					</div>
 					<div className={styles.controls}>
 						{isRunning ? (
-							<AiOutlinePlayCircle
+							<AiOutlinePauseCircle
 								color="#0a789b"
 								size="3em"
 								cursor="pointer"
 								onClick={handleStartStop}
 							/>
 						) : (
-							<AiOutlinePauseCircle
+							<AiOutlinePlayCircle
 								color="#0a789b"
 								size="3em"
 								cursor="pointer"
@@ -151,19 +150,11 @@ function PomodoroTimer() {
 							/>
 						)}
 
-						<MdAlarmOff color="#0a789b" size="3em" cursor="pointer" />
-						<BsSkipForward color="#0a789b" size="3em" cursor="pointer" />
+						<MdAlarmOff onClick={handleReset} color="#0a789b" size="3em" cursor="pointer" />
+						<BsSkipForward onClick={handleSkipSection} color="#0a789b" size="3em" cursor="pointer" />
 					</div>
-					{/* <div onClick={handleStartStop} className={styles.seconds}>
-						{formatTime(secondsLeft)}
-					</div> */}
 				</div>
 				<div className={styles.buttons}>
-					<button onClick={handleStartStop}>
-						{isRunning ? "Stop" : "Start"}
-					</button>
-					<button onClick={handleReset}>Reset</button>
-					<button onClick={handleSkipSection}>Skip Section</button>
 					{!settingsVisible && (
 						<button className={styles.gearButton} onClick={toggleVisibility}>
 							<BsFillGearFill size="30" color="#0a789b" />
