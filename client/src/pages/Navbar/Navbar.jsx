@@ -1,19 +1,12 @@
 // import Navbar from "./../../components/Navbar";
 import { Link } from 'react-scroll';
-import { animateScroll as scroll } from 'react-scroll';
 import styles from './navbar.module.scss';
 import { AiOutlineHome, AiOutlineUser, AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { BsMouse } from 'react-icons/bs';
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { navbarVisibility } from './components/NavbarVisibility';
-
-const handleLogoClick = () => {
-  scroll.scrollTo(0, {
-    duration: 1000,
-    smooth: 'easeInOutQuint',
-  });
-};
+import { scrollTo } from './components/ScrollTo';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +33,7 @@ export default function Navbar() {
     <>
       <div className={styles.navContainer}>
         <header className={`${styles.header} ${showNav ? '' : styles.hideNav} ${navBg ? styles.navBackground : ''}`}>
-          <a href="#" className={styles.logo} onClick={handleLogoClick}>
+          <a href="#" className={styles.logo} onClick={scrollTo}>
             <AiOutlineHome
               className={styles.animatedLogoIcon}
               color="#b4e4ff"
@@ -57,7 +50,7 @@ export default function Navbar() {
           </a>
           <ul className={`${styles.navbar} ${isMenuOpen ? styles.menuOpen : ''}`}>
             <li>
-              <a onClick={handleLogoClick} href="#" className={`${styles.navbarElement} ${styles.active}`}>
+              <a onClick={scrollTo} href="#" className={`${styles.navbarElement} ${styles.active}`}>
                 Home
               </a>
             </li>
