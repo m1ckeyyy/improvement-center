@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');
 
-$inconsolata: "Inconsolata", monospace;
-$rubik: "Rubik", sans-serif;
-$montserrat: "Montserrat", sans-serif;
+$inconsolata: 'Inconsolata', monospace;
+$rubik: 'Rubik', sans-serif;
+$montserrat: 'Montserrat', sans-serif;
 $primary-color: black;
 $secondary-color: rgb(175, 175, 175);
 
@@ -45,6 +45,7 @@ $secondary-color: rgb(175, 175, 175);
   }
 }
 .iconsContainer {
+  z-index: 1;
   position: absolute;
   left: 5%;
   bottom: 5%;
@@ -90,8 +91,8 @@ $secondary-color: rgb(175, 175, 175);
 .formItem {
   width: 80%;
 
-  input[type="text"],
-  input[type="password"] {
+  input[type='text'],
+  input[type='password'] {
     border: 1px solid gray;
     height: 55px;
     padding: 0 26px;
@@ -106,16 +107,16 @@ $secondary-color: rgb(175, 175, 175);
       border: 2px solid gray;
     }
   }
-  input[type="password"] {
+  input[type='password'] {
     letter-spacing: 3px;
   }
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     width: 20px;
     height: 20px;
     background-color: #b4e4ff;
   }
-  input[type="checkbox"]:checked {
+  input[type='checkbox']:checked {
     // background-color: $primary-color;
     color: red;
     transition: background-color 0.3s ease-in-out;
@@ -154,7 +155,7 @@ $secondary-color: rgb(175, 175, 175);
   &::before {
     border-radius: 100px;
     position: absolute;
-    content: "";
+    content: '';
     top: 0;
     right: 0;
     bottom: 0;
@@ -188,7 +189,7 @@ $secondary-color: rgb(175, 175, 175);
   &::before {
     border-radius: 100px;
     position: absolute;
-    content: "";
+    content: '';
     top: 0;
     right: 0;
     bottom: 0;
@@ -270,8 +271,8 @@ $secondary-color: rgb(175, 175, 175);
     display: none;
   }
 
-  input[type="text"],
-  input[type="password"] {
+  input[type='text'],
+  input[type='password'] {
     width: 100%;
   }
   .loginFormContent {

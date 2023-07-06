@@ -1,14 +1,14 @@
-// import Navbar from "./../../components/Navbar";
+import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import styles from './navbar.module.scss';
-import { AiOutlineHome, AiOutlineUser, AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { BsMouse } from 'react-icons/bs';
-import React, { useState, useEffect } from 'react';
+import { AiOutlineUser, AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { Link as RouterLink } from 'react-router-dom';
+
 import { navbarVisibility } from './components/NavbarVisibility';
 import { scrollTo } from './components/ScrollTo';
-
-export default function Navbar() {
+import { ScrollIcon } from './components/ScrollIcon';
+import { HomeIcon } from './components/HomeIcon';
+export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(0);
@@ -33,21 +33,7 @@ export default function Navbar() {
     <>
       <div className={styles.navContainer}>
         <header className={`${styles.header} ${showNav ? '' : styles.hideNav} ${navBg ? styles.navBackground : ''}`}>
-          <a href="#" className={styles.logo} onClick={scrollTo}>
-            <AiOutlineHome
-              className={styles.animatedLogoIcon}
-              color="#b4e4ff"
-              size="28px"
-              style={{
-                marginRight: '4px',
-                marginBottom: '4px',
-                marginTop: '4px',
-                minWidth: '28px',
-                minHeight: '28px',
-              }}
-            />
-            <span className={styles.title}>Improvement Center</span>
-          </a>
+          <HomeIcon />
           <ul className={`${styles.navbar} ${isMenuOpen ? styles.menuOpen : ''}`}>
             <li>
               <a onClick={scrollTo} href="#" className={`${styles.navbarElement} ${styles.active}`}>
@@ -58,22 +44,11 @@ export default function Navbar() {
               <Link to="tools" smooth={true} offset={20} duration={500} className={styles.navbarElement}>
                 Tools
               </Link>
-              {/* <a
-                // onClick={scrollToAbout}
-                href="#about"
-                className={styles.navbarElement}
-              >
-                About
-              </a> */}
             </li>
             <li>
               <Link to="about" smooth={true} offset={-30} duration={500} className={styles.navbarElement}>
                 About
               </Link>
-
-              {/* <a href="#tools" className={styles.navbarElement}>
-                Tools
-              </a> */}
             </li>
             <li>
               <RouterLink to="/login" className={`${styles.navbarElement} ${styles.phoneMedia}`}>
@@ -99,15 +74,7 @@ export default function Navbar() {
             <div tabIndex="0">{isMenuOpen ? <AiOutlineClose className={styles.menuIcon} onClick={toggleMenu} /> : <AiOutlineMenu className={styles.menuIcon} onClick={toggleMenu} />}</div>
           </div>
         </header>
-        <div className={styles.iconContainer}>
-          <Link smooth={true} offset={0} duration={500} to="tools">
-            <BsMouse
-              color="white"
-              className={styles.scrollIcon}
-              // onClick={handleScrollClick}
-            />
-          </Link>
-        </div>
+        <ScrollIcon />
       </div>
     </>
   );

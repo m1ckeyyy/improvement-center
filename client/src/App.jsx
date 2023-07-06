@@ -1,16 +1,14 @@
-import React, { lazy, Suspense, useTransition } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import LoadingScreen from "./pages/effects/LoadingScreen";
-const Login = lazy(() => import("./pages/Login/Login"));
-const Register = lazy(() => import("./pages/Register/Register"));
-const Home = lazy(() => import("./pages/Home/Home"));
-const Pomodoro = lazy(() =>
-  import("./pages/Tools/PomodoroTimer/PomodoroTimer")
-);
+import { LoadingScreen } from './pages/effects/LoadingScreen';
+const Login = lazy(() => import('./pages/Login/Login'));
+const Register = lazy(() => import('./pages/Register/Register'));
+const Home = lazy(() => import('./pages/Home/Home'));
+const Pomodoro = lazy(() => import('./pages/Tools/PomodoroTimer/PomodoroTimer'));
 
-import "./App.css";
-import SuspenseRouter from "./SuspenseRouter";
+import './App.css';
+import SuspenseRouter from './SuspenseRouter';
 
 function App() {
   return (
