@@ -11,7 +11,7 @@ export const LandingPage = () => {
   };
 
   return (
-    <section className={styles.mainSection}>
+    <section className={styles.mainSection} id="home">
       <div className={styles.mainContent}>
         <div className={styles.leftContent}>
           <h1 className={styles.mainHeading}>

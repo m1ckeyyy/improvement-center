@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 
 $primary-color: #b4e4ff;
 $secondary-color: #3e54ac;
@@ -14,7 +14,7 @@ $accent-color: white;
   width: 100%;
   //   background-color: red;
   position: absolute;
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   height: 150px;
   // background: linear-gradient(338deg, $primary-color, $secondary-color);
   background-size: cover;
@@ -54,7 +54,7 @@ $accent-color: white;
   margin: 0 30px;
   transition: all 0.2s ease;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     background-color: $primary-color;
     height: 3px;
@@ -65,7 +65,7 @@ $accent-color: white;
     transition: all 0.2s ease;
   }
   &::before {
-    content: "";
+    content: '';
     font-size: 30px;
     position: absolute;
     transform: translate(250px, 100px);
@@ -81,10 +81,12 @@ $accent-color: white;
     }
   }
 }
-
-.active {
-  color: $accent-color;
+.userNavbarElement {
+  margin-left: 8px;
 }
+// .active {
+//   color: $accent-color;
+// }
 .navBackground {
   background-color: rgb(24 44 54 / 98%);
   border-radius: 0 0 15% 15%;
@@ -103,7 +105,8 @@ $accent-color: white;
   padding: 28px 12%;
   transition: all 0.2s ease;
   .title {
-    font-family: "DM Sans", sans-serif;
+    white-space: nowrap;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
   }
@@ -167,7 +170,7 @@ $accent-color: white;
     transition: all 0.2s ease;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       background-color: $primary-color;
       height: 3px;
@@ -224,18 +227,18 @@ $accent-color: white;
   }
   .navbarElement {
     &::before {
-      content: "←";
+      content: '←';
     }
-    &:hover {
-      &::before {
-        transform: translate(130px, -10px);
-        transition: transform 0.3s ease;
-      }
-    }
+    // &:hover {
+    //   &::before {
+    //     // transform: translate(130px, -10px);
+    //     // transition: transform 0.3s ease;
+    //   }
+    // }
   }
   .phoneMedia {
     &::before {
-      content: "←";
+      content: '←';
     }
     &:hover {
       &::before {
@@ -274,12 +277,6 @@ $accent-color: white;
       padding-left: 15px;
     }
   }
-  .active {
-    color: white;
-    // padding: 3px 10px 3px 10px !important;
-    // border: 1px solid white;
-    border-radius: 10px;
-  }
 }
 @media (max-width: 670px) {
   .phoneMedia {
@@ -297,6 +294,9 @@ $accent-color: white;
     }
   }
   .main {
+    > svg {
+      display: none;
+    }
     a {
       display: none;
       //   margin: 12px 0;
@@ -312,5 +312,12 @@ $accent-color: white;
 @media (max-width: 744px) {
   .scrollIcon {
     display: none;
+  }
+}
+@media (max-width: 471px) {
+  .header {
+    .title {
+      white-space: normal;
+    }
   }
 }

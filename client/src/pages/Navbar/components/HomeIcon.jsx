@@ -1,10 +1,10 @@
 import styles from './../navbar.module.scss';
 import { AiOutlineHome } from 'react-icons/ai';
-import { scrollTo } from './ScrollTo';
+import { Link } from 'react-scroll';
 
 export const HomeIcon = () => {
   return (
-    <a href="#" className={styles.logo} onClick={scrollTo}>
+    <Link to="home" smooth={true} duration={500} className={styles.logo}>
       <AiOutlineHome
         className={styles.animatedLogoIcon}
         color="#b4e4ff"
@@ -18,6 +18,6 @@ export const HomeIcon = () => {
         }}
       />
       <span className={styles.title}>Improvement Center</span>
-    </a>
+    </Link>
   );
 };
