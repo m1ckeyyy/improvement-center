@@ -1,6 +1,6 @@
 import styles from './Footer.module.scss';
 import { Link } from 'react-scroll';
-import { animateScroll as scroll } from 'react-scroll';
+// import { Link as ScrollLink } from 'react-scroll';
 
 const handleHomeClick = () => {
   scroll.scrollTo(0, {
@@ -13,6 +13,7 @@ export const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.copyright}>@2023 Mikołaj Krawczyński | All rights reserved.</div>
+
       <div className={styles.sectionOne}>
         <h2>IMPROVEMENT CENTER</h2>
         <h3>The Ultimate Productivity Hub</h3>
@@ -20,18 +21,17 @@ export const Footer = () => {
 
       <div className={styles.sectionTwo}>
         <h2>Navigation</h2>
-        <a href="#" onClick={handleHomeClick}>
+        <Link to="home" smooth={true} duration={500}>
           <h3> Home</h3>
-        </a>
-        {/* <br /> */}
+        </Link>
         <Link to="tools" smooth={true} offset={20} duration={500} className={styles.footerLink}>
           <h3>Tools</h3>
         </Link>
-        {/* <br /> */}
         <Link to="about" smooth={true} offset={-20} duration={500} className={styles.footerLink}>
           <h3>About</h3>
-        </Link>{' '}
+        </Link>
       </div>
+
       <div className={styles.sectionThree}>
         <h2>Useful Links</h2>
         <a href="https://github.com/m1ckeyyy/login-app-frontend" target="_blank">
@@ -44,8 +44,8 @@ export const Footer = () => {
           <h3>LinkedIn</h3>
         </a>
       </div>
+
       <div className={styles.sectionFour}>
-        {' '}
         <h2>Found a Bug? 🐛</h2>
         Send Feedback! Drop your e-mail
         <br />
@@ -54,6 +54,7 @@ export const Footer = () => {
           <input type="submit" value="⬅" className={styles.submitInput} />
         </div>
       </div>
+      
     </div>
   );
 };
