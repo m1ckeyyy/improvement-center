@@ -1,15 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-scroll';
 import styles from './landingPage.module.scss';
 
 export const LandingPage = () => {
-  const handleScrollClick = () => {
-    window.scrollTo({
-      top: window.pageYOffset + window.innerHeight,
-      behavior: 'smooth',
-    });
-  };
-
   return (
     <section className={styles.mainSection} id="home">
       <div className={styles.mainContent}>

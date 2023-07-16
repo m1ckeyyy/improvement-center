@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import styles from './navbar.module.scss';
 import { AiOutlineUser, AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
@@ -28,23 +28,40 @@ export function Navbar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const menuRef = useRef(false);
+  const svgRef = useRef(false);
+
+  const handleClickOutside = (event) => {
+    console.log(event.target);
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  });
 
   return (
     <>
       <div className={styles.navContainer}>
         <header className={`${styles.header} ${showNav ? '' : styles.hideNav} ${navBg ? styles.navBackground : ''}`}>
           <HomeIcon />
-          <ul className={`${styles.navbar} ${isMenuOpen ? styles.menuOpen : ''}`}>
-            <NavbarElement to="home" content="Home" isScroll={true} duration={500} offset={0} />
-            <NavbarElement to="tools" content="Tools" isScroll={true} duration={500} offset={20} />
-            <NavbarElement to="about" content="About" isScroll={true} duration={500} offset={-30} />
-            <NavbarElement to="/login" content="Login" phoneMedia={true} />
-            <NavbarElement to="/register" content="Register" phoneMedia={true} />
+          <ul className={`${styles.navbar} ${isMenuOpen ? styles.menuOpen : ''}`} ref={menuRef}>
+            <NavbarElement to="home" content="Home" scrollableLink={true} duration={500} offset={0} />
+            <NavbarElement to="tools" content="Tools" scrollableLink={true} duration={500} offset={20} />
+            <NavbarElement to="about" content="About" scrollableLink={true} duration={500} offset={-30} />
+            <NavbarElement to="/login" content="Login" mobileDisplay={true} />
+            <NavbarElement to="/register" content="Register" mobileDisplay={true} />
           </ul>
 
           <div className={styles.main}>
             <AiOutlineUser color="#b4e4ff" size="28px" style={{ marginRight: '7px' }} />
-            <NavbarElement to="/login" content="Login" phoneMedia={false} />
+            <NavbarElement to="/login" content="Login" mobileDisplay={false} />
             <NavbarElement to="/register" content="Register" />
             <div tabIndex="0">{isMenuOpen ? <AiOutlineClose className={styles.menuIcon} onClick={toggleMenu} /> : <AiOutlineMenu className={styles.menuIcon} onClick={toggleMenu} />}</div>
           </div>

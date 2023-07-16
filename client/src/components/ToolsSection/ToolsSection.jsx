@@ -7,14 +7,10 @@ export const ToolsSection = () => {
     <>
       <div className={styles.container} id="tools">
         <section className={styles.toolsSection}>
-
-          
           <div className={styles.toolsHeader}>
             <h1>Featured Tools</h1>
             <VscTools color="white" size="53px" />
           </div>
-
-
 
           <div className={styles.toolsContainer}>
             <ToolCard

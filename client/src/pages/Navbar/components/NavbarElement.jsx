@@ -4,10 +4,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import { AiOutlineUser } from 'react-icons/ai';
 import styles from './../navbar.module.scss';
 
-export const NavbarElement = ({ content, isScroll, duration, offset, to, phoneMedia }) => {
-  //scroll link
-  //console.log(isScroll);
-  if (isScroll) {
+export const NavbarElement = ({ content, scrollableLink, duration, offset, to, mobileDisplay }) => {
+  if (scrollableLink) {
     return (
       <li>
         <Link to={to} smooth={true} duration={duration} offset={offset} className={styles.navbarElement}>
@@ -15,16 +13,16 @@ export const NavbarElement = ({ content, isScroll, duration, offset, to, phoneMe
         </Link>
       </li>
     );
-  } else if (phoneMedia) {
+  } else if (mobileDisplay) {
     return (
       <li>
-        <RouterLink to={to} className={`${styles.navbarElement} ${styles.phoneMedia}`}>
+        <RouterLink to={to} className={`${styles.navbarElement} ${styles.mobileDisplay}`}>
           <AiOutlineUser style={{ marginRight: '3px' }} />
           {content}
         </RouterLink>
       </li>
     );
-  } else if (!phoneMedia && !isScroll) {
+  } else if (!mobileDisplay && !scrollableLink) {
     return (
       <RouterLink to={to} className={`${styles.navbarElement} ${styles.userNavbarElement}`}>
         {content}

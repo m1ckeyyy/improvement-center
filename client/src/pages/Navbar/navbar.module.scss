@@ -51,7 +51,7 @@ $accent-color: white;
   font-size: 1.1rem;
   font-weight: 500;
   padding: 5px 0;
-  margin: 0 30px;
+  margin: 0 27px;
   transition: all 0.2s ease;
   &::after {
     content: '';
@@ -84,9 +84,7 @@ $accent-color: white;
 .userNavbarElement {
   margin-left: 8px;
 }
-// .active {
-//   color: $accent-color;
-// }
+
 .navBackground {
   background-color: rgb(24 44 54 / 98%);
   border-radius: 0 0 15% 15%;
@@ -101,7 +99,6 @@ $accent-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // background: transparent;
   padding: 28px 12%;
   transition: all 0.2s ease;
   .title {
@@ -112,7 +109,6 @@ $accent-color: white;
   }
 }
 .iconContainer {
-  // height: 100vh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -204,7 +200,7 @@ $accent-color: white;
 .menuOpen.navbar {
   right: 2%;
 }
-.phoneMedia {
+.mobileDisplay {
   display: none;
   height: 0;
 }
@@ -219,7 +215,7 @@ $accent-color: white;
   }
 }
 @media (max-width: 960px) {
-  .phoneMedia {
+  .mobileDisplay {
     display: none;
   }
   .menuIcon {
@@ -229,14 +225,8 @@ $accent-color: white;
     &::before {
       content: '←';
     }
-    // &:hover {
-    //   &::before {
-    //     // transform: translate(130px, -10px);
-    //     // transition: transform 0.3s ease;
-    //   }
-    // }
   }
-  .phoneMedia {
+  .mobileDisplay {
     &::before {
       content: '←';
     }
@@ -279,7 +269,7 @@ $accent-color: white;
   }
 }
 @media (max-width: 670px) {
-  .phoneMedia {
+  .mobileDisplay {
     display: flex;
     align-items: center;
     height: auto;
