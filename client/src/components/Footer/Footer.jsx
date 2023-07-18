@@ -1,13 +1,5 @@
 import styles from './Footer.module.scss';
 import { Link } from 'react-scroll';
-// import { Link as ScrollLink } from 'react-scroll';
-
-const handleHomeClick = () => {
-  scroll.scrollTo(0, {
-    duration: 1000,
-    smooth: 'easeInOutQuint',
-  });
-};
 
 export const Footer = () => {
   return (
@@ -24,10 +16,10 @@ export const Footer = () => {
         <Link to="home" smooth={true} duration={500}>
           <h3> Home</h3>
         </Link>
-        <Link to="tools" smooth={true} offset={20} duration={500} className={styles.footerLink}>
+        <Link to="tools" smooth={true} offset={20} duration={500}>
           <h3>Tools</h3>
         </Link>
-        <Link to="about" smooth={true} offset={-20} duration={500} className={styles.footerLink}>
+        <Link to="about" smooth={true} offset={-20} duration={500}>
           <h3>About</h3>
         </Link>
       </div>
@@ -54,7 +46,6 @@ export const Footer = () => {
           <input type="submit" value="⬅" className={styles.submitInput} />
         </div>
       </div>
-      
     </div>
   );
 };

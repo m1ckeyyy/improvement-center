@@ -28,14 +28,30 @@ export function Navbar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   const menuRef = useRef(false);
-  const svgRef = useRef(false);
+  const buttonRef = useRef(false);
 
   const handleClickOutside = (event) => {
+    // console.log(event.target);
+    // if (menuRef.current && !menuRef.current.contains(event.target)) {
+    //   setIsMenuOpen(false);
+    // }
+    // console.log(isMenuOpen);
+    // if (buttonRef.current.contains(event.target)) {
+    //   console.log('RETURN');
+    // }
+    // if (isMenuOpen && event.target != menuRef.current) {
+    //   // setIsMenuOpen((prev) => !prev);
+    // }
+    // console.log(event.target);
+
+    // 1. klikniecie w ikone => return
+    // 2. menuIsOpen === false => return
+    // 3. kliknicie poza <ul> => setIsMenuOpen(!isMenuOpen)
+
+    console.log(buttonRef.current, buttonRef.current.contains(event.target));
     console.log(event.target);
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setIsMenuOpen(false);
-    }
   };
 
   useEffect(() => {
@@ -63,7 +79,9 @@ export function Navbar() {
             <AiOutlineUser color="#b4e4ff" size="28px" style={{ marginRight: '7px' }} />
             <NavbarElement to="/login" content="Login" mobileDisplay={false} />
             <NavbarElement to="/register" content="Register" />
-            <div tabIndex="0">{isMenuOpen ? <AiOutlineClose className={styles.menuIcon} onClick={toggleMenu} /> : <AiOutlineMenu className={styles.menuIcon} onClick={toggleMenu} />}</div>
+            <div tabIndex="0" ref={buttonRef}>
+              {isMenuOpen ? <AiOutlineClose className={styles.menuIcon} onClick={toggleMenu}/> : <AiOutlineMenu className={styles.menuIcon} onClick={toggleMenu} />}
+            </div>
           </div>
         </header>
         <IndependentScrollIcon />
