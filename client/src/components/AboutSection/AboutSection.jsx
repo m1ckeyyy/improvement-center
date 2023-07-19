@@ -1,20 +1,13 @@
 import styles from './AboutSection.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import { TextHighlight } from './components/TextHighlight';
-
+import { handleScroll } from './components/handleScroll';
 export const AboutSection = () => {
   const aboutRef = useRef(null);
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (aboutRef.current && window.scrollY + window.innerHeight > aboutRef.current.offsetTop + 100) {
-        setShowContent(true);
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleScroll(setShowContent, aboutRef.current);
   }, []);
 
   return (
