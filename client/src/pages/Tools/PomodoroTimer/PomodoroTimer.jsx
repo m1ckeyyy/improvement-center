@@ -87,7 +87,7 @@ function PomodoroTimer() {
   const formatTimePercentage = (timeInSeconds) => {
     const totalSeconds = currentSection === 'work' ? workTime * 60 : breakTime * 60;
     const progress = 100 - (timeInSeconds / totalSeconds) * 100;
-    return Math.ceil(progress);
+    return Math.ceil(progress).toString();
   };
 
   const formatTime = (timeInSeconds) => {
@@ -96,11 +96,11 @@ function PomodoroTimer() {
     if (timeFormat === 'minutes') {
       return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     } else {
-      return `${formatTimePercentage(timeInSeconds)}%`;
+      return formatTimePercentage(timeInSeconds) + '%';
     }
   };
 
-  const toggleVisibility = (event) => {
+  const toggleVisibility = () => {
     setSettingsVisible((prev) => !prev);
   };
 
@@ -161,44 +161,6 @@ function PomodoroTimer() {
             setAlarmSound={setAlarmSound}
           />
         )}
-      </div>
-    </div>
-  );
-  return (
-    <div className={styles.container}>
-      <div className={styles.app}>
-        <img src="images/pomodoro2icon.png" alt="pomodoro" className={styles.pomodoroImg} />
-        <div className={styles.controls}>
-          <AiOutlinePlayCircle color="black" size="3em" cursor="pointer" />
-          <AiOutlinePauseCircle color="black" size="3em" cursor="pointer" />
-          <RxReset color="black" size="3em" cursor="pointer" />
-          <BsSkipForward color="black" size="3em" cursor="pointer" />
-        </div>
-        <div className={styles.timer}>
-          <CircularProgressbarWithChildren
-            value={'percentage'}
-            // text={timeInMinutes ? `${timePassed}` : `${percentage}%`}
-            strokeWidth={6}
-            circleRatio={0.75}
-            className={styles.progress}
-            // background
-            // backgroundPadding={6}
-            styles={buildStyles({
-              pathTransitionDuration: 0.5,
-              strokeLinecap: 'butt',
-              rotation: 1 / 2 + 1 / 8,
-              //   pathColor: `rgba(${(63 / percentage) * 100}, ${
-              //     percentage < 15 ? 160 : 199
-              //   }, 44)`,
-              //   textColor: `rgba(${(63 / percentage) * 100}, ${
-              //     percentage < 15 ? 160 : 199
-              //   }, 44)`,
-              trailColor: 'lightgray',
-              fontSize: '10px',
-              //   backgroundColor: "#061A94",
-            })}
-          />
-        </div>
       </div>
     </div>
   );
