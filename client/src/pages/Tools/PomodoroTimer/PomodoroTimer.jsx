@@ -7,7 +7,7 @@ import { MdAlarmOff } from 'react-icons/md';
 
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import Settings from './PomodoroComponents/Settings';
+import { Settings } from './PomodoroComponents/Settings';
 
 import endSoundFile from '/sounds/endSound.mp3';
 import startSoundFile from '/sounds/startSound.mp3';
@@ -68,12 +68,12 @@ function PomodoroTimer() {
   const handleStartStop = () => {
     setIsRunning((prev) => !prev);
   };
+
   const handleReset = () => {
     setIsRunning(false);
-    if (currentSection === 'work') {
-      setSecondsLeft(workTime * 60);
-    } else if (currentSection === 'break') setSecondsLeft(breakTime * 60);
+    currentSection === 'work' ? setSecondsLeft(workTime * 60) : setSecondsLeft(breakTime * 60);
   };
+
   const handleSkipSection = () => {
     setIsRunning(true);
     if (currentSection === 'work') {
@@ -84,21 +84,20 @@ function PomodoroTimer() {
       setSecondsLeft(workTime * 60);
     }
   };
+  const formatTimePercentage = (timeInSeconds) => {
+    const totalSeconds = currentSection === 'work' ? workTime * 60 : breakTime * 60;
+    const progress = 100 - (timeInSeconds / totalSeconds) * 100;
+    return Math.ceil(progress);
+  };
+
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
     if (timeFormat === 'minutes') {
       return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     } else {
-      const totalSeconds = currentSection === 'work' ? workTime * 60 : breakTime * 60;
-      const progress = 100 - (timeInSeconds / totalSeconds) * 100;
-      return `${Math.ceil(progress)}%`;
+      return `${formatTimePercentage(timeInSeconds)}%`;
     }
-  };
-  const formatTimePercentage = (timeInSeconds) => {
-    const totalSeconds = currentSection === 'work' ? workTime * 60 : breakTime * 60;
-    const progress = 100 - (timeInSeconds / totalSeconds) * 100;
-    return Math.ceil(progress);
   };
 
   const toggleVisibility = (event) => {

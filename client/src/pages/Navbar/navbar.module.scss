@@ -258,7 +258,7 @@ $accent-color: white;
       margin: 12px 0;
       transition: all 0.5s ease;
       &:hover {
-        color: #0d304f;
+        color: $primary-color;
         transform: translateX(5px);
       }
     }
