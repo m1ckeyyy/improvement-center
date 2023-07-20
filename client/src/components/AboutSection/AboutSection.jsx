@@ -2,6 +2,7 @@ import styles from './AboutSection.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import { TextHighlight } from './components/TextHighlight';
 import { handleScroll } from './components/handleScroll';
+
 export const AboutSection = () => {
   const aboutRef = useRef(null);
   const [showContent, setShowContent] = useState(false);
