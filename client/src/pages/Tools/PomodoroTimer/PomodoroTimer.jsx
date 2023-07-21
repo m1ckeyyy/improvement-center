@@ -109,8 +109,9 @@ function PomodoroTimer() {
       <div className={styles.app}>
         <div className={styles.timer}>
           <h1>{currentSection === 'work' ? 'Work Time' : 'Break Time'}</h1>
-          <div className={styles.circularProgressBar} onClick={handleStartStop}>
+          <div onClick={handleStartStop}>
             <CircularProgressbarWithChildren
+              className={styles.progressBar}
               value={formatTimePercentage(secondsLeft)}
               text={formatTime(secondsLeft)}
               circleRatio={0.75}
@@ -127,19 +128,19 @@ function PomodoroTimer() {
           </div>
           <div className={styles.controls}>
             {isRunning ? (
-              <AiOutlinePauseCircle color="#0a789b" size="3em" cursor="pointer" onClick={handleStartStop} />
+              <AiOutlinePauseCircle color="#0a789b" size="3em" cursor="pointer" onClick={handleStartStop} title="pause" />
             ) : (
-              <AiOutlinePlayCircle color="#0a789b" size="3em" cursor="pointer" onClick={handleStartStop} />
+              <AiOutlinePlayCircle color="#0a789b" size="3em" cursor="pointer" onClick={handleStartStop} title="play" />
             )}
 
-            <MdAlarmOff onClick={handleReset} color="#0a789b" size="3em" cursor="pointer" />
-            <BsSkipForward onClick={handleSkipSection} color="#0a789b" size="3em" cursor="pointer" />
+            <MdAlarmOff onClick={handleReset} color="#0a789b" size="3em" cursor="pointer" title="reset" />
+            <BsSkipForward onClick={handleSkipSection} color="#0a789b" size="3em" cursor="pointer" title="skip section" />
           </div>
         </div>
         <div className={styles.buttons}>
           {!settingsVisible && (
             <button className={styles.gearButton} onClick={toggleVisibility}>
-              <BsFillGearFill size="30" color="#0a789b" />
+              <BsFillGearFill size="30" color="#0a789b" title="settings" />
             </button>
           )}
         </div>
