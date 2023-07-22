@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Settings.module.scss';
 import { BiExit, BiHomeAlt, BiUser } from 'react-icons/bi';
 import { BackgroundMusicOptions } from './BackgroundMusic/BackgroundMusic';
-import { formatTime, toggleAlarm } from './components/toggles';
+import { formatTime, toggleAlarm, toggleNotis } from './components/toggles';
 
 export const Settings = ({
   workTime,
@@ -28,18 +28,20 @@ export const Settings = ({
     setBreakTimePreference(parseInt(e.target.elements[1].value));
   };
 
-  
   const toggleTimeFormat = () => {
     formatTime(timeFormat, setTimeFormat);
   };
   const toggleAlarmSound = () => {
     toggleAlarm(setAlarmSound);
   };
+  const toggleNotifications = () => {
+    toggleNotis(setNotification);
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.settingsContainer}>
-        <h2>Settings</h2>
+        <h2>Pomodoro Settings</h2>
         <form onSubmit={applySettings}>
           <h4>Set Time Preferences (Minutes)</h4>
           <div className={styles.workTimePreference}>
@@ -67,7 +69,7 @@ export const Settings = ({
           <div className={styles.alarmSound}>
             <span>Alarm Sound: </span>
             <button type="button" onClick={toggleAlarmSound}>
-              {alarmSound === 'ON' ? 'ON' : 'OFF'}
+              {alarmSound}
             </button>
           </div>
 
@@ -80,18 +82,7 @@ export const Settings = ({
 
           <div className={styles.toggleNotifications}>
             <span>Notifications: </span>
-            <button
-              type="button"
-              onClick={() =>
-                setNotification((prev) => {
-                  if (prev === 'ON') {
-                    return 'OFF';
-                  } else {
-                    return 'ON';
-                  }
-                })
-              }
-            >
+            <button type="button" onClick={toggleNotifications}>
               {notification === 'ON' ? 'ON' : 'OFF'}
             </button>
           </div>
@@ -99,17 +90,16 @@ export const Settings = ({
         <div className={styles.iconButtons}>
           <button type="button" className={styles.profileBtn}>
             <a href="/profile">
-              <BiUser />
-            </a>{' '}
+              <BiUser size="35" />
+            </a>
           </button>
           <button type="button" className={styles.homeIcon}>
             <a href="/">
-              {' '}
-              <BiHomeAlt />
+              <BiHomeAlt size="35" />
             </a>
           </button>
           <button type="button" onClick={toggleVisibility} className={styles.closeBtn}>
-            <BiExit />
+            <BiExit size="35" />
           </button>
         </div>
       </div>

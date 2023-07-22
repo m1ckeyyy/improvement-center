@@ -6,9 +6,17 @@ export const formatTime = (prevFormat, setTimeFormat) => {
   }
 };
 
-
 export const toggleAlarm = (setAlarmSound) => {
   setAlarmSound((prev) => {
+    if (prev === 'ON') {
+      return 'OFF';
+    } else {
+      return 'ON';
+    }
+  });
+};
+export const toggleNotis = (setNotification) => {
+  setNotification((prev) => {
     if (prev === 'ON') {
       return 'OFF';
     } else {
