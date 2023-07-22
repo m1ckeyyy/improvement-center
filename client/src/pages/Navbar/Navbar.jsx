@@ -1,21 +1,15 @@
 import { useState, useEffect } from 'react';
 import { AiOutlineUser, AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { navbarVisibility } from './components/NavbarVisibility';
+// import { navbarVisibility } from './components/NavbarVisibility';
 import { IndependentScrollIcon } from './components/ScrollIcon';
 import { HomeIcon } from './components/HomeIcon';
 import { NavbarElement } from './components/NavbarElement';
 import { useClickOutside } from './components/useClickOutside';
+import { useNavbarVisiblity } from './components/useNavbarVisiblity';
 import styles from './navbar.module.scss';
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showNav, setShowNav] = useState(true);
-  const [prevScrollY, setPrevScrollY] = useState(0);
-  const [navBg, setNavBg] = useState(false);
-
-  useEffect(() => {
-    navbarVisibility(showNav, prevScrollY, setNavBg, setShowNav, setPrevScrollY);
-  }, [prevScrollY]);
+  const { isMenuOpen, setIsMenuOpen, showNav, navBackground } = useNavbarVisiblity();
 
   useClickOutside(isMenuOpen, setIsMenuOpen);
 
@@ -25,7 +19,7 @@ export function Navbar() {
 
   return (
     <div className={styles.navContainer}>
-      <header className={`${styles.header} ${showNav ? '' : styles.hideNav} ${navBg ? styles.navBackground : ''}`}>
+      <header className={`${styles.header} ${showNav ? '' : styles.hideNav} ${navBackground ? styles.navBackground : ''}`}>
         <HomeIcon />
 
         <ul className={`${styles.navbar} ${isMenuOpen ? styles.menuOpen : ''}`}>

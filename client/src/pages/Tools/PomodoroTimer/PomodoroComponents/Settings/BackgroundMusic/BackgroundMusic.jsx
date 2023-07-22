@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styles from './BackgroundMusic.module.scss';
 
 export const BackgroundMusicOptions = ({ isOpen, setIsOpen, selectedMusicOption, setSelectedMusicOption }) => {
@@ -32,4 +31,3 @@ export const BackgroundMusicOptions = ({ isOpen, setIsOpen, selectedMusicOption,
     </div>
   );
 };
-
