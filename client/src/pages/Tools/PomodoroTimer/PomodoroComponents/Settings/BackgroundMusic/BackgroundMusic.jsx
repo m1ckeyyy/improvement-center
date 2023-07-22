@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './BackgroundMusic.module.scss';
 
-const BackgroundMusicOptions = ({ isOpen, setIsOpen, selectedMusicOption, setSelectedMusicOption }) => {
+export const BackgroundMusicOptions = ({ isOpen, setIsOpen, selectedMusicOption, setSelectedMusicOption }) => {
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
   };
@@ -33,4 +33,3 @@ const BackgroundMusicOptions = ({ isOpen, setIsOpen, selectedMusicOption, setSel
   );
 };
 
-export default BackgroundMusicOptions;

@@ -6,7 +6,7 @@ import { MdAlarmOff } from 'react-icons/md';
 
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { Settings } from './PomodoroComponents/Settings';
+import { Settings } from './PomodoroComponents/Settings/Settings';
 import { Controls } from './PomodoroComponents/Controls';
 
 import endSoundFile from '/sounds/endSound.mp3';

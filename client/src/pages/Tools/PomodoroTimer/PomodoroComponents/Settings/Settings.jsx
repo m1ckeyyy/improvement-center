@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Settings.module.scss';
 import { BiExit, BiHomeAlt, BiUser } from 'react-icons/bi';
-import BackgroundMusicOptions from './BackgroundMusic';
+import { BackgroundMusicOptions } from './BackgroundMusic/BackgroundMusic';
+import { formatTime, toggleAlarm } from './components/toggles';
+
 export const Settings = ({
   workTime,
   breakTime,
@@ -24,6 +26,14 @@ export const Settings = ({
     toggleVisibility();
     setWorkTimePreference(parseInt(e.target.elements[0].value));
     setBreakTimePreference(parseInt(e.target.elements[1].value));
+  };
+
+  
+  const toggleTimeFormat = () => {
+    formatTime(timeFormat, setTimeFormat);
+  };
+  const toggleAlarmSound = () => {
+    toggleAlarm(setAlarmSound);
   };
 
   return (
@@ -56,36 +66,14 @@ export const Settings = ({
 
           <div className={styles.alarmSound}>
             <span>Alarm Sound: </span>
-            <button
-              type="button"
-              onClick={() =>
-                setAlarmSound((prev) => {
-                  if (prev === 'ON') {
-                    return 'OFF';
-                  } else {
-                    return 'ON';
-                  }
-                })
-              }
-            >
+            <button type="button" onClick={toggleAlarmSound}>
               {alarmSound === 'ON' ? 'ON' : 'OFF'}
             </button>
           </div>
 
           <div className={styles.switchDisplay}>
             <span>Time Format: </span>
-            <button
-              type="button"
-              onClick={() =>
-                setTimeFormat((prev) => {
-                  if (prev === 'minutes') {
-                    return 'percentages';
-                  } else {
-                    return 'minutes';
-                  }
-                })
-              }
-            >
+            <button type="button" onClick={toggleTimeFormat}>
               {timeFormat === 'minutes' ? 'Minutes' : 'Percentage'}
             </button>
           </div>
