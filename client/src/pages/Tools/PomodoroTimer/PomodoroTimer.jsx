@@ -1,13 +1,13 @@
 import styles from './PomodoroTimer.module.scss';
 import { useState, useEffect, useRef } from 'react';
 import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
-import { RxReset } from 'react-icons/rx';
 import { BsSkipForward, BsFillGearFill } from 'react-icons/bs';
 import { MdAlarmOff } from 'react-icons/md';
 
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { Settings } from './PomodoroComponents/Settings';
+import { Controls } from './PomodoroComponents/Controls';
 
 import endSoundFile from '/sounds/endSound.mp3';
 import startSoundFile from '/sounds/startSound.mp3';
@@ -84,6 +84,7 @@ function PomodoroTimer() {
       setSecondsLeft(workTime * 60);
     }
   };
+
   const formatTimePercentage = (timeInSeconds) => {
     const totalSeconds = currentSection === 'work' ? workTime * 60 : breakTime * 60;
     const progress = 100 - (timeInSeconds / totalSeconds) * 100;
@@ -126,24 +127,13 @@ function PomodoroTimer() {
               })}
             />
           </div>
-          <div className={styles.controls}>
-            {isRunning ? (
-              <AiOutlinePauseCircle color="#0a789b" size="3em" cursor="pointer" onClick={handleStartStop} title="pause" />
-            ) : (
-              <AiOutlinePlayCircle color="#0a789b" size="3em" cursor="pointer" onClick={handleStartStop} title="play" />
-            )}
+        </div>
 
-            <MdAlarmOff onClick={handleReset} color="#0a789b" size="3em" cursor="pointer" title="reset" />
-            <BsSkipForward onClick={handleSkipSection} color="#0a789b" size="3em" cursor="pointer" title="skip section" />
-          </div>
-        </div>
-        <div className={styles.buttons}>
-          {!settingsVisible && (
-            <button className={styles.gearButton} onClick={toggleVisibility}>
-              <BsFillGearFill size="30" color="#0a789b" title="settings" />
-            </button>
-          )}
-        </div>
+        {!settingsVisible ? <Controls isRunning={isRunning} handleStartStop={handleStartStop} handleReset={handleReset} handleSkipSection={handleSkipSection} /> : ''}
+
+        <button className={styles.gearButton} onClick={toggleVisibility}>
+          <BsFillGearFill size="35" color="#0a789b" title="settings" />
+        </button>
 
         {settingsVisible && (
           <Settings

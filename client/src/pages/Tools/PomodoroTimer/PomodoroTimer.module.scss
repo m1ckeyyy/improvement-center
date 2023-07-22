@@ -19,13 +19,6 @@
   height: 100vh;
   margin: 0;
   padding: 0;
-  //   background: linear-gradient(
-  //     18deg,
-  //     rgb(23, 37, 37) 6%,
-  //     rgb(32, 63, 64) 68%,
-  //     rgb(6 26 148) 100%,
-  //     rgb(6 26 148) 100%
-  //   );
   background: linear-gradient(18deg, rgb(207 70 40) 6%, rgb(42 43 95) 68%, rgb(42 43 95) 100%, rgb(209 55 30) 100%);
   color: white;
   display: flex;
@@ -35,8 +28,10 @@
 }
 .gearButton {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  border: none;
   transition: transform 0.3s ease;
   &:hover {
     cursor: pointer;
@@ -44,26 +39,22 @@
   }
 }
 .timer {
-  color: black;
-  .seconds {
-    cursor: pointer;
-  }
-}
-
-.buttons {
-  border-radius: 8px;
-  background-color: lightcyan;
+  color: #084d63;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  > * {
+  margin-left: 10%;
+  .seconds {
     cursor: pointer;
-    background: none;
-    border: none;
-    padding: 5px;
+  }
+  h1 {
+    padding-bottom: 10px;
+    font-size: 2.7em;
+    font-family: 'Courier New', Courier, monospace;
   }
 }
+
 .circularProgressBar {
   cursor: pointer;
 }
@@ -72,10 +63,37 @@
   &:hover {
     transform: scale(1.004);
   }
+  &:active {
+    transform: scale(1.01);
+  }
 }
 .controls {
+  border-radius: 0px 8px 8px 0px;
+  color: black;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  width: 46%;
+  padding-left: 13%;
+  padding-right: 17%;
+
+  background-color: lightblue;
+  span:last-child {
+    margin-left: 5px;
+  }
+  span {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    p {
+      font-size: 1.5em;
+    }
+    svg {
+      margin-right: 10px;
+    }
+  }
   > * {
-    margin-right: 10px;
     transition: transform 0.3s ease;
     &:hover {
       cursor: pointer;
