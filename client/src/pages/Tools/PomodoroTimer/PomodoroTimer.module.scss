@@ -44,8 +44,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 10%;
-  margin-right: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
 
   .seconds {
     cursor: pointer;
@@ -73,39 +73,50 @@
   border-radius: 0px 8px 8px 0px;
   color: black;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
   width: 46%;
-  padding-left: 13%;
-  padding-right: 17%;
-
   background-color: lightblue;
-  span:last-child {
-    margin-left: 5px;
-  }
-  span {
+  .controlsItems {
     display: flex;
-    align-items: center;
-    margin: 20px 0;
-    p {
-      font-size: 1.5em;
+    flex-direction: column;
+    span:last-child {
+      margin-left: 5px;
     }
-    svg {
-      margin-right: 10px;
+    span {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      p {
+        font-size: 1.5em;
+      }
+      svg {
+        margin-right: 10px;
+      }
+    }
+    > * {
+      transition: transform 0.2s ease;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+    :nth-child(2) {
+      margin-right: 13px;
     }
   }
-  > * {
-    transition: transform 0.2s ease;
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.1);
+}
+@media (max-width: 750px) {
+  .timer {
+    padding-left: 25px;
+    padding-right: 25px;
+    h1 {
+      padding-bottom: 5px;
+      font-size: 2em;
     }
-    &:active {
-      transform: scale(0.9);
-    }
-  }
-  :nth-child(2) {
-    margin-right: 13px;
   }
 }
