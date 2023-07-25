@@ -20,7 +20,7 @@
   padding: 0 15px;
   h2 {
     padding-top: 10px;
-    font-size: 20px;
+    font-size: 1.3em;
   }
   h4 {
     margin-top: 18px;
@@ -41,7 +41,6 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 25px;
     transition: transform 0.2s ease;
 
     &:hover {
@@ -78,7 +77,7 @@
 
   button {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 1em;
     font-family: 'Inconsolata', monospace;
     color: white;
     border: none;

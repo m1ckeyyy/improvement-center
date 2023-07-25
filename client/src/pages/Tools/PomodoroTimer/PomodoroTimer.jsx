@@ -1,21 +1,16 @@
 import styles from './PomodoroTimer.module.scss';
-import { useState, useEffect, useRef } from 'react';
-import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
-import { BsSkipForward, BsFillGearFill } from 'react-icons/bs';
-import { MdAlarmOff } from 'react-icons/md';
+import { useState, useEffect } from 'react';
+import { BsFillGearFill } from 'react-icons/bs';
 
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+
 import 'react-circular-progressbar/dist/styles.css';
 import { Settings } from './PomodoroComponents/Settings/Settings';
 import { Controls } from './PomodoroComponents/Controls';
-
-import endSoundFile from '/sounds/endSound.mp3';
-import startSoundFile from '/sounds/startSound.mp3';
-import brownNoiseFile from '/sounds/brownNoise.mp3';
+import { useSounds } from './PomodoroComponents/Sounds/sounds';
 
 function PomodoroTimer() {
-  const startSoundRef = useRef(new Audio(startSoundFile));
-  const endSoundRef = useRef(new Audio(endSoundFile));
+  const { startSound, endSound, rainSound, brownNoise } = useSounds();
 
   const [timeFormat, setTimeFormat] = useState('minutes');
   const [notification, setNotification] = useState('ON');
@@ -30,17 +25,36 @@ function PomodoroTimer() {
   const [selectedMusicOption, setSelectedMusicOption] = useState('OFF');
 
   useEffect(() => {
+    console.log('s: ', selectedMusicOption);
+    switch (selectedMusicOption) {
+      case 'Rain':
+        rainSound.play();
+        brownNoise.pause();
+        break;
+      case 'OFF':
+        rainSound.pause();
+        brownNoise.pause();
+        break;
+      case 'Brown Noise':
+        brownNoise.play();
+        brownNoise.loop = true;
+        rainSound.pause();
+        break;
+    }
+  }, [selectedMusicOption]);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       if (isRunning & (secondsLeft > 0)) {
         setSecondsLeft((prev) => prev - 1);
       } else if (secondsLeft === 0) {
         if (currentSection === 'work') {
           // post request to server about finished session (dateStarted, timeTaken)
-          if (alarmSound === 'ON') endSoundRef.current.play();
+          if (alarmSound === 'ON') endSound.play();
           setCurrentSection('break');
           setSecondsLeft(breakTime * 60);
         } else {
-          if (alarmSound === 'ON') startSoundRef.current.play();
+          if (alarmSound === 'ON') startSound.play();
           setCurrentSection('work');
           setSecondsLeft(workTime * 60);
         }
