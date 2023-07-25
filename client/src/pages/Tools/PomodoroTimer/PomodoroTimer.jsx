@@ -1,13 +1,15 @@
 import styles from './PomodoroTimer.module.scss';
 import { useState, useEffect } from 'react';
 import { BsFillGearFill } from 'react-icons/bs';
-
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 
 import 'react-circular-progressbar/dist/styles.css';
 import { Settings } from './PomodoroComponents/Settings/Settings';
 import { Controls } from './PomodoroComponents/Controls';
 import { useSounds } from './PomodoroComponents/Sounds/sounds';
+
+// import { breakFinished } from './PomodoroComponents/Notifications/Notifications';
+// import { ToastContainer } from 'react-toastify';
 
 function PomodoroTimer() {
   const { startSound, endSound, rainSound, brownNoise } = useSounds();
@@ -25,10 +27,10 @@ function PomodoroTimer() {
   const [selectedMusicOption, setSelectedMusicOption] = useState('OFF');
 
   useEffect(() => {
-    console.log('s: ', selectedMusicOption);
     switch (selectedMusicOption) {
       case 'Rain':
         rainSound.play();
+        rainSound.loop = true;
         brownNoise.pause();
         break;
       case 'OFF':
@@ -50,10 +52,12 @@ function PomodoroTimer() {
       } else if (secondsLeft === 0) {
         if (currentSection === 'work') {
           // post request to server about finished session (dateStarted, timeTaken)
+          // workFinished();
           if (alarmSound === 'ON') endSound.play();
           setCurrentSection('break');
           setSecondsLeft(breakTime * 60);
         } else {
+          breakFinished();
           if (alarmSound === 'ON') startSound.play();
           setCurrentSection('work');
           setSecondsLeft(workTime * 60);
@@ -167,6 +171,7 @@ function PomodoroTimer() {
           />
         )}
       </div>
+      {/* <ToastContainer /> */}
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Settings.module.scss';
-import { BiExit, BiHomeAlt, BiUser } from 'react-icons/bi';
 import { BackgroundMusicOptions } from './BackgroundMusic/BackgroundMusic';
 import { formatTime, toggleAlarm, toggleNotis } from './components/toggles';
 import { IconButtons } from './components/iconButtons';
+import { MdSettingsInputComponent } from 'react-icons/md';
 
 export const Settings = ({
   workTime,
@@ -42,7 +42,10 @@ export const Settings = ({
   return (
     <div className={styles.container}>
       <div className={styles.settingsContainer}>
-        <h2>Settings</h2>
+        <h2>
+          <MdSettingsInputComponent />
+          <span>Settings</span>
+        </h2>
         <form onSubmit={applySettings}>
           <hr />
           <h4>Set Time Preferences (Minutes)</h4>

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 
 .container {
+  zoom: 1.08;
   height: 100%;
   width: 46%;
   display: flex;
@@ -19,8 +20,16 @@
   flex-direction: column;
   padding: 0 15px;
   h2 {
-    padding-top: 10px;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 5px;
     font-size: 1.3em;
+    display: flex;
+    align-items: flex-end;
+
+    span {
+      padding-left: 7px;
+    }
   }
   h4 {
     margin-top: 18px;
