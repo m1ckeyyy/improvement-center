@@ -1,9 +1,9 @@
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const breakFinished = () => {
-  toast.success('😎 Time for work', {
-    position: 'bottom-right',
+  toast.info('😎 Time for work', {
+    position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -14,8 +14,8 @@ export const breakFinished = () => {
   });
 };
 export const workFinished = () => {
-  toast.success('🎉 Time for break', {
-    position: 'bottom-right',
+  toast.info('🎉 Time for break', {
+    position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,

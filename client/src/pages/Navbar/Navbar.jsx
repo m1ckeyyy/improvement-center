@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
 import { AiOutlineUser, AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-// import { navbarVisibility } from './components/NavbarVisibility';
 import { IndependentScrollIcon } from './components/ScrollIcon';
 import { HomeIcon } from './components/HomeIcon';
 import { NavbarElement } from './components/NavbarElement';

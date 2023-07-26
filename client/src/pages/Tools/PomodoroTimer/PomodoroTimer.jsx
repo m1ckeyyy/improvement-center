@@ -8,8 +8,8 @@ import { Settings } from './PomodoroComponents/Settings/Settings';
 import { Controls } from './PomodoroComponents/Controls';
 import { useSounds } from './PomodoroComponents/Sounds/sounds';
 
-// import { breakFinished } from './PomodoroComponents/Notifications/Notifications';
-// import { ToastContainer } from 'react-toastify';
+import { breakFinished, workFinished } from './PomodoroComponents/Notifications/Notifications';
+import { ToastContainer } from 'react-toastify';
 
 function PomodoroTimer() {
   const { startSound, endSound, rainSound, brownNoise } = useSounds();
@@ -52,12 +52,12 @@ function PomodoroTimer() {
       } else if (secondsLeft === 0) {
         if (currentSection === 'work') {
           // post request to server about finished session (dateStarted, timeTaken)
-          // workFinished();
+          if (notification === 'ON') workFinished();
           if (alarmSound === 'ON') endSound.play();
           setCurrentSection('break');
           setSecondsLeft(breakTime * 60);
         } else {
-          breakFinished();
+          if (notification === 'ON') breakFinished();
           if (alarmSound === 'ON') startSound.play();
           setCurrentSection('work');
           setSecondsLeft(workTime * 60);
@@ -171,7 +171,7 @@ function PomodoroTimer() {
           />
         )}
       </div>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </div>
   );
 }
