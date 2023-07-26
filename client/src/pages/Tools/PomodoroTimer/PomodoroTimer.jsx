@@ -1,5 +1,5 @@
 import styles from './PomodoroTimer.module.scss';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { BsFillGearFill } from 'react-icons/bs';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 
@@ -10,21 +10,34 @@ import { useSounds } from './PomodoroComponents/Sounds/sounds';
 
 import { breakFinished, workFinished } from './PomodoroComponents/Notifications/Notifications';
 import { ToastContainer } from 'react-toastify';
+import { states } from './PomodoroComponents/timerLogic/states';
+
+export const TimerContext = createContext(null);
 
 function PomodoroTimer() {
   const { startSound, endSound, rainSound, brownNoise } = useSounds();
-
-  const [timeFormat, setTimeFormat] = useState('minutes');
-  const [notification, setNotification] = useState('ON');
-  const [alarmSound, setAlarmSound] = useState('ON');
-
-  const [settingsVisible, setSettingsVisible] = useState(false);
-  const [workTime, setWorkTimePreference] = useState(25); // 25 minutes in seconds
-  const [breakTime, setBreakTimePreference] = useState(5); // 5 minutes in seconds
-  const [isRunning, setIsRunning] = useState(false);
-  const [secondsLeft, setSecondsLeft] = useState(workTime * 60);
-  const [currentSection, setCurrentSection] = useState('work');
-  const [selectedMusicOption, setSelectedMusicOption] = useState('OFF');
+  const {
+    timeFormat,
+    setTimeFormat,
+    notification,
+    setNotification,
+    alarmSound,
+    setAlarmSound,
+    settingsVisible,
+    setSettingsVisible,
+    workTime,
+    setWorkTimePreference,
+    breakTime,
+    setBreakTimePreference,
+    isRunning,
+    setIsRunning,
+    secondsLeft,
+    setSecondsLeft,
+    currentSection,
+    setCurrentSection,
+    selectedMusicOption,
+    setSelectedMusicOption,
+  } = states();
 
   useEffect(() => {
     switch (selectedMusicOption) {
@@ -122,57 +135,61 @@ function PomodoroTimer() {
   const toggleVisibility = () => {
     setSettingsVisible((prev) => !prev);
   };
-
+  const timerValues = {
+    workTime,
+    breakTime,
+    setWorkTimePreference,
+    setBreakTimePreference,
+    toggleVisibility,
+    timeFormat,
+    setTimeFormat,
+    selectedMusicOption,
+    setSelectedMusicOption,
+    notification,
+    setNotification,
+    alarmSound,
+    setAlarmSound,
+    isRunning,
+    handleStartStop,
+    handleReset,
+    handleSkipSection,
+  };
   return (
-    <div className={styles.overlayContainer}>
-      <div className={styles.app}>
-        <div className={styles.timer}>
-          <h1>{currentSection === 'work' ? 'Work Time' : 'Break Time'}</h1>
-          <div onClick={handleStartStop}>
-            <CircularProgressbarWithChildren
-              className={styles.progressBar}
-              value={formatTimePercentage(secondsLeft)}
-              text={formatTime(secondsLeft)}
-              circleRatio={0.75}
-              strokeWidth={6}
-              styles={buildStyles({
-                pathTransitionDuration: 0.5,
-                strokeLinecap: 'butt',
-                rotation: 1 / 2 + 1 / 8,
-                trailColor: 'lightgray',
-                textColor: '#0a789b',
-                pathColor: '#0a789b',
-              })}
-            />
+    <TimerContext.Provider value={timerValues}>
+      <div className={styles.overlayContainer}>
+        <div className={styles.app}>
+          <div className={styles.timer}>
+            <h1>{currentSection === 'work' ? 'Work Time' : 'Break Time'}</h1>
+            <div onClick={handleStartStop}>
+              <CircularProgressbarWithChildren
+                className={styles.progressBar}
+                value={formatTimePercentage(secondsLeft)}
+                text={formatTime(secondsLeft)}
+                circleRatio={0.75}
+                strokeWidth={6}
+                styles={buildStyles({
+                  pathTransitionDuration: 0.5,
+                  strokeLinecap: 'butt',
+                  rotation: 1 / 2 + 1 / 8,
+                  trailColor: 'lightgray',
+                  textColor: '#0a789b',
+                  pathColor: '#0a789b',
+                })}
+              />
+            </div>
           </div>
+
+          {!settingsVisible ? <Controls isRunning={isRunning} handleStartStop={handleStartStop} handleReset={handleReset} handleSkipSection={handleSkipSection} /> : ''}
+
+          <button className={styles.gearButton} onClick={toggleVisibility}>
+            <BsFillGearFill size="35" color="#0a789b" title="settings" />
+          </button>
+
+          {settingsVisible && <Settings />}
         </div>
-
-        {!settingsVisible ? <Controls isRunning={isRunning} handleStartStop={handleStartStop} handleReset={handleReset} handleSkipSection={handleSkipSection} /> : ''}
-
-        <button className={styles.gearButton} onClick={toggleVisibility}>
-          <BsFillGearFill size="35" color="#0a789b" title="settings" />
-        </button>
-
-        {settingsVisible && (
-          <Settings
-            workTime={workTime}
-            breakTime={breakTime}
-            setWorkTimePreference={setWorkTimePreference}
-            setBreakTimePreference={setBreakTimePreference}
-            toggleVisibility={toggleVisibility}
-            timeFormat={timeFormat}
-            setTimeFormat={setTimeFormat}
-            selectedMusicOption={selectedMusicOption}
-            setSelectedMusicOption={setSelectedMusicOption}
-            notification={notification}
-            setNotification={setNotification}
-            alarmSound={alarmSound}
-            setAlarmSound={setAlarmSound}
-          />
-        )}
+        <ToastContainer />
       </div>
-      <ToastContainer />
-    </div>
+    </TimerContext.Provider>
   );
 }
 

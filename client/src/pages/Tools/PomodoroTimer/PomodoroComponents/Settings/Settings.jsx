@@ -1,26 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './Settings.module.scss';
 import { BackgroundMusicOptions } from './BackgroundMusic/BackgroundMusic';
 import { formatTime, toggleAlarm, toggleNotis } from './components/toggles';
 import { IconButtons } from './components/iconButtons';
 import { MdSettingsInputComponent } from 'react-icons/md';
+import { TimerContext } from '../../PomodoroTimer';
 
-export const Settings = ({
-  workTime,
-  breakTime,
-  setWorkTimePreference,
-  setBreakTimePreference,
-  toggleVisibility,
-  timeFormat,
-  setTimeFormat,
-  selectedMusicOption,
-  setSelectedMusicOption,
-  notification,
-  setNotification,
-  alarmSound,
-  setAlarmSound,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Settings = () => {
+  const { workTime, breakTime, setWorkTimePreference, setBreakTimePreference, toggleVisibility, timeFormat, setTimeFormat, notification, setNotification, alarmSound, setAlarmSound } =
+    useContext(TimerContext);
+
+  const [isMusicMenuOpen, setIsMusicMenuOpen] = useState(false);
 
   const applySettings = (e) => {
     e.preventDefault();
@@ -65,7 +55,7 @@ export const Settings = ({
           <div className={styles.backgroundMusic}>
             <span>Music: </span>
             <button type="button">
-              <BackgroundMusicOptions isOpen={isOpen} setIsOpen={setIsOpen} selectedMusicOption={selectedMusicOption} setSelectedMusicOption={setSelectedMusicOption} />
+              <BackgroundMusicOptions isMusicMenuOpen={isMusicMenuOpen} setIsMusicMenuOpen={setIsMusicMenuOpen} />
             </button>
           </div>
           <div className={styles.alarmSound}>
