@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import { AiOutlineUser } from 'react-icons/ai';
-import styles from './../navbar.module.scss';
+import styles from '../navbar.module.scss';
 
 export const NavbarElement = ({ content, scrollableLink, duration, offset, to, mobileDisplay }) => {
   if (scrollableLink) {

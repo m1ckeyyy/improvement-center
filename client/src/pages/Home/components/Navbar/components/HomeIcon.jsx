@@ -1,4 +1,4 @@
-import styles from './../navbar.module.scss';
+import styles from '../navbar.module.scss';
 import { AiOutlineHome } from 'react-icons/ai';
 import { Link } from 'react-scroll';
 

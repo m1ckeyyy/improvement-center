@@ -8,7 +8,6 @@ const Register = lazy(() => import('./pages/Register/Register'));
 const Home = lazy(() => import('./pages/Home/Home'));
 const Pomodoro = lazy(() => import('./pages/Tools/PomodoroTimer/PomodoroTimer'));
 
-import './App.css';
 import SuspenseRouter from './SuspenseRouter';
 
 function App() {

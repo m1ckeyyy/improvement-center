@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+//no vh height, no overflow-x hidden, nominheight
+* {
+  box-sizing: border-box;
+}
+.container {
+  overflow: hidden;
+  // height: 100vh;
+  min-height: 930px;
+  background: linear-gradient(
+    180deg,
+    rgba(83, 109, 121, 1) -1%,
+    rgba(24, 44, 54, 1) 4%,
+    rgba(24, 44, 54, 1) 96%,
+    rgba(83, 109, 121, 1) 103%
+  );
+  width: 100%;
+  align-items: center;
+}
+
+.toolsSection {
+  height: 90%;
+  width: 100%;
+}
+.toolsHeader {
+  transform: translate(10px, 0px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8% 0 8% 0;
+  h1 {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 800;
+    color: white;
+    padding: 0;
+    font-size: 3em;
+    margin-right: 15px;
+  }
+}
+.toolsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+  // margin-left: 50px;
+  // margin-right: 50px;
+  margin: 0 14%;
+  margin-bottom: 16%;
+  // margin-top: 100px;
+}
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 250px;
+  height: 100%;
+  background-color: #b3c6d0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  h2 {
+    font-family: "Nunito Sans", sans-serif;
+    font-family: "Poppins", sans-serif;
+
+    font-weight: 600;
+    padding: 10px 0 15px 0;
+    font-size: 1.7em;
+    white-space: nowrap;
+  }
+  p {
+    font-family: "Nunito Sans", sans-serif;
+    font-family: "Poppins", sans-serif;
+
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 24px;
+    color: #191818;
+    margin-bottom: 20px;
+  }
+  .hyperlink {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    bottom: -23%;
+    width: 68%;
+    height: 50px;
+    color: #fff;
+    background-color: #182c36;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transition: transform 0.2s ease;
+      transform: translate(0, -4px);
+    }
+    svg {
+      margin-left: 8px;
+      background-color: rgb(40, 71, 34);
+    }
+  }
+  .pomodoroImg,
+  .habitTrackerImg,
+  .journalImg {
+    background: linear-gradient(
+      157deg,
+      rgba(226, 231, 233, 1) 65%,
+      rgba(156, 182, 195, 1) 100%
+    );
+    width: 100%;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .toolsContainer {
+    flex-direction: column;
+  }
+}
+@media (max-width: 1280px) {
+  .toolsContainer {
+    gap: 30px;
+    margin: 0 8%;
+    margin-bottom: 14%;
+  }
+}
+
+@media (max-width: 958px) {
+  .toolsContainer {
+    gap: 20px;
+    margin: 0 20px;
+    margin-bottom: 16%;
+  }
+
+  .toolsHeader {
+    padding: 10% 27px 10% 10px;
+    h1 {
+      font-size: 2.7em;
+    }
+  }
+}
+@media (max-width: 835px) {
+  .toolsContainer {
+    grid-template-columns: auto;
+    gap: 60px;
+  }
+  .tool {
+    margin: 0 22%;
+    .hyperlink {
+      position: sticky;
+      background-color: transparent;
+      color: black;
+      font-weight: bold;
+      border: none;
+      width: 90%;
+      align-items: flex-end;
+      svg {
+        background-color: transparent;
+      }
+    }
+  }
+}
+@media (max-width: 516px) {
+  .tool {
+    margin: 0 0%;
+  }
+  .toolsContainer {
+    margin: 0 10%;
+  }
+}
+@media (max-width: 316px) {
+  .toolsContainer {
+    margin: 0 5%;
+  }
+  .toolsHeader {
+    h1 {
+      font-size: 2em;
+    }
+  }
+}
+@media (max-width: 416px) {
+  .toolsHeader {
+    flex-direction: column;
+
+    h1 {
+      margin-right: 0;
+      white-space: nowrap;
+    }
+    svg {
+      height: 35px;
+      width: 35px;
+    }
+  }
+}
+@media (max-width: 510px) {
+  .toolsSection {
+    padding-bottom: 100px;
+  }
+}

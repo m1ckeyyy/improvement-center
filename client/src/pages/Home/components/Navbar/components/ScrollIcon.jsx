@@ -1,4 +1,4 @@
-import styles from './../navbar.module.scss';
+import styles from '../navbar.module.scss';
 import { Link } from 'react-scroll';
 import { BsMouse } from 'react-icons/bs';
 
