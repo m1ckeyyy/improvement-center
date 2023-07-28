@@ -4,18 +4,20 @@ import { BsFillGearFill } from 'react-icons/bs';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 
 import 'react-circular-progressbar/dist/styles.css';
+import { ToastContainer } from 'react-toastify';
 import { Settings } from './PomodoroComponents/Settings/Settings';
 import { Controls } from './PomodoroComponents/Controls';
-import { useSounds } from './PomodoroComponents/Sounds/sounds';
-
-import { breakFinished, workFinished } from './PomodoroComponents/Notifications/Notifications';
-import { ToastContainer } from 'react-toastify';
 import { states } from './PomodoroComponents/timerLogic/states';
-
+import { useSelectMusic } from './PomodoroComponents/timerLogic/useSelectMusic';
+import { useCurrentSection } from './PomodoroComponents/timerLogic/useCurrentSection';
+import { usePomodoroTimer } from './PomodoroComponents/timerLogic/usePomodoroTimer';
+import { useSkipSection } from './PomodoroComponents/timerLogic/useSkipSection';
+import { useReset } from './PomodoroComponents/timerLogic/useReset';
+import { useFormatTimePercentage } from './PomodoroComponents/timerLogic/useFormatTimePercentage';
+import { useFormatTime } from './PomodoroComponents/timerLogic/useFormatTime';
 export const TimerContext = createContext(null);
 
-function PomodoroTimer() {
-  const { startSound, endSound, rainSound, brownNoise } = useSounds();
+const PomodoroTimer = () => {
   const {
     timeFormat,
     setTimeFormat,
@@ -39,102 +41,31 @@ function PomodoroTimer() {
     setSelectedMusicOption,
   } = states();
 
-  useEffect(() => {
-    switch (selectedMusicOption) {
-      case 'Rain':
-        rainSound.play();
-        rainSound.loop = true;
-        brownNoise.pause();
-        break;
-      case 'OFF':
-        rainSound.pause();
-        brownNoise.pause();
-        break;
-      case 'Brown Noise':
-        brownNoise.play();
-        brownNoise.loop = true;
-        rainSound.pause();
-        break;
-    }
-  }, [selectedMusicOption]);
+  useSelectMusic({ selectedMusicOption });
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (isRunning & (secondsLeft > 0)) {
-        setSecondsLeft((prev) => prev - 1);
-      } else if (secondsLeft === 0) {
-        if (currentSection === 'work') {
-          // post request to server about finished session (dateStarted, timeTaken)
-          if (notification === 'ON') workFinished();
-          if (alarmSound === 'ON') endSound.play();
-          setCurrentSection('break');
-          setSecondsLeft(breakTime * 60);
-        } else {
-          if (notification === 'ON') breakFinished();
-          if (alarmSound === 'ON') startSound.play();
-          setCurrentSection('work');
-          setSecondsLeft(workTime * 60);
-        }
-      }
-    }, 1000);
+  usePomodoroTimer({ isRunning, secondsLeft, setSecondsLeft, currentSection, notification, alarmSound, setCurrentSection, breakTime, workTime });
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, [isRunning, secondsLeft, currentSection]);
+  useCurrentSection({ currentSection, workTime, breakTime, setSecondsLeft });
 
-  useEffect(() => {
-    switch (currentSection) {
-      case 'work':
-        setSecondsLeft(workTime * 60);
-        break;
-      case 'break':
-        setSecondsLeft(breakTime * 60);
-        break;
-      default:
-        setSecondsLeft(workTime * 60);
-    }
-  }, [workTime, breakTime]);
+  const handleSkipSection = () => {
+    useSkipSection({ setIsRunning, currentSection, setCurrentSection, setSecondsLeft, breakTime, workTime });
+  };
 
   const handleStartStop = () => {
     setIsRunning((prev) => !prev);
   };
 
   const handleReset = () => {
-    setIsRunning(false);
-    currentSection === 'work' ? setSecondsLeft(workTime * 60) : setSecondsLeft(breakTime * 60);
+    useReset({ setIsRunning, currentSection, setSecondsLeft, workTime, breakTime });
   };
 
-  const handleSkipSection = () => {
-    setIsRunning(true);
-    if (currentSection === 'work') {
-      setCurrentSection('break');
-      setSecondsLeft(breakTime * 60);
-    } else if (currentSection === 'break') {
-      setCurrentSection('work');
-      setSecondsLeft(workTime * 60);
-    }
-  };
-
-  const formatTimePercentage = (timeInSeconds) => {
-    const totalSeconds = currentSection === 'work' ? workTime * 60 : breakTime * 60;
-    const progress = 100 - (timeInSeconds / totalSeconds) * 100;
-    return Math.ceil(progress).toString();
-  };
-
-  const formatTime = (timeInSeconds) => {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = timeInSeconds % 60;
-    if (timeFormat === 'minutes') {
-      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    } else {
-      return formatTimePercentage(timeInSeconds) + '%';
-    }
-  };
+  const formatTimePercentage = (timeInSeconds) => useFormatTimePercentage({ timeInSeconds, currentSection, workTime, breakTime });
+  const formatTime = (timeInSeconds) => useFormatTime({ timeInSeconds, timeFormat, formatTimePercentage });
 
   const toggleVisibility = () => {
     setSettingsVisible((prev) => !prev);
   };
+
   const timerValues = {
     workTime,
     breakTime,
@@ -191,6 +122,6 @@ function PomodoroTimer() {
       </div>
     </TimerContext.Provider>
   );
-}
+};
 
 export default PomodoroTimer;
