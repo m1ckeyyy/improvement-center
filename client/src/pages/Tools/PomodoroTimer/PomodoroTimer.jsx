@@ -18,6 +18,31 @@ import { useFormatTime } from './PomodoroComponents/timerLogic/useFormatTime';
 export const TimerContext = createContext(null);
 
 const PomodoroTimer = () => {
+  // const {
+  //   timeFormat,
+  //   setTimeFormat,
+  //   notification,
+  //   setNotification,
+  //   alarmSound,
+  //   setAlarmSound,
+  //   settingsVisible,
+  //   setSettingsVisible,
+  //   workTime,
+  //   setWorkTimePreference,
+  //   breakTime,
+  //   setBreakTimePreference,
+  //   isRunning,
+  //   setIsRunning,
+  //   secondsLeft,
+  //   setSecondsLeft,
+  //   currentSection,
+  //   setCurrentSection,
+  //   selectedMusicOption,
+  //   setSelectedMusicOption,
+  // } = states();
+  // const allValues = states();
+  const allValues = states();
+
   const {
     timeFormat,
     setTimeFormat,
@@ -39,7 +64,9 @@ const PomodoroTimer = () => {
     setCurrentSection,
     selectedMusicOption,
     setSelectedMusicOption,
-  } = states();
+  } = allValues;
+
+  //toggleVisibilityhandleStartStop,handleReset,handleSkipSection
 
   useSelectMusic({ selectedMusicOption });
 
@@ -66,27 +93,29 @@ const PomodoroTimer = () => {
     setSettingsVisible((prev) => !prev);
   };
 
-  const timerValues = {
-    workTime,
-    breakTime,
-    setWorkTimePreference,
-    setBreakTimePreference,
-    toggleVisibility,
-    timeFormat,
-    setTimeFormat,
-    selectedMusicOption,
-    setSelectedMusicOption,
-    notification,
-    setNotification,
-    alarmSound,
-    setAlarmSound,
-    isRunning,
-    handleStartStop,
-    handleReset,
-    handleSkipSection,
-  };
+  // const timerValues = {
+  //   workTime,
+  //   breakTime,
+  //   setWorkTimePreference,
+  //   setBreakTimePreference,
+  //   toggleVisibility,
+  //   timeFormat,
+  //   setTimeFormat,
+  //   selectedMusicOption,
+  //   setSelectedMusicOption,
+  //   notification,
+  //   setNotification,
+  //   alarmSound,
+  //   setAlarmSound,
+  //   isRunning,
+  //   handleStartStop,
+  //   handleReset,
+  //   handleSkipSection,
+  // };
+  const timerContextData = { ...allValues, handleStartStop, handleReset, handleSkipSection, toggleVisibility };
+
   return (
-    <TimerContext.Provider value={timerValues}>
+    <TimerContext.Provider value={timerContextData}>
       <div className={styles.overlayContainer}>
         <div className={styles.app}>
           <div className={styles.timer}>

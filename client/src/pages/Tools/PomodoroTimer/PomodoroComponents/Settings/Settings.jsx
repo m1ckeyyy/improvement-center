@@ -13,10 +13,11 @@ export const Settings = () => {
   const [isMusicMenuOpen, setIsMusicMenuOpen] = useState(false);
 
   const applySettings = (e) => {
+    console.log(parseInt(e.target.elements.breakTimeInput.value));
     e.preventDefault();
     toggleVisibility();
-    setWorkTimePreference(parseInt(e.target.elements[0].value));
-    setBreakTimePreference(parseInt(e.target.elements[1].value));
+    setWorkTimePreference(parseInt(e.target.elements.workTimeInput.value));
+    setBreakTimePreference(parseInt(e.target.elements.breakTimeInput.value));
   };
 
   const toggleTimeFormat = () => {
