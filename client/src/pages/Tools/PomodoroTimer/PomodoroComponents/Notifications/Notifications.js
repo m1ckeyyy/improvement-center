@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const breakFinished = () => {
+export const notifyBreakFinished = () => {
   toast.info('😎 Time for work', {
     position: 'top-right',
     autoClose: 5000,
@@ -13,7 +13,7 @@ export const breakFinished = () => {
     theme: 'colored',
   });
 };
-export const workFinished = () => {
+export const notifyWorkFinished = () => {
   toast.info('🎉 Time for break', {
     position: 'top-right',
     autoClose: 5000,

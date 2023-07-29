@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { breakFinished, workFinished } from './../Notifications/Notifications';
+import { notifyBreakFinished, notifyWorkFinished } from './../Notifications/Notifications';
 import { useSounds } from '../Sounds/sounds';
 
 export const usePomodoroTimer = ({ isRunning, secondsLeft, setSecondsLeft, currentSection, notification, alarmSound, setCurrentSection, breakTime, workTime }) => {
@@ -12,12 +12,12 @@ export const usePomodoroTimer = ({ isRunning, secondsLeft, setSecondsLeft, curre
       } else if (secondsLeft === 0) {
         if (currentSection === 'work') {
           // post request to server about finished session (dateStarted, timeTaken)
-          if (notification === 'ON') workFinished();
+          if (notification === 'ON') notifyWorkFinished();
           if (alarmSound === 'ON') endSound.play();
           setCurrentSection('break');
           setSecondsLeft(breakTime * 60);
         } else {
-          if (notification === 'ON') breakFinished();
+          if (notification === 'ON') notifyBreakFinished();
           if (alarmSound === 'ON') startSound.play();
           setCurrentSection('work');
           setSecondsLeft(workTime * 60);

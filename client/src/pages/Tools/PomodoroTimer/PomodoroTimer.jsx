@@ -1,5 +1,5 @@
 import styles from './PomodoroTimer.module.scss';
-import { useState, useEffect, createContext } from 'react';
+import { createContext, useCallback } from 'react';
 import { BsFillGearFill } from 'react-icons/bs';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 
@@ -18,44 +18,16 @@ import { useFormatTime } from './PomodoroComponents/timerLogic/useFormatTime';
 export const TimerContext = createContext(null);
 
 const PomodoroTimer = () => {
-  // const {
-  //   timeFormat,
-  //   setTimeFormat,
-  //   notification,
-  //   setNotification,
-  //   alarmSound,
-  //   setAlarmSound,
-  //   settingsVisible,
-  //   setSettingsVisible,
-  //   workTime,
-  //   setWorkTimePreference,
-  //   breakTime,
-  //   setBreakTimePreference,
-  //   isRunning,
-  //   setIsRunning,
-  //   secondsLeft,
-  //   setSecondsLeft,
-  //   currentSection,
-  //   setCurrentSection,
-  //   selectedMusicOption,
-  //   setSelectedMusicOption,
-  // } = states();
-  // const allValues = states();
+  console.log('re-render');
   const allValues = states();
-
   const {
     timeFormat,
-    setTimeFormat,
     notification,
-    setNotification,
     alarmSound,
-    setAlarmSound,
     settingsVisible,
     setSettingsVisible,
     workTime,
-    setWorkTimePreference,
     breakTime,
-    setBreakTimePreference,
     isRunning,
     setIsRunning,
     secondsLeft,
@@ -63,10 +35,7 @@ const PomodoroTimer = () => {
     currentSection,
     setCurrentSection,
     selectedMusicOption,
-    setSelectedMusicOption,
   } = allValues;
-
-  //toggleVisibilityhandleStartStop,handleReset,handleSkipSection
 
   useSelectMusic({ selectedMusicOption });
 
@@ -93,25 +62,6 @@ const PomodoroTimer = () => {
     setSettingsVisible((prev) => !prev);
   };
 
-  // const timerValues = {
-  //   workTime,
-  //   breakTime,
-  //   setWorkTimePreference,
-  //   setBreakTimePreference,
-  //   toggleVisibility,
-  //   timeFormat,
-  //   setTimeFormat,
-  //   selectedMusicOption,
-  //   setSelectedMusicOption,
-  //   notification,
-  //   setNotification,
-  //   alarmSound,
-  //   setAlarmSound,
-  //   isRunning,
-  //   handleStartStop,
-  //   handleReset,
-  //   handleSkipSection,
-  // };
   const timerContextData = { ...allValues, handleStartStop, handleReset, handleSkipSection, toggleVisibility };
 
   return (

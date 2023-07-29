@@ -7,13 +7,13 @@ import { MdSettingsInputComponent } from 'react-icons/md';
 import { TimerContext } from '../../PomodoroTimer';
 
 export const Settings = () => {
+  // console.log('render');
   const { workTime, breakTime, setWorkTimePreference, setBreakTimePreference, toggleVisibility, timeFormat, setTimeFormat, notification, setNotification, alarmSound, setAlarmSound } =
     useContext(TimerContext);
 
   const [isMusicMenuOpen, setIsMusicMenuOpen] = useState(false);
 
   const applySettings = (e) => {
-    console.log(parseInt(e.target.elements.breakTimeInput.value));
     e.preventDefault();
     toggleVisibility();
     setWorkTimePreference(parseInt(e.target.elements.workTimeInput.value));
