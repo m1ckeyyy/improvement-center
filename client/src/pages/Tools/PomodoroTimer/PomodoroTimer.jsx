@@ -1,6 +1,5 @@
 import styles from './PomodoroTimer.module.scss';
 import { createContext } from 'react';
-import { BsFillGearFill } from 'react-icons/bs';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import { GearButton } from './PomodoroComponents/GearButton';
 import 'react-circular-progressbar/dist/styles.css';
