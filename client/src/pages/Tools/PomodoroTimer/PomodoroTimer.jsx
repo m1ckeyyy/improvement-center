@@ -1,12 +1,12 @@
 import styles from './PomodoroTimer.module.scss';
-import { createContext, useCallback } from 'react';
+import { createContext } from 'react';
 import { BsFillGearFill } from 'react-icons/bs';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
-
+import { GearButton } from './PomodoroComponents/GearButton';
 import 'react-circular-progressbar/dist/styles.css';
 import { ToastContainer } from 'react-toastify';
 import { Settings } from './PomodoroComponents/Settings/Settings';
-import { Controls } from './PomodoroComponents/Controls';
+import { Controls } from './PomodoroComponents/Controls/Controls';
 import { states } from './PomodoroComponents/timerLogic/states';
 import { useSelectMusic } from './PomodoroComponents/timerLogic/useSelectMusic';
 import { useCurrentSection } from './PomodoroComponents/timerLogic/useCurrentSection';
@@ -89,13 +89,9 @@ const PomodoroTimer = () => {
             </div>
           </div>
 
-          {!settingsVisible ? <Controls isRunning={isRunning} handleStartStop={handleStartStop} handleReset={handleReset} handleSkipSection={handleSkipSection} /> : ''}
+          {settingsVisible ? <Settings /> : <Controls />}
 
-          <button className={styles.gearButton} onClick={toggleVisibility}>
-            <BsFillGearFill size="35" color="#0a789b" title="settings" />
-          </button>
-
-          {settingsVisible && <Settings />}
+          {!settingsVisible && <GearButton onClick={toggleVisibility} />}
         </div>
         <ToastContainer />
       </div>
