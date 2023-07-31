@@ -6,7 +6,7 @@ import { handleIconMouseOut, handleIconMouseOver } from './components/handleHove
 import { LoginForm } from './components/LoginForm';
 import styles from './log.module.scss';
 
-export default function Login() {
+export default Login = () => {
   const header = useRef(null);
   useEffect(() => {
     useHeaderEffect(header.current);
@@ -41,4 +41,4 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};

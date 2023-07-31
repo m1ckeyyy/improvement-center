@@ -17,7 +17,7 @@ import { useFormatTime } from './PomodoroComponents/timerLogic/useFormatTime';
 export const TimerContext = createContext(null);
 
 const PomodoroTimer = () => {
-  console.log('re-render');
+  // console.log('re-render');
   const allValues = states();
   const {
     timeFormat,
@@ -87,10 +87,8 @@ const PomodoroTimer = () => {
               />
             </div>
           </div>
-
           {settingsVisible ? <Settings /> : <Controls />}
-
-          {!settingsVisible && <GearButton onClick={toggleVisibility} />}
+          {settingsVisible || <GearButton onClick={toggleVisibility} />}
         </div>
         <ToastContainer />
       </div>

@@ -1,19 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
 
-.app {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  min-height: 350px;
-  max-height: 90vh;
-  height: 450px;
-  width: 80%;
-  max-width: 900px;
-  background-color: white;
-  border-radius: 8px;
-  border: 2px solid white;
-}
 .overlayContainer {
   font-family: 'Inconsolata', monospace;
   overflow: hidden;
@@ -26,6 +13,20 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+}
+.app {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: relative;
+  min-height: 350px;
+  max-height: 90vh;
+  height: 450px;
+  width: 80%;
+  max-width: 900px;
+  background-color: white;
+  border-radius: 8px;
+  border: 2px solid white;
 }
 .gearButton {
   position: absolute;
@@ -120,5 +121,20 @@
       padding-bottom: 5px;
       font-size: 2em;
     }
+  }
+}
+@media (max-width: 615px) {
+  .overlayContainer {
+    display: block;
+  }
+  .app {
+    width: 100%;
+    flex-direction: column;
+    border: 5px solid red;
+  }
+  .controls {
+    width: 100%;
+    border: 2px solid white;
+    box-sizing: content-box;
   }
 }

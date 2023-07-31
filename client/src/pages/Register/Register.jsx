@@ -6,7 +6,7 @@ import { RegisterForm } from './components/RegisterForm';
 import { handleIconMouseOut, handleIconMouseOver } from './components/handleHover';
 import styles from './reg.module.scss';
 
-export default function Register() {
+export default Register = () => {
   const header = useRef(null);
 
   useEffect(() => {
@@ -39,4 +39,4 @@ export default function Register() {
       </div>
     </div>
   );
-}
+};
