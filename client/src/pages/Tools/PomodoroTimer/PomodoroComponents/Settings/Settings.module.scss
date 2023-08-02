@@ -36,12 +36,14 @@
     margin-bottom: 11px;
   }
 }
+
 .iconButtons {
   position: absolute;
   right: 1.5%;
   bottom: 3%;
   display: flex;
   button {
+    margin-left: 5px;
     background: none;
     border: none;
   }

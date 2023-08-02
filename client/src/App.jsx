@@ -1,16 +1,12 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
 import { LoadingScreen } from './pages/effects/LoadingScreen';
-
-const Login = lazy(() => import('./pages/Login/Login'));
-const Register = lazy(() => import('./pages/Register/Register'));
-const Home = lazy(() => import('./pages/Home/Home'));
-const Pomodoro = lazy(() => import('./pages/Tools/PomodoroTimer/PomodoroTimer'));
-
+import { Login, Register, Home, Pomodoro, Journal } from './lazyLoadedPages';
 import SuspenseRouter from './SuspenseRouter';
 
-function App() {
+const App = () => {
+  console.log('a');
+  console.log( Register, Home, Pomodoro, Journal);
   return (
     <>
       <SuspenseRouter window={window}>
@@ -19,12 +15,14 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/journal" element={<Journal />} />
+
             <Route path="/pomodoro" element={<Pomodoro />} />
           </Routes>
         </Suspense>
       </SuspenseRouter>
     </>
   );
-}
+};
 
 export default App;

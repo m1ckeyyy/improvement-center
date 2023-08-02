@@ -5,15 +5,16 @@ import { formatTime, toggleAlarm, toggleNotis } from './components/toggles';
 import { IconButtons } from './components/iconButtons';
 import { MdSettingsInputComponent } from 'react-icons/md';
 import { TimerContext } from '../../PomodoroTimer';
+import { notifySettingsApplied } from '../Notifications/Notifications';
 
 export const Settings = () => {
-  // console.log('render');
   const { workTime, breakTime, setWorkTimePreference, setBreakTimePreference, toggleVisibility, timeFormat, setTimeFormat, notification, setNotification, alarmSound, setAlarmSound } =
     useContext(TimerContext);
 
   const [isMusicMenuOpen, setIsMusicMenuOpen] = useState(false);
 
   const applySettings = (e) => {
+    notifySettingsApplied();
     e.preventDefault();
     toggleVisibility();
     setWorkTimePreference(parseInt(e.target.elements.workTimeInput.value));

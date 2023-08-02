@@ -22,6 +22,16 @@ export const notifyWorkFinished = () => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    theme: 'colored',
+  });
+};
+export const notifySettingsApplied = () => {
+  toast.success('🍅 Settings Applied', {
+    position: 'top-right',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
   });
 };
