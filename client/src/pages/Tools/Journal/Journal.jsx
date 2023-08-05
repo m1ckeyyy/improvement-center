@@ -7,23 +7,24 @@ import { nanoid } from 'nanoid';
 
 const Journal = () => {
   const [notes, setNotes] = useState([
-    { id: nanoid(), text: 'This is note', date: '5/08/2023' },
-    { id: nanoid(), text: 'Is it note zwei?', date: '1/08/2023' },
-    { id: nanoid(), text: 'This is note drei', date: '7/08/2023' },
+    {
+      id: nanoid(),
+      title: 'best note',
+      text: 'This is noteThis is noteThis is noteThis is noteThis is noteThis is noteThis is noteThis is noteThis is noteThis is noteThis is noteThis is noteThis is note',
+      date: '5/08/2023',
+    },
+    { id: nanoid(), title: 'Big man story', text: 'Is it note zwei?', date: '1/08/2023' },
+    { id: nanoid(), title: 'The title', text: 'This is note drei', date: '7/08/2023' },
   ]);
 
   return (
     <div className={styles.wrapContainer}>
       <div className={styles.overlayContainer}>
         <input type="text" id="searchInput" className={styles.searchInput} placeholder="🔎 Search notes" />
-        <div className={styles.app}>
-          {/* <NewNote />
-          <Note />
-          <Note />
-          <Note />
-          <Note /> */}
-          <NotesList notes={notes} />
-        </div>
+        {/* <div className={styles.app}> */}
+        {/* <NewNote /> */}
+        <NotesList notes={notes} setNotes={setNotes} />
+        {/* </div> */}
       </div>
     </div>
   );

@@ -1,5 +1,11 @@
 import styles from './../Journal.module.scss';
 
-export const NewNote = () => {
-  return <div className={`${styles.note} ${styles.newNote}`}>New Note +</div>;
+export const NewNote = ({ setNotes }) => {
+  return (
+    <form className={`${styles.note} ${styles.newNote}`}>
+      <button className={styles.submitNote} type="submit">
+        ADD +
+      </button>
+    </form>
+  );
 };

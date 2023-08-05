@@ -80,10 +80,25 @@ html,
   max-width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
   background-color: lightgray;
+  :last-child {
+    margin-top: auto;
+  }
 }
 .newNote {
-  cursor: pointer;
   background-color: lightsalmon;
+  position: relative;
+}
+.submitNote {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: 15px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  width: 20%;
+  &:hover {
+  }
 }
