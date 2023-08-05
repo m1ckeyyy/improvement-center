@@ -70,6 +70,7 @@ html,
   background-color: white;
 }
 .note {
+  position: relative;
   color: black;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -82,8 +83,12 @@ html,
   flex-direction: column;
   // justify-content: space-between;
   background-color: lightgray;
+  overflow: auto;
   :last-child {
     margin-top: auto;
+  }
+  big {
+    font-size: 1.3em;
   }
 }
 .newNote {
@@ -101,4 +106,27 @@ html,
   width: 20%;
   &:hover {
   }
+}
+.noteFooter{
+  font-size: 1.15em;
+  font-style: oblique;
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  
+}
+.newNoteContent{
+  font-family: 'Quicksand', sans-serif;
+
+background: none;
+border: none;
+}
+.newNoteTitle{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.3em;
+  background:none;
+  border: none;
+}
+.newNoteTitle:focus, .newNoteContent:focus {
+  outline: none;
 }

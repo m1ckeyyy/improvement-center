@@ -7,7 +7,7 @@ export const NotesList = ({ notes, setNotes }) => {
     <div className={styles.app}>
       <NewNote setNotes={setNotes}/>
       {notes.map((note) => (
-        <Note id={note.id} text={note.text} date={note.date} title={note.title} />
+        <Note id={note.id} content={note.content} date={note.date} title={note.title} />
       ))}
     </div>
   );

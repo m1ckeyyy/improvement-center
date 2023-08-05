@@ -1,10 +1,10 @@
 import styles from './../Journal.module.scss';
 
-export const Note = ({ id, text, title, date }) => {
+export const Note = ({ id, content, title, date }) => {
   return (
     <div className={styles.note}>
       <big>{title}</big>
-      {text}
+      {content}
       <div className={styles.noteFooter}>
         <small>{date}</small>
       </div>
