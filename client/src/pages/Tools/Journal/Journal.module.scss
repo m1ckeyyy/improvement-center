@@ -78,7 +78,7 @@ html,
   min-height: 170px;
   max-height: 170px;
   // min-width: 300px;
-  max-width: 300px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   // justify-content: space-between;
@@ -92,8 +92,14 @@ html,
   }
 }
 .newNote {
-  background-color: lightsalmon;
+  background-color: #ffb54b;
   position: relative;
+  overflow-x: hidden;
+  textarea {
+    resize: none;
+    height: 100%;
+    width: 100%;
+  }
 }
 .submitNote {
   cursor: pointer;
@@ -104,29 +110,36 @@ html,
   background: none;
   border: none;
   width: 20%;
+  padding: 5px;
+  // background-color: #4f8bde;
+  color: white;
+  right: 0px;
+  bottom: 0;
+  transition: color 0.3s ease;
   &:hover {
+    color: rgb(32, 32, 32);
   }
 }
-.noteFooter{
+.noteFooter {
   font-size: 1.15em;
   font-style: oblique;
   position: absolute;
   top: 3px;
   right: 10px;
-  
 }
-.newNoteContent{
+.newNoteContent {
   font-family: 'Quicksand', sans-serif;
 
-background: none;
-border: none;
-}
-.newNoteTitle{
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.3em;
-  background:none;
+  background: none;
   border: none;
 }
-.newNoteTitle:focus, .newNoteContent:focus {
+.newNoteTitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.3em;
+  background: none;
+  border: none;
+}
+.newNoteTitle:focus,
+.newNoteContent:focus {
   outline: none;
 }

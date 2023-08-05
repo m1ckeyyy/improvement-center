@@ -1,10 +1,10 @@
 import styles from './../Journal.module.scss';
-import {useState} from 'react'
+import { useState } from 'react';
+import { BsBoxArrowRight } from 'react-icons/bs';
 
 export const NewNote = ({ setNotes }) => {
-
-  const [title, setTitle] = useState(''); // State for the editable title field
-  const [content, setContent] = useState(''); // State for the editable content field
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -34,26 +34,12 @@ export const NewNote = ({ setNotes }) => {
     setContent('');
   };
 
-
-
   return (
     <form className={`${styles.note} ${styles.newNote}`} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={title}
-          onChange={handleTitleChange}
-          placeholder="Enter title..."
-          className={styles.newNoteTitle}
-        />
-      <textarea
-        value={content}
-        onChange={handleContentChange}
-        placeholder="Enter content..."
-        className={styles.newNoteContent}
-
-      />
+      <input type="text" value={title} onChange={handleTitleChange} placeholder="Enter title..." className={styles.newNoteTitle} />
+      <textarea value={content} onChange={handleContentChange} placeholder="Enter content..." className={styles.newNoteContent} />
       <button className={styles.submitNote} type="submit">
-        ADD +
+        <BsBoxArrowRight size="2em" />
       </button>
     </form>
   );
