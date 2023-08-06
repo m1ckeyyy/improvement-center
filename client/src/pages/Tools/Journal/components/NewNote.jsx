@@ -1,10 +1,29 @@
 import styles from './../Journal.module.scss';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { BsBoxArrowRight } from 'react-icons/bs';
 
 export const NewNote = ({ setNotes }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+
+  const titleRef = useRef(null);
+  const contentRef = useRef(null);
+
+  const focusOnContent = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (titleRef.current.value.trim() !== '') {
+        contentRef.current.focus();
+      }
+    }
+  };
+  const focusOnTitle = (event) => {
+    if (event.key === 'Backspace' && contentRef.current.value === '') {
+      event.preventDefault();
+      titleRef.current.focus();
+    }
+  };
+
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -35,10 +54,10 @@ export const NewNote = ({ setNotes }) => {
   };
 
   return (
-    <form className={`${styles.note} ${styles.newNote}`} onSubmit={handleSubmit}>
-      <input type="text" value={title} onChange={handleTitleChange} placeholder="Enter title..." className={styles.newNoteTitle} />
-      <textarea value={content} onChange={handleContentChange} placeholder="Enter content..." className={styles.newNoteContent} />
-      <button className={styles.submitNote} type="submit">
+    <form className={`${styles.note} ${styles.newNote} ${styles.scrollableContainer}`} onSubmit={handleSubmit}>
+      <input type="text" value={title} onChange={handleTitleChange} placeholder="Enter title..." className={styles.newNoteTitle} onKeyDown={focusOnContent} ref={titleRef} />
+      <textarea value={content} onChange={handleContentChange} placeholder="Enter content..." className={styles.newNoteContent} ref={contentRef} onKeyDown={focusOnTitle} />
+      <button className={styles.submitNote} type="submit" title="submit">
         <BsBoxArrowRight size="2em" />
       </button>
     </form>

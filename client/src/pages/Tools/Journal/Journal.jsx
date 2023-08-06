@@ -30,3 +30,7 @@ const Journal = () => {
   );
 };
 export default Journal;
+
+/*
+1 wielki textarea w ktorym bedzie input bez scrolla !!! 
+*/
