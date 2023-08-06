@@ -117,7 +117,7 @@ html,
   width: 20%;
   padding: 5px;
   color: black;
-  right: -20px;
+  right: -8%;
   bottom: -13px;
 
   transition: all 0.3s ease;
@@ -152,5 +152,5 @@ html,
 }
 
 .scrollable {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px -20px 20px 0px rgb(0 0 0 / 10%);
 }

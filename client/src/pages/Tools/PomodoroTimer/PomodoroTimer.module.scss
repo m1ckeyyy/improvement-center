@@ -78,6 +78,14 @@ html,
     transform: scale(1.01);
   }
 }
+.rain {
+  background: url('images/rain.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.brownNoise {
+  background: linear-gradient(342deg, rgb(104 74 55) 6%, rgb(57 46 23) 68%, rgb(136 133 121) 100%, rgb(209, 55, 30) 100%);
+}
 .controls {
   border-radius: 0px 8px 8px 0px;
   color: black;

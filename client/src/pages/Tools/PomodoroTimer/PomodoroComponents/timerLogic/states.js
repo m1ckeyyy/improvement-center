@@ -12,6 +12,7 @@ export const states = () => {
   const [secondsLeft, setSecondsLeft] = useState(workTime * 60);
   const [currentSection, setCurrentSection] = useState('work');
   const [selectedMusicOption, setSelectedMusicOption] = useState('OFF');
+  const [backgroundTheme, setBackgroundTheme] = useState('OFF');
 
   return {
     timeFormat,
@@ -34,5 +35,7 @@ export const states = () => {
     setCurrentSection,
     selectedMusicOption,
     setSelectedMusicOption,
+    backgroundTheme,
+    setBackgroundTheme,
   };
 };

@@ -1,6 +1,7 @@
 import styles from './../Journal.module.scss';
 import { useState, useRef } from 'react';
 import { BsBoxArrowRight } from 'react-icons/bs';
+import { nanoid } from 'nanoid';
 
 export const NewNote = ({ setNotes }) => {
   const [title, setTitle] = useState('');
@@ -47,6 +48,7 @@ export const NewNote = ({ setNotes }) => {
       title: title,
       content: content,
       date: formattedDate,
+      id: nanoid(),
     };
     setNotes((prevNotes) => [...prevNotes, newNote]);
     setTitle('');

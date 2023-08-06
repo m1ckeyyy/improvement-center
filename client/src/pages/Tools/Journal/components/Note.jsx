@@ -1,20 +1,13 @@
 import styles from './../Journal.module.scss';
+import { useScrollable } from './useScrollable';
 import { useRef, useEffect, useState } from 'react';
 
 export const Note = ({ id, content, title, date }) => {
   const checkIfScrollable = useRef(null);
-  const [isScrollable, setIsScrollable] = useState(false);
-
-  useEffect(() => {
-    const element = checkIfScrollable.current;
-
-    if (element) {
-      setIsScrollable(element.scrollHeight > element.clientHeight);
-    }
-  }, []);
+  const { isScrollable } = useScrollable({ checkIfScrollable });
 
   return (
-    <div className={isScrollable ? `${styles.note} ${styles.scrollable}` : styles.note} ref={checkIfScrollable} key={id}>
+    <div className={isScrollable ? `${styles.note} ${styles.scrollable}` : styles.note} ref={checkIfScrollable}>
       {/* {isScrollable ? ' HAHA' : 'NENE'} */}
       <big>{title}</big>
       <div>{content}</div>
