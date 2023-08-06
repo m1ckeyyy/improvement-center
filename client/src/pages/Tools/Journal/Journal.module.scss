@@ -60,7 +60,6 @@ html,
   min-width: 230px;
   border-radius: 10px;
   font-size: 1.3em;
-  margin-bottom: 10px;
   background-color: #eaecef;
 }
 .searchInput::placeholder {
@@ -109,8 +108,6 @@ html,
 .submitNote {
   cursor: pointer;
   position: absolute;
-  right: 5px;
-  bottom: 15px;
   font-weight: bold;
   background: none;
   border: none;
@@ -124,7 +121,16 @@ html,
 
   &:hover {
     color: rgb(32, 32, 32);
-    transform: translateX(2px);
+    transform: translateX(-2px);
+  }
+  &:active {
+    transition: transform 0.2s ease;
+    transform: scale(1.2);
+  }
+  svg {
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 5px;
   }
 }
 .noteFooter {
@@ -155,12 +161,15 @@ html,
   box-shadow: inset 0px -20px 20px 0px rgb(0 0 0 / 10%);
 }
 .appHeader {
+  margin-bottom: 10px;
+
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 .iconButtons {
+  margin-left: 10px;
   .profileBtn,
   .homeIcon,
   .editBtn {
@@ -176,9 +185,71 @@ html,
 
     &:hover {
       cursor: pointer;
-      transform: scale(1.1);
+      transform: scale(1.06);
     }
   }
+}
+.sortMenu {
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #eaecef;
+  margin-left: auto;
+  border: 1.5px solid #969ea9;
+  color: black;
+  padding: 5px 5px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 5px;
+  z-index: 1;
+  transition: background-color 0.1s ease;
+  &:hover {
+    background-color: white;
+  }
+  span {
+    padding-right: 5px;
+    padding-left: 3px;
+  }
+}
+.sortDropDownMenu {
+  position: absolute;
+  background-color: white;
+  border: 1.5px solid black;
+  color: black;
+  border-radius: 5px;
+  padding: 10px 10px;
+  bottom: -142px;
+  left: 0;
+  z-index: 1;
+  .sortMenuElement {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    &:first-child {
+      padding-bottom: 10px;
+      padding-top: 2px;
+    }
+    &:last-child {
+      padding-top: 10px;
+      padding-bottom: 4px;
+    }
+    transition: transform 0.2s ease-in;
+    &:hover {
+      transform: translateX(2px);
+    }
+    &:active {
+      transition: transform 0.05s ease;
+      transform: scale(0.95);
+    }
+    span {
+      white-space: nowrap;
+    }
+  }
+}
+.hideMenu {
+  transition: opacity 0.2s ease;
+  opacity: 0;
 }
 @media (max-width: 674px) {
   .app {

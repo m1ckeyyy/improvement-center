@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { ToastContainer } from 'react-toastify';
 import { IconButtons } from './components/IconButtons';
-
+import { SortMenu } from './components/SortMenu';
 const Journal = () => {
   //fetching
   const [notes, setNotes] = useState([
@@ -24,6 +24,7 @@ const Journal = () => {
       <div className={styles.overlayContainer}>
         <div className={styles.appHeader}>
           <input type="text" id="searchInput" className={styles.searchInput} placeholder="🔎 Search notes" />
+          <SortMenu />
           <IconButtons />
         </div>
 
