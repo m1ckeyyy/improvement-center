@@ -2,6 +2,7 @@ import styles from './../Journal.module.scss';
 import { useState, useRef } from 'react';
 import { BsBoxArrowRight } from 'react-icons/bs';
 import { nanoid } from 'nanoid';
+import { notifyNoteIncomplete } from './Notifications';
 
 export const NewNote = ({ setNotes }) => {
   const [title, setTitle] = useState('');
@@ -34,7 +35,7 @@ export const NewNote = ({ setNotes }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!title || !content) {
-      // TOASTIFY
+      notifyNoteIncomplete();
       return;
     }
 

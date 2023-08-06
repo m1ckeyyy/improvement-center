@@ -1,9 +1,9 @@
 import styles from './Journal.module.scss';
-// import { Note } from './components/Note';
-// import { NewNote } from './components/NewNote';
 import { NotesList } from './components/NotesList';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import { ToastContainer } from 'react-toastify';
+import { IconButtons } from './components/IconButtons';
 
 const Journal = () => {
   //fetching
@@ -22,9 +22,13 @@ const Journal = () => {
   return (
     <div className={styles.wrapContainer}>
       <div className={styles.overlayContainer}>
-        <input type="text" id="searchInput" className={styles.searchInput} placeholder="🔎 Search notes" />
+        <div className={styles.appHeader}>
+          <input type="text" id="searchInput" className={styles.searchInput} placeholder="🔎 Search notes" />
+          <IconButtons />
+        </div>
 
         <NotesList notes={notes} setNotes={setNotes} />
+        <ToastContainer />
       </div>
     </div>
   );

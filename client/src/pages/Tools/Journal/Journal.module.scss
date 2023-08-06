@@ -38,7 +38,6 @@ html,
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 170px;
-  // grid-auto-columns: 170px;
   justify-content: space-between;
   position: relative;
   min-height: 350px;
@@ -49,6 +48,7 @@ html,
   background-color: white;
   border-radius: 8px;
   border: 2px solid white;
+  overflow: auto;
 }
 .searchInput {
   font-family: 'Quicksand', sans-serif;
@@ -153,4 +153,42 @@ html,
 
 .scrollable {
   box-shadow: inset 0px -20px 20px 0px rgb(0 0 0 / 10%);
+}
+.appHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.iconButtons {
+  .profileBtn,
+  .homeIcon,
+  .editBtn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 6px;
+    a {
+      color: white;
+    }
+    transition: transform 0.2s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+}
+@media (max-width: 674px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+
+    .note {
+      width: 100%;
+    }
+  }
 }
