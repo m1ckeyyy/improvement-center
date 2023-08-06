@@ -114,18 +114,11 @@
   .container {
     width: 100%;
     flex: 2;
-    // zoom: 1.5;
-  }
-}
-@media (max-width: 290px) {
-  .container {
-    // zoom: 1.2;
   }
 }
 
 @media (max-height: 700px) {
   .container {
     zoom: 1;
-    // flex: 1;
   }
 }
