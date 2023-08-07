@@ -3,8 +3,6 @@ import { Note } from './Note.jsx';
 import { NewNote } from './NewNote';
 
 export const NotesList = ({ notes, setNotes }) => {
-  // notes.map((note) => console.log(note.id));
-
   return (
     <div className={styles.app}>
       <NewNote setNotes={setNotes} />

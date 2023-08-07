@@ -42,10 +42,10 @@ export const useNewNote = ({ contentRef, titleRef, setNotes }) => {
     const formattedDate = `${day}/${month}/${year}`;
 
     const newNote = {
+      id: nanoid(),
       title: title,
       content: content,
       date: formattedDate,
-      id: nanoid(),
     };
     setNotes((prevNotes) => [...prevNotes, newNote]);
     setTitle('');
