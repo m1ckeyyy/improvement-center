@@ -24,6 +24,7 @@ html,
   align-items: center;
   justify-content: center;
 }
+
 .overlayContainer {
   width: 80%;
   height: 85%;
@@ -125,7 +126,7 @@ html,
   }
   &:active {
     transition: transform 0.2s ease;
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   svg {
     background-color: white;
