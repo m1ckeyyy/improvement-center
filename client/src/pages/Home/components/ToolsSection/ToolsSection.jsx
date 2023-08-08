@@ -18,15 +18,6 @@ export const ToolsSection = () => {
             link="/pomodoro"
             imageSrc="images/pomodoro2.png"
             imageClassName={styles.pomodoroImg}
-            buttonClassName={styles.hyperlink}
-          />
-          <ToolCard
-            title="Habit Tracker"
-            description="Form good habits and break bad ones with our powerful habit tracker"
-            link="/habittracker"
-            imageSrc="images/habittracker.png"
-            imageClassName={styles.habitTrackerImg}
-            buttonClassName={styles.hyperlink}
           />
           <ToolCard
             title="Daily Journal"
@@ -34,7 +25,13 @@ export const ToolsSection = () => {
             link="/journal"
             imageSrc="images/journal.png"
             imageClassName={styles.journalImg}
-            buttonClassName={styles.hyperlink}
+          />
+          <ToolCard
+            title="Habit Tracker"
+            description="Form good habits and break bad ones with our powerful habit tracker"
+            link="/habittracker"
+            imageSrc="images/habittracker.png"
+            imageClassName={styles.habitTrackerImg}
           />
         </div>
       </section>

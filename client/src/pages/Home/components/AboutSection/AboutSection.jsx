@@ -41,6 +41,7 @@ export const AboutSection = () => {
             <p>
               If you have any suggestions for the website, please feel free to send <span>feedback</span> using the box below.
             </p>
+            <div className={styles.aboutTextAfter}></div>
           </div>
         </div>
         <div className={styles.rightContent}>

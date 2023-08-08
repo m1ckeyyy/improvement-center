@@ -260,8 +260,7 @@ html,
   }
 }
 .hideMenu {
-  transition: opacity 0.2s ease;
-  opacity: 0;
+  visibility: hidden;
 }
 @media (max-width: 674px) {
   .app {

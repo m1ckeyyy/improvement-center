@@ -1,31 +1,20 @@
 import styles from './../ToolsSection.module.scss';
+import { Link } from 'react-router-dom';
 import { BsArrowUpRightSquare } from 'react-icons/bs';
 
-export function ToolCard({ title, description, imageSrc, imageClassName, buttonClassName, link }) {
+export function ToolCard({ title, description, imageSrc, imageClassName, link }) {
   return (
     <div className={styles.tool}>
       <h2>{title}</h2>
       <p>{description}</p>
 
-      <a href={link}>
+      <Link to={link}>
         <img src={imageSrc} alt={title} className={imageClassName} />
-      </a>
+      </Link>
 
-      <a href={link} className={buttonClassName}>
+      <Link to={link} className={styles.hyperlink}>
         Go To {title} <BsArrowUpRightSquare size="22" />
-      </a>
+      </Link>
     </div>
   );
 }
-// <div className={styles.tool}>
-// <h2>Pomodoro Timer</h2>
-// <p>Boost productivity and focus with the power of the pomodoro technique</p>
-
-// <a href="/pomodoro">
-//   <img src="images/pomodoro2.png" alt="pomodoro" className={styles.pomodoroImg} />
-// </a>
-
-// <a href="/pomodoro" className={styles.hyperlink}>
-//   Go To Pomodoro <BsArrowUpRightSquare size="22" />
-// </a>
-// </div>

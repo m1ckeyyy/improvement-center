@@ -1,17 +1,18 @@
 import styles from './Journal.module.scss';
-import { NotesList } from './components/NotesList';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { ToastContainer } from 'react-toastify';
+import { NotesList } from './components/NotesList';
 import { IconButtons } from './components/IconButtons';
 import { SortMenu } from './components/SortMenu';
+import { SearchInput } from './components/SearchInput';
 import { useFilterNotes } from './hooks/useFilterNotes';
 import { useSorting } from './hooks/useSorting';
-import { SearchInput } from './components/SearchInput';
+
 const Journal = () => {
   //fetching
   const [searchInput, setSearchInput] = useState('');
-  // const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const [sortingData, setSortingData] = useState({ mode: 'date', sortOrderRising: true });
   const [notes, setNotes] = useState([
     { id: nanoid(), title: 'best note', content: 'This is note', date: '5/08/2023' },
@@ -20,7 +21,6 @@ const Journal = () => {
   ]);
   const filteredNotes = useFilterNotes({ notes, searchInput });
   const sortedNotes = useSorting({ filteredNotes, sortingData });
-  //use filteredNotes in Sorting
 
   return (
     <div className={styles.wrapContainer}>
