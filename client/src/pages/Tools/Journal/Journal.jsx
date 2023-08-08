@@ -11,7 +11,8 @@ import { useSorting } from './hooks/useSorting';
 
 const Journal = () => {
   //fetching
-
+//bug edit border triggers bugging on 1 column 
+//set up usecontext
   const [searchInput, setSearchInput] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [sortingData, setSortingData] = useState({ mode: 'date', sortOrderRising: true });

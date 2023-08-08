@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
 body,
@@ -268,7 +266,7 @@ html,
   .app {
     transition: border 0.1s ease;
     border-radius: 20px;
-    border: 5px dotted #7771a9 !important;
+    border: 5px dashed #7771a9 !important;
     .note:not(.newNote) {
       cursor: pointer;
       &:hover {

@@ -3,13 +3,17 @@ import { useScrollable } from './../hooks/useScrollable';
 import { useRef } from 'react';
 import { EditWindow } from './EditWindow';
 
-export const Note = ({ id, content, title, date, editMode }) => {
+export const Note = ({ id, content, title, date, editMode, onDelete }) => {
   const checkIfScrollable = useRef(null);
   const { isScrollable } = useScrollable({ checkIfScrollable });
 
+  const handleDelete = () => {
+    onDelete(id); // Call the onDelete function with the note ID
+  };
+
   return (
     <div className={`${styles.note} ${isScrollable ? styles.scrollable : ''} ${editMode ? styles.activeEditMode : ''}`} ref={checkIfScrollable}>
-      {editMode ? <EditWindow /> : ''} <big>{title}</big>
+      {editMode ? <EditWindow handleDelete={handleDelete} /> : ''} <big>{title}</big>
       <div>{content}</div>
       <div className={styles.noteFooter}>
         <small>{date}</small>
