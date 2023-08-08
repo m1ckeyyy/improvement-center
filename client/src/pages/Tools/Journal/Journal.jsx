@@ -11,6 +11,7 @@ import { useSorting } from './hooks/useSorting';
 
 const Journal = () => {
   //fetching
+
   const [searchInput, setSearchInput] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [sortingData, setSortingData] = useState({ mode: 'date', sortOrderRising: true });
@@ -24,11 +25,11 @@ const Journal = () => {
 
   return (
     <div className={styles.wrapContainer}>
-      <div className={styles.overlayContainer}>
+      <div className={`${styles.overlayContainer} ${editMode ? styles.editMode : ''}`}>
         <div className={styles.appHeader}>
           <SearchInput setSearchInput={setSearchInput} />
           <SortMenu sortingData={sortingData} setSortingData={setSortingData} />
-          <IconButtons />
+          <IconButtons editMode={editMode} setEditMode={setEditMode} />
         </div>
 
         <NotesList notes={sortedNotes} setNotes={setNotes} />

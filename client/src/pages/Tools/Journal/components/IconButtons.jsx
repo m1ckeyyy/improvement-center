@@ -1,8 +1,11 @@
-import { BiUser, BiHomeAlt, BiPencil } from 'react-icons/bi';
+import { BiUser, BiHomeAlt, BiPencil, BiCheckSquare } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import styles from './../Journal.module.scss';
 
-export const IconButtons = () => {
+export const IconButtons = ({ editMode, setEditMode }) => {
+  const toggleEditMode = () => {
+    setEditMode((prev) => !prev);
+  };
   return (
     <div className={styles.iconButtons}>
       <button type="button" className={styles.profileBtn} title="profile">
@@ -16,8 +19,8 @@ export const IconButtons = () => {
         </Link>
       </button>
 
-      <button type="button" className={styles.editBtn} title="back">
-        <BiPencil size="35" />
+      <button type="button" className={styles.editBtn} title="back" onClick={toggleEditMode}>
+        {editMode ? <BiCheckSquare size="35" /> : <BiPencil size="35" />}
       </button>
     </div>
   );

@@ -20,6 +20,7 @@ html,
   justify-content: center;
   box-sizing: border-box;
 }
+
 .app {
   display: flex;
   justify-content: space-between;
@@ -34,6 +35,8 @@ html,
   border-radius: 8px;
   border: 2px solid white;
 }
+
+
 .gearButton {
   position: absolute;
   bottom: 20px;

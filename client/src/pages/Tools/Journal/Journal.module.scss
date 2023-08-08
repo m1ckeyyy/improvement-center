@@ -24,7 +24,23 @@ html,
   align-items: center;
   justify-content: center;
 }
-
+.overlayContainer.editMode {
+  .app {
+    transition: border 0.1s ease;
+    border-radius: 20px;
+    border: 5px dotted #7771a9 !important;
+    .note:not(.newNote) {
+      cursor: pointer;
+      &:hover {
+        transition: background-color 0.1s ease;
+        background-color: #7771a9;
+        > * {
+          opacity: 0.2;
+        }
+      }
+    }
+  }
+}
 .overlayContainer {
   width: 80%;
   height: 85%;
@@ -50,6 +66,7 @@ html,
   border-radius: 8px;
   border: 2px solid white;
   overflow: auto;
+  transition: border 0.2s ease;
 }
 .searchInput {
   font-family: 'Quicksand', sans-serif;
@@ -85,6 +102,7 @@ html,
   flex-direction: column;
   background-color: lightgray;
   overflow: auto;
+  transition: background-color 0.1s ease;
   :last-child {
     margin-top: auto;
   }
