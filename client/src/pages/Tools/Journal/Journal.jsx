@@ -32,7 +32,7 @@ const Journal = () => {
           <IconButtons editMode={editMode} setEditMode={setEditMode} />
         </div>
 
-        <NotesList notes={sortedNotes} setNotes={setNotes} />
+        <NotesList notes={sortedNotes} setNotes={setNotes} editMode={editMode}/>
         <ToastContainer />
       </div>
     </div>
