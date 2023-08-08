@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap');
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 //no vh height, no overflow-x hidden, nominheight
 * {
   box-sizing: border-box;
@@ -11,13 +11,7 @@
   overflow: hidden;
   // height: 100vh;
   min-height: 930px;
-  background: linear-gradient(
-    180deg,
-    rgba(83, 109, 121, 1) -1%,
-    rgba(24, 44, 54, 1) 4%,
-    rgba(24, 44, 54, 1) 96%,
-    rgba(83, 109, 121, 1) 103%
-  );
+  background: linear-gradient(180deg, rgba(83, 109, 121, 1) -1%, rgba(24, 44, 54, 1) 4%, rgba(24, 44, 54, 1) 96%, rgba(83, 109, 121, 1) 103%);
   width: 100%;
   align-items: center;
 }
@@ -33,7 +27,7 @@
   justify-content: center;
   padding: 8% 0 8% 0;
   h1 {
-    font-family: "Nunito Sans", sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 800;
     color: white;
     padding: 0;
@@ -66,8 +60,8 @@
   position: relative;
   z-index: 1;
   h2 {
-    font-family: "Nunito Sans", sans-serif;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     font-weight: 600;
     padding: 10px 0 15px 0;
@@ -75,8 +69,8 @@
     white-space: nowrap;
   }
   p {
-    font-family: "Nunito Sans", sans-serif;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     font-weight: 400;
     font-size: 1em;
@@ -84,8 +78,11 @@
     color: #191818;
     margin-bottom: 20px;
   }
+  a {
+    margin-top: auto;
+  }
   .hyperlink {
-    font-family: "Nunito Sans", sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -113,11 +110,7 @@
   .pomodoroImg,
   .habitTrackerImg,
   .journalImg {
-    background: linear-gradient(
-      157deg,
-      rgba(226, 231, 233, 1) 65%,
-      rgba(156, 182, 195, 1) 100%
-    );
+    background: linear-gradient(157deg, rgba(226, 231, 233, 1) 65%, rgba(156, 182, 195, 1) 100%);
     width: 100%;
     border-radius: 15px;
   }
