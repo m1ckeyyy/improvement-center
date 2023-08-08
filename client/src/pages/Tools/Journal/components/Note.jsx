@@ -1,6 +1,6 @@
 import styles from './../Journal.module.scss';
-import { useScrollable } from './useScrollable';
-import { useRef, useEffect, useState } from 'react';
+import { useScrollable } from './../hooks/useScrollable';
+import { useRef } from 'react';
 
 export const Note = ({ id, content, title, date }) => {
   const checkIfScrollable = useRef(null);

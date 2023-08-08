@@ -207,8 +207,19 @@ html,
     background-color: white;
   }
   span {
+    display: flex;
+    align-items: center;
+    color: gray;
     padding-right: 5px;
     padding-left: 3px;
+    p {
+      margin-left: 5px;
+    }
+  }
+}
+.highlight {
+  span {
+    color: black !important;
   }
 }
 .sortDropDownMenu {
@@ -221,6 +232,8 @@ html,
   bottom: -142px;
   left: 0;
   z-index: 1;
+  width: 200px;
+
   .sortMenuElement {
     display: flex;
     align-items: center;

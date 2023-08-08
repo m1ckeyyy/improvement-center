@@ -3,9 +3,9 @@ import { FiChevronDown } from 'react-icons/fi';
 import { SortDropDownMenu } from './SortDropDownMenu';
 import { BiSortDown } from 'react-icons/bi';
 import { useState, useRef } from 'react';
-import { useGlobalClick } from './useGlobalClick';
+import { useGlobalClick } from './../hooks/useGlobalClick';
 
-export const SortMenu = ({ setSortingMode }) => {
+export const SortMenu = ({ sortingData, setSortingData }) => {
   const [isSortMenuOpen, setIsSortMenuOpen] = useState(false);
   const dropDownMenuRef = useRef(null);
 
@@ -24,7 +24,7 @@ export const SortMenu = ({ setSortingMode }) => {
       <BiSortDown size="16" />
       <span>Sort by</span> <FiChevronDown size="16" />
       <div ref={dropDownMenuRef}>
-        <SortDropDownMenu isSortMenuOpen={isSortMenuOpen} setSortingMode={setSortingMode}  />
+        <SortDropDownMenu isSortMenuOpen={isSortMenuOpen} sortingData={sortingData} setSortingData={setSortingData} setIsSortMenuOpen={setIsSortMenuOpen} />
       </div>
     </div>
   );

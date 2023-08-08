@@ -1,7 +1,7 @@
 import styles from './../Journal.module.scss';
 import { useRef } from 'react';
 import { BsBoxArrowRight } from 'react-icons/bs';
-import { useNewNote } from './useNewNote';
+import { useNewNote } from './../hooks/useNewNote';
 
 export const NewNote = ({ setNotes }) => {
   const titleRef = useRef(null);

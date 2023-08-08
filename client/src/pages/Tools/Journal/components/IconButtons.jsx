@@ -1,4 +1,4 @@
-import { BiUser, BiHomeAlt, BiExit, BiPencil } from 'react-icons/bi';
+import { BiUser, BiHomeAlt, BiPencil } from 'react-icons/bi';
 import styles from './../Journal.module.scss';
 
 export const IconButtons = () => {
