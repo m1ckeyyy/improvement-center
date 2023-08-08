@@ -19,7 +19,7 @@ export const IconButtons = ({ editMode, setEditMode }) => {
         </Link>
       </button>
 
-      <button type="button" className={styles.editBtn} title="back" onClick={toggleEditMode}>
+      <button type="button" className={styles.editBtn} title="edit" onClick={toggleEditMode}>
         {editMode ? <BiCheckSquare size="35" /> : <BiPencil size="35" />}
       </button>
     </div>

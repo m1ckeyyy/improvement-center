@@ -8,11 +8,8 @@ export const Note = ({ id, content, title, date, editMode }) => {
   const { isScrollable } = useScrollable({ checkIfScrollable });
 
   return (
-    <div className={`${styles.note} ${isScrollable ? styles.scrollable : ''} ${editMode ? styles.editNoteView : ''}`} ref={checkIfScrollable}>
-      <div className={styles.editView}>
-        <EditWindow />
-      </div>
-      <big>{title}</big>
+    <div className={`${styles.note} ${isScrollable ? styles.scrollable : ''} ${editMode ? styles.activeEditMode : ''}`} ref={checkIfScrollable}>
+      {editMode ? <EditWindow /> : ''} <big>{title}</big>
       <div>{content}</div>
       <div className={styles.noteFooter}>
         <small>{date}</small>

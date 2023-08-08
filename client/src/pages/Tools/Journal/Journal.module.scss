@@ -24,35 +24,6 @@ html,
   align-items: center;
   justify-content: center;
 }
-.overlayContainer.editMode {
-  .app {
-    transition: border 0.1s ease;
-    border-radius: 20px;
-    border: 5px dotted #7771a9 !important;
-    .note:not(.newNote) {
-      cursor: pointer;
-      &:hover {
-        transition: background-color 0.1s ease;
-        background-color: #7771a9;
-        > * {
-          opacity: 0.2;
-        }
-      }
-    }
-  }
-}
-.editNoteView {
-  &:hover {
-    border: 2px solid red;
-  }
-}
-.editView {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  // border: 3px solid blue;
-}
 .overlayContainer {
   width: 80%;
   height: 85%;
@@ -115,9 +86,9 @@ html,
   background-color: lightgray;
   overflow: auto;
   transition: background-color 0.1s ease;
-  :last-child {
-    margin-top: auto;
-  }
+  // :last-child {
+  //   margin-top: auto;
+  // }
   big {
     font-size: 1.3em;
   }
@@ -292,6 +263,51 @@ html,
 .hideMenu {
   visibility: hidden;
 }
+
+.overlayContainer.editMode {
+  .app {
+    transition: border 0.1s ease;
+    border-radius: 20px;
+    border: 5px dotted #7771a9 !important;
+    .note:not(.newNote) {
+      cursor: pointer;
+      &:hover {
+        transition: background-color 0.1s ease;
+        background-color: #a3d0ff;
+        > *:not(.editWindow) {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+.editWindow {
+  display: none;
+}
+.note.activeEditMode:hover {
+  .editWindow {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    button {
+      cursor: pointer;
+      padding: 10px;
+      background: none;
+      border: none;
+      transition: transform 0.15s ease;
+      &:hover {
+        transform: scale(1.08);
+      }
+    }
+  }
+}
+
 @media (max-width: 674px) {
   .app {
     display: flex;

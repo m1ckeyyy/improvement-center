@@ -1,23 +1,22 @@
-// import { BsFillPinAngleFill } from 'react-icons/bs';
-// import { AiFillDelete } from 'react-icons';
-// import {
-//   BiSolidEditAlt,
-// BiSolidColorFill
-// } from 'react-icons/bi';
+import styles from './../Journal.module.scss';
+import { AiFillDelete } from 'react-icons/ai';
+import { BiEditAlt } from 'react-icons/bi';
+import { MdColorLens } from 'react-icons/md';
+import { BsPinAngleFill, BsPinAngle } from 'react-icons/bs';
 export const EditWindow = () => {
   return (
-    <div>
+    <div className={styles.editWindow}>
       <button type="button" title="Pin">
-        {/* <BsFillPinAngleFill /> */}📌
+        <BsPinAngle size="29" />
       </button>
       <button type="button" title="Delete">
-        🚮{/* <AiFillDelete /> */}
+        <AiFillDelete size="30" />
       </button>
       <button type="button" title="Edit content">
-        {/* <BiSolidEditAlt /> */}✏
+        <BiEditAlt size="30" />
       </button>
       <button type="button" title="Change color">
-        🇨{/* <BiSolidColorFill /> */}
+        <MdColorLens size="33" />
       </button>
     </div>
   );
