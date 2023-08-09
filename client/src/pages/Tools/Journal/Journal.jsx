@@ -16,12 +16,28 @@ const Journal = () => {
   const [editMode, setEditMode] = useState(false);
   const [sortingData, setSortingData] = useState({ mode: 'date', sortOrderRising: true });
   const [notes, setNotes] = useState([
-    { id: nanoid(), title: 'best note', content: 'This is note', date: '5/08/2023' },
-    { id: nanoid(), title: 'Big man story', content: 'Is it note zwei?', date: '1/08/2023' },
-    { id: nanoid(), title: 'The title', content: 'This is note drei', date: '7/08/2023' },
+    {
+      id: nanoid(),
+      title: 'Exploring the Wilderness',
+      content:
+        'Embarked on a thrilling journey through untouched landscapes. From the dense forests to the rugged mountains, every step unveiled a new world waiting to be discovered. The crisp air and the calls of wild creatures created a symphony that echoed in my soul. I crossed rivers, climbed cliffs, and camped under the starlit sky. Each day brought new challenges and rewards, reminding me of the beauty and resilience of nature. This adventure will forever be etched in my heart.',
+      date: '2023-08-10',
+    },
+    {
+      id: nanoid(),
+      title: 'Recipe Discovery',
+      content: 'Discovered a delicious new recipe that combines unexpected flavors.',
+      date: '2023-08-09',
+    },
+    {
+      id: nanoid(),
+      title: 'Artistic Inspirations',
+      content: 'Found inspiration in the colors of sunset for a new painting project.',
+      date: '2023-08-08',
+    },
   ]);
-  const filteredNotes = useFilterNotes({ notes, searchInput });
-  const sortedNotes = useSorting({ filteredNotes, sortingData });
+  const searchbarFilteredNotes = useFilterNotes({ notes, searchInput });
+  const sortedNotes = useSorting({ searchbarFilteredNotes, sortingData });
 
   const journalContextValue = { setSearchInput, sortingData, setSortingData, editMode, setEditMode, sortedNotes, setNotes, notes };
 

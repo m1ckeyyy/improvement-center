@@ -1,6 +1,6 @@
-export const useSorting = ({ filteredNotes, sortingData }) => {
+export const useSorting = ({ searchbarFilteredNotes, sortingData }) => {
   if (sortingData.mode === 'alphabetically') {
-    const sortedNotes = [...filteredNotes];
+    const sortedNotes = [...searchbarFilteredNotes];
     sortedNotes.sort((a, b) => {
       const titleA = a.title.toLowerCase();
       const titleB = b.title.toLowerCase();
@@ -15,7 +15,7 @@ export const useSorting = ({ filteredNotes, sortingData }) => {
     return sortedNotes;
   }
   if (sortingData.mode === 'length') {
-    const sortedNotes = [...filteredNotes];
+    const sortedNotes = [...searchbarFilteredNotes];
     sortedNotes.sort((a, b) => {
       const lengthA = (a.title + a.content).length;
       const lengthB = (b.title + b.content).length;
@@ -25,7 +25,7 @@ export const useSorting = ({ filteredNotes, sortingData }) => {
   }
 
   if (sortingData.mode === 'date') {
-    const sortedNotes = [...filteredNotes];
+    const sortedNotes = [...searchbarFilteredNotes];
     sortedNotes.sort((a, b) => {
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);
@@ -33,5 +33,5 @@ export const useSorting = ({ filteredNotes, sortingData }) => {
     });
     return sortedNotes;
   }
-  return filteredNotes;
+  return searchFilteredNotes;
 };
