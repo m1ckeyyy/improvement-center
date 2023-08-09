@@ -21,8 +21,7 @@ export const ToolsSection = () => {
           />
           <ToolCard
             title="Daily Journal"
-            description="Capture your daily moments, thoughts and ideas via digital journal.
-            "
+            description="Capture your daily moments, thoughts and ideas via digital journal."
             link="/journal"
             imageSrc="images/journal.png"
             imageClassName={styles.journalImg}

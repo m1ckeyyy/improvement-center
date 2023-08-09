@@ -50,8 +50,6 @@ export const Settings = () => {
             <input type="number" defaultValue={breakTime} id="breakTimeInput" min="0" max="90" />
           </div>
 
-          <IconButtons />
-
           <hr />
           <h4>Other Settings</h4>
           <div className={styles.backgroundMusic}>
@@ -80,6 +78,7 @@ export const Settings = () => {
             </button>
           </div>
           <hr />
+          <IconButtons />
         </form>
       </div>
     </div>
