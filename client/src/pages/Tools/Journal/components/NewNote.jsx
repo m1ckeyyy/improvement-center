@@ -2,8 +2,11 @@ import styles from './../Journal.module.scss';
 import { useRef } from 'react';
 import { BsBoxArrowRight } from 'react-icons/bs';
 import { useNewNote } from './../hooks/useNewNote';
+import { useJournalContext } from './../Journal';
 
-export const NewNote = ({ setNotes }) => {
+export const NewNote = () => {
+  const { setNotes } = useJournalContext();
+
   const titleRef = useRef(null);
   const contentRef = useRef(null);
 

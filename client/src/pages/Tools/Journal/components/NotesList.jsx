@@ -1,8 +1,10 @@
 import styles from './../Journal.module.scss';
 import { Note } from './Note.jsx';
 import { NewNote } from './NewNote';
+import { useJournalContext } from './../Journal';
 
-export const NotesList = ({ sortedNotes, setNotes, editMode }) => {
+export const NotesList = () => {
+  const { sortedNotes, setNotes, editMode } = useJournalContext();
   const handleDeleteNote = (id) => {
     const updatedNotes = sortedNotes.filter((note) => note.id !== id);
     setNotes(updatedNotes);
@@ -10,7 +12,7 @@ export const NotesList = ({ sortedNotes, setNotes, editMode }) => {
 
   return (
     <div className={styles.app}>
-      <NewNote setNotes={setNotes} />
+      <NewNote />
       {sortedNotes.map((note) => (
         <Note onDelete={handleDeleteNote} editMode={editMode} id={note.id} content={note.content} date={note.date} title={note.title} key={note.id} />
       ))}

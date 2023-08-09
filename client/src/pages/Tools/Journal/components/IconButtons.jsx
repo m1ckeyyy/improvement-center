@@ -1,11 +1,15 @@
 import { BiUser, BiHomeAlt, BiPencil, BiCheckSquare } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import styles from './../Journal.module.scss';
+import { useJournalContext } from './../Journal';
 
-export const IconButtons = ({ editMode, setEditMode }) => {
+export const IconButtons = () => {
+  const { editMode, setEditMode } = useJournalContext();
+
   const toggleEditMode = () => {
     setEditMode((prev) => !prev);
   };
+
   return (
     <div className={styles.iconButtons}>
       <button type="button" className={styles.profileBtn} title="profile">

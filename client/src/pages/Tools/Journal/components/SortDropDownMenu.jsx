@@ -1,39 +1,16 @@
 import styles from './../Journal.module.scss';
 import { AiOutlineSortAscending, AiFillFileText } from 'react-icons/ai';
 import { BsCalendarDate } from 'react-icons/bs';
+import { SortingOption } from './SortingOption';
 
-export const SortDropDownMenu = ({ isSortMenuOpen, setSortingData, sortingData }) => {
-  const triggerSortingMode = (mode) => () => {
-    setSortingData((prev) => {
-      return {
-        mode: mode,
-        sortOrderRising: prev.mode === mode ? !prev.sortOrderRising : true,
-      };
-    });
-  };
-
+export const SortDropDownMenu = ({ isSortMenuOpen }) => {
   return (
     <div className={`${styles.sortDropDownMenu} ${isSortMenuOpen ? '' : styles.hideMenu}`}>
-      <div className={`${styles.sortMenuElement} ${sortingData.mode === 'alphabetically' ? styles.highlight : ''}`} onClick={triggerSortingMode('alphabetically')}>
-        <AiOutlineSortAscending />
-        <span>
-          Alphabetically<p>{sortingData.mode === 'alphabetically' ? (sortingData.sortOrderRising ? '(A-Z)' : '(Z-A)') : ''}</p>
-        </span>
-      </div>
+      <SortingOption label="Alphabetically" type="alphabetically" icon={<AiOutlineSortAscending />} orderLabels={['(A-Z)', '(Z-A)']} />
       <hr />
-      <div className={`${styles.sortMenuElement} ${sortingData.mode === 'date' ? styles.highlight : ''}`} onClick={triggerSortingMode('date')}>
-        <BsCalendarDate />
-        <span>
-          By date<p>{sortingData.mode === 'date' ? (sortingData.sortOrderRising ? '(Newest)' : '(Oldest)') : ''}</p>
-        </span>
-      </div>
+      <SortingOption label="By date" type="date" icon={<BsCalendarDate />} orderLabels={['(Newest)', '(Oldest)']} />
       <hr />
-      <div className={`${styles.sortMenuElement} ${sortingData.mode === 'length' ? styles.highlight : ''}`} onClick={triggerSortingMode('length')}>
-        <AiFillFileText />
-        <span>
-          By length<p>{sortingData.mode === 'length' ? (sortingData.sortOrderRising ? '(Largest)' : '(Smallest)') : ''}</p>
-        </span>
-      </div>
+      <SortingOption label="By length" type="length" icon={<AiFillFileText />} orderLabels={['(Largest)', '(Smallest)']} />
     </div>
   );
 };

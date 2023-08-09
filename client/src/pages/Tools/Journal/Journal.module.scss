@@ -35,7 +35,14 @@ html,
   box-sizing: content-box;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.5rem), 1fr));
+  @supports (width: min(1px, 1px)) {
+    /* Using @supports to check for browser support of `min()` function */
+
+    grid-template-columns: repeat(auto-fit, minmax(calc(min(25%, 250px) - 0.5rem), 1fr));
+  }
+
   grid-auto-rows: 170px;
   justify-content: space-between;
   position: relative;
@@ -85,18 +92,13 @@ html,
   background-color: lightgray;
   overflow: auto;
   transition: background-color 0.1s ease;
-  // :last-child {
-  //   margin-top: auto;
-  // }
   big {
     font-size: 1.3em;
   }
 }
 .newNote {
-  // max-width: 500px;
   background-color: #ffb54b;
   position: relative;
-  // overflow-x: hidden;
   overflow: unset !important;
   textarea {
     resize: none;
