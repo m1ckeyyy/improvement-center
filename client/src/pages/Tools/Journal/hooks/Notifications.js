@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const notifyNoteIncomplete = () => {
   toast.warn('Complete the note before submitting', {
-    position: 'bottom-right',
+    position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
