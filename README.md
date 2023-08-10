@@ -1,12 +1,7 @@
-# IMPROVEMENT CENTER
-### Developing in progress... 👷
-Preview: https://improvementcenter.netlify.app/
-
-![Overview Image](./client/public/images/PomodoroOverview.png) 
-
 # Improvement Center App
 
 The Improvement Center App is a versatile toolset designed to aid your personal development journey. With a focus on productivity and well-being, this app offers three essential tools: a Pomodoro Timer, a Journal App, and a Habit Tracker (currently in progress).
+## Live: https://improvementcenter.netlify.app/
 
 ## Features
 
@@ -37,9 +32,16 @@ The Improvement Center App is a versatile toolset designed to aid your personal 
 
 Contributions are welcome! If you have any suggestions or improvements, feel free to create an issue or submit a pull request.
 
-## License
+## Preview images
 
-This project is licensed under the MIT License.
+![Overview Image](./client/public/images/PomodoroOverview.png) 
+
+![Overview Image](./client/public/images/PomodoroSettings.png) 
+
+![Overview Image](./client/public/images/JournalOverview2.png) 
+
+
+### License: [MIT](https://github.com/m1ckeyyy/improvement-center/blob/main/LICENSE)
 
 ---
 
