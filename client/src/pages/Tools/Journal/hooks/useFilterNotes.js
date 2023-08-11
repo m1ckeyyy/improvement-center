@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 export const useFilterNotes = ({ notes, searchInput }) => {
-  const sortedNotes = useMemo(() => {
+  const filteredNotes = useMemo(() => {
     if (!searchInput) return notes;
     const lowerCaseSearchInput = searchInput.toLowerCase();
 
@@ -11,5 +11,5 @@ export const useFilterNotes = ({ notes, searchInput }) => {
     });
   }, [notes, searchInput]);
 
-  return sortedNotes;
+  return filteredNotes;
 };

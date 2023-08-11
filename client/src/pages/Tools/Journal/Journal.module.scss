@@ -95,20 +95,45 @@ html,
   transition: background-color 0.1s ease;
   big {
     font-size: 1.3em;
+    &:focus {
+      outline: none;
+    }
   }
+  div:focus {
+    outline: none;
+  }
+
   small {
     display: flex;
     flex-direction: row;
   }
+
+  // textarea {
+  //   resize: none;
+  //   background: none;
+  //   border: none;
+  //   &:focus {
+  //     outline: none;
+  //   }
+  //   max-width: 300px;
+  // }
+  // .title {
+  //   font-family: 'Inconsolata', monospace;
+  //   font-size: 1.5em;
+  //   margin-bottom: 10px;
+  //   min-height: 25px;
+  // }
+  // .content {
+  //   font-family: 'Inconsolata', monospace;
+  //   font-size: 1em;
+  // }
   .pinIcon {
     position: absolute;
     top: 7px;
     left: 0.2rem;
   }
 }
-// .note:not(.newNote) {
-//   border: 4px dashed #7771a9 !important;
-// }
+
 .newNote {
   background-color: #ffb54b;
   position: relative;
@@ -183,6 +208,9 @@ html,
   align-items: flex-end;
 }
 .iconButtons {
+  display: flex;
+  flex-direction: row;
+
   margin-left: 10px;
   .profileBtn,
   .homeIcon,
@@ -222,6 +250,7 @@ html,
     background-color: white;
   }
   span {
+    white-space: nowrap;
     display: flex;
     align-items: center;
     color: gray;
@@ -295,18 +324,6 @@ html,
     }
   }
 }
-.overlayContainer.isEditTextMode {
-  .app {
-    .note:not(.newNote) {
-      &:hover {
-        background-color: #e0dddd !important ;
-        > *:not(.editWindow) {
-          opacity: 1 !important;
-        }
-      }
-    }
-  }
-}
 
 .editWindow {
   display: none;
@@ -345,5 +362,38 @@ html,
     .note {
       width: 100%;
     }
+  }
+}
+@media (max-width: 613px) {
+  .overlayContainer {
+    height: 92%;
+  }
+  .searchInput {
+    font-size: 1em;
+    width: 200px;
+    min-width: auto;
+  }
+  .iconButtons {
+    z-index: 1;
+
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #202021;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+  }
+  .sortMenu {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 10px 2px;
+  }
+  .sortDropDownMenu {
+    width: 190px;
+    right: 20%;
+    left: auto;
   }
 }
