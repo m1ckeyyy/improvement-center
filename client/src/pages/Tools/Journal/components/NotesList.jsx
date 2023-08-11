@@ -2,18 +2,14 @@ import styles from './../Journal.module.scss';
 import { Note } from './Note.jsx';
 import { NewNote } from './NewNote';
 import { useJournalContext } from './../Journal';
+import { handleDelete, handlePin } from '../hooks/useEditWindowHooks';
 
 export const NotesList = () => {
-  const { sortedNotes, setNotes, editMode, pinnedNotesFirst } = useJournalContext();
-  const handleDeleteNote = (id) => {
-    const updatedNotes = sortedNotes.filter((note) => note.id !== id);
-    setNotes(updatedNotes);
-  };
-  const handlePinNote = (id) => {
-    console.log(id);
-    const updatedNotes = sortedNotes.map((note) => (note.id === id ? { ...note, pinned: !note.pinned } : note));
-    setNotes(updatedNotes);
-  };
+  const { sortedNotes, setNotes, editMode, pinnedNotesFirst, isEditTextMode, setIsEditTextMode } = useJournalContext();
+
+  const handleDeleteNote = (id) => handleDelete({ id, sortedNotes, setNotes });
+  const handlePinNote = (id) => handlePin({ id, sortedNotes, setNotes });
+
   const prioritizedAndSortedNotes = pinnedNotesFirst(sortedNotes);
 
   return (
@@ -30,7 +26,9 @@ export const NotesList = () => {
         date={note.date}
         title={note.title}
         pinned={note.pinned}
-        key={note.id} />
+        key={note.id}
+        isEditTextMode={isEditTextMode} 
+        setIsEditTextMode={setIsEditTextMode}/>
       )}
     </div>
   );

@@ -1,37 +1,39 @@
-export const useSorting = ({ searchbarFilteredNotes, sortingData }) => {
-  if (sortingData.mode === 'alphabetically') {
-    const sortedNotes = [...searchbarFilteredNotes];
-    sortedNotes.sort((a, b) => {
-      const titleA = a.title.toLowerCase();
-      const titleB = b.title.toLowerCase();
-      if (titleA < titleB) {
-        return sortingData.sortOrderRising ? -1 : 1;
-      }
-      if (titleA > titleB) {
-        return sortingData.sortOrderRising ? 1 : -1;
-      }
-      return 0;
-    });
-    return sortedNotes;
-  }
-  if (sortingData.mode === 'length') {
-    const sortedNotes = [...searchbarFilteredNotes];
-    sortedNotes.sort((a, b) => {
-      const lengthA = (a.title + a.content).length;
-      const lengthB = (b.title + b.content).length;
-      return sortingData.sortOrderRising ? lengthB - lengthA : lengthA - lengthB;
-    });
-    return sortedNotes;
-  }
+import { useMemo } from 'react';
 
-  if (sortingData.mode === 'date') {
-    const sortedNotes = [...searchbarFilteredNotes];
-    sortedNotes.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return sortingData.sortOrderRising ? dateB - dateA : dateA - dateB;
-    });
-    return sortedNotes;
-  }
-  return searchFilteredNotes;
+export const useSorting = ({ searchbarFilteredNotes, sortingData }) => {
+  const sortedNotes = useMemo(() => {
+    if (sortingData.mode === 'alphabetically') {
+      const sorted = [...searchbarFilteredNotes];
+      sorted.sort((a, b) => {
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
+        return sortingData.sortOrderRising ? titleA.localeCompare(titleB) : titleB.localeCompare(titleA);
+      });
+      return sorted;
+    }
+
+    if (sortingData.mode === 'length') {
+      const sorted = [...searchbarFilteredNotes];
+      sorted.sort((a, b) => {
+        const lengthA = (a.title + a.content).length;
+        const lengthB = (b.title + b.content).length;
+        return sortingData.sortOrderRising ? lengthA - lengthB : lengthB - lengthA;
+      });
+      return sorted;
+    }
+
+    if (sortingData.mode === 'date') {
+      const sorted = [...searchbarFilteredNotes];
+      sorted.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return sortingData.sortOrderRising ? dateA - dateB : dateB - dateA;
+      });
+      return sorted;
+    }
+
+    return searchbarFilteredNotes;
+  }, [searchbarFilteredNotes, sortingData.mode, sortingData.sortOrderRising]);
+
+  return sortedNotes;
 };

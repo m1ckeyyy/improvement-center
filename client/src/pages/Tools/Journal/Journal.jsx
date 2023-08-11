@@ -41,15 +41,24 @@ const Journal = () => {
   ]);
   const searchbarFilteredNotes = useFilterNotes({ notes, searchInput });
   const sortedNotes = useSorting({ searchbarFilteredNotes, sortingData });
-  //first check pinned > then sort others
-  //change returns to setNotes
   const pinnedNotesFirst = (notesArray) => {
     const pinnedNotes = notesArray.filter((note) => note.pinned);
     const unpinnedNotes = notesArray.filter((note) => !note.pinned);
     return [...pinnedNotes, ...unpinnedNotes];
   };
 
-  const journalContextValue = { setSearchInput, sortingData, setSortingData, editMode, setEditMode, sortedNotes, setNotes, notes, pinnedNotesFirst };
+  const journalContextValue = {
+    setSearchInput,
+    sortingData,
+    setSortingData,
+    editMode,
+    setEditMode,
+    sortedNotes,
+    setNotes,
+    notes,
+    pinnedNotesFirst,
+    
+  };
 
   // console.log(notes);
 

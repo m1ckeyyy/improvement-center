@@ -295,6 +295,18 @@ html,
     }
   }
 }
+.overlayContainer.isEditTextMode {
+  .app {
+    .note:not(.newNote) {
+      &:hover {
+        background-color: #e0dddd !important ;
+        > *:not(.editWindow) {
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+}
 
 .editWindow {
   display: none;

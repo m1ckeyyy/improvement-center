@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
-// import {JournalContext}
+
 export const useFilterNotes = ({ notes, searchInput }) => {
-  console.log('note: ', notes);
   const sortedNotes = useMemo(() => {
     if (!searchInput) return notes;
     const lowerCaseSearchInput = searchInput.toLowerCase();
