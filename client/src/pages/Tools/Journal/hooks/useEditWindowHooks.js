@@ -30,13 +30,13 @@ export const handleChangeColor = ({ id, pinnedNotesFirst, setNotes }) => {
   }
 
   function textTheme(hexColor) {
-    const brightnessThreshold = 128; // You can adjust this threshold as needed
+    const brightnessThreshold = 128;
     const brightness = getBrightness(hexColor);
 
     if (brightness < brightnessThreshold) {
-      return '#FFFFFF'; // White text color for dark backgrounds
+      return 'white';
     } else {
-      return '#000000'; // Black text color for light backgrounds
+      return 'black';
     }
   }
 
