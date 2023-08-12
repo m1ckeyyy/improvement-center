@@ -5,33 +5,14 @@ import { EditWindow } from './EditWindow';
 import { BsFillPinFill } from 'react-icons/bs';
 import { useJournalContext } from '../Journal';
 import { handleDelete, handlePin, handleChangeColor } from '../hooks/useEditWindowHooks';
-
+import { useSaveUpdatedNote } from '../hooks/useSaveUpdatedNote';
 export const Note = ({ id, content, title, date, pinned, color }) => {
   const { setNotes, editMode, pinnedNotesFirst } = useJournalContext();
 
   const checkIfScrollable = useRef(null);
   const { isScrollable } = useScrollable({ checkIfScrollable });
 
-  const saveUpdatedNote = (e) => {
-    e.stopPropagation();
-    const newData = e.target.innerText;
-    const noteIndex = pinnedNotesFirst.findIndex((note) => note.id === id);
-    const updatedNotes = [...pinnedNotesFirst];
-
-    if (e.target.id === 'title') {
-      updatedNotes[noteIndex] = {
-        ...updatedNotes[noteIndex],
-        title: newData,
-      };
-    }
-    if (e.target.id === 'content') {
-      updatedNotes[noteIndex] = {
-        ...updatedNotes[noteIndex],
-        content: newData,
-      };
-    }
-    setNotes(updatedNotes);
-  };
+  const saveUpdatedNote = (e) => useSaveUpdatedNote({ e, setNotes, pinnedNotesFirst, id });
 
   return (
     <div
@@ -57,7 +38,7 @@ export const Note = ({ id, content, title, date, pinned, color }) => {
         {content}
       </div>
       <div className={styles.noteFooter}>
-        <small>{date}</small>
+        <small>{date.day}</small>
       </div>
       {pinned ? (
         <div className={styles.pinIcon}>

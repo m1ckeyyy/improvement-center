@@ -17,7 +17,7 @@ export const useSorting = ({ searchbarFilteredNotes, sortingData }) => {
       sorted.sort((a, b) => {
         const lengthA = (a.title + a.content).length;
         const lengthB = (b.title + b.content).length;
-        return sortingData.sortOrderRising ? lengthA - lengthB : lengthB - lengthA;
+        return sortingData.sortOrderRising ? lengthB - lengthA : lengthA - lengthB;
       });
       return sorted;
     }
@@ -25,9 +25,9 @@ export const useSorting = ({ searchbarFilteredNotes, sortingData }) => {
     if (sortingData.mode === 'date') {
       const sorted = [...searchbarFilteredNotes];
       sorted.sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return sortingData.sortOrderRising ? dateA - dateB : dateB - dateA;
+        const dateA = new Date(a.date.exactTime);
+        const dateB = new Date(b.date.exactTime);
+        return sortingData.sortOrderRising ? dateB - dateA : dateA - dateB;
       });
       return sorted;
     }

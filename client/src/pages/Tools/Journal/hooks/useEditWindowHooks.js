@@ -9,7 +9,6 @@ export const handlePin = ({ id, pinnedNotesFirst, setNotes }) => {
   setNotes(updatedNotes);
 };
 export const handleChangeColor = ({ id, pinnedNotesFirst, setNotes }) => {
-  console.log('HAHAHdsds');
   function getBrightness(hexColor) {
     const r = parseInt(hexColor.slice(1, 3), 16);
     const g = parseInt(hexColor.slice(3, 5), 16);
