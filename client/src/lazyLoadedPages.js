@@ -5,3 +5,4 @@ export const Register = lazy(() => import('./pages/Register/Register'));
 export const Home = lazy(() => import('./pages/Home/Home'));
 export const Pomodoro = lazy(() => import('./pages/Tools/PomodoroTimer/PomodoroTimer'));
 export const Journal = lazy(() => import('./pages/Tools/Journal/Journal'));
+export const HabitTracker = lazy(() => import('./pages/Tools/HabitTracker/HabitTracker'));

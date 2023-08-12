@@ -11,7 +11,7 @@ import { useNotesFetch } from './hooks/useNotesFetch';
 const JournalContext = createContext();
 export const useJournalContext = () => useContext(JournalContext);
 
-const Journal = () => {
+const Journal = () => {                   
   const [searchInput, setSearchInput] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [sortingData, setSortingData] = useState({ mode: 'date', sortOrderRising: true });

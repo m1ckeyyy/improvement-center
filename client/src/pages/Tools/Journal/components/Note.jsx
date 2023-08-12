@@ -6,6 +6,7 @@ import { BsFillPinFill } from 'react-icons/bs';
 import { useJournalContext } from '../Journal';
 import { handleDelete, handlePin, handleChangeColor } from '../hooks/useEditWindowHooks';
 import { useSaveUpdatedNote } from '../hooks/useSaveUpdatedNote';
+
 export const Note = ({ id, content, title, date, pinned, color }) => {
   const { setNotes, editMode, pinnedNotesFirst } = useJournalContext();
 
@@ -38,14 +39,12 @@ export const Note = ({ id, content, title, date, pinned, color }) => {
         {content}
       </div>
       <div className={styles.noteFooter}>
-        <small>{date.day}</small>
+        <small title={date.exactTime}>{date.day}</small>
       </div>
-      {pinned ? (
+      {pinned && (
         <div className={styles.pinIcon}>
           <BsFillPinFill size="16" />
         </div>
-      ) : (
-        ''
       )}
     </div>
   );

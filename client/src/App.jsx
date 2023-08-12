@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { LoadingScreen } from './pages/effects/LoadingScreen';
-import { Login, Register, Home, Pomodoro, Journal } from './lazyLoadedPages';
+import { Login, Register, Home, Pomodoro, Journal, HabitTracker } from './lazyLoadedPages';
 import SuspenseRouter from './SuspenseRouter';
 
 const App = () => {
@@ -14,6 +14,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/pomodoro" element={<Pomodoro />} />
+          <Route path="/habittracker" element={<HabitTracker />} />
         </Routes>
       </Suspense>
     </SuspenseRouter>

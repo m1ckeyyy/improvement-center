@@ -23,7 +23,7 @@ html,
   justify-content: center;
 }
 .overlayContainer {
-  width: 80%;
+  width: 90%;
   height: 85%;
   display: flex;
   align-items: flex-start;
@@ -32,16 +32,17 @@ html,
   flex-direction: column;
 }
 .app {
-  box-sizing: content-box;
+  // box-sizing: content-box;
   display: grid;
   grid-gap: 1rem;
-  // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.5rem), 1fr));
-  @supports (width: min(1px, 1px)) {
-    /* Using @supports to check for browser support of `min()` function */
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  // grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.5rem), 1fr));
+  // @supports (width: min(1px, 1px)) {
+  //   /* Using @supports to check for browser support of `min()` function */
 
-    grid-template-columns: repeat(auto-fit, minmax(calc(min(25%, 250px) - 0.5rem), 1fr));
-  }
+  //   grid-template-columns: repeat(auto-fit, minmax(calc(min(25%, 250px) - 0.5rem), 1fr));
+  // }
 
   grid-auto-rows: 170px;
   justify-content: space-between;
@@ -107,26 +108,6 @@ html,
     display: flex;
     flex-direction: row;
   }
-
-  // textarea {
-  //   resize: none;
-  //   background: none;
-  //   border: none;
-  //   &:focus {
-  //     outline: none;
-  //   }
-  //   max-width: 300px;
-  // }
-  // .title {
-  //   font-family: 'Inconsolata', monospace;
-  //   font-size: 1.5em;
-  //   margin-bottom: 10px;
-  //   min-height: 25px;
-  // }
-  // .content {
-  //   font-family: 'Inconsolata', monospace;
-  //   font-size: 1em;
-  // }
   .pinIcon {
     position: absolute;
     top: 7px;
@@ -366,6 +347,9 @@ html,
   }
 }
 @media (max-width: 613px) {
+  .app {
+    // width: 95%;
+  }
   .overlayContainer {
     height: 92%;
   }
@@ -396,5 +380,22 @@ html,
     width: 190px;
     right: 20%;
     left: auto;
+  }
+}
+@media (max-width: 360px) {
+  .searchInput {
+    width: 170px;
+  }
+}
+@media (max-width: 1310px) {
+  .app {
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 980px) {
+  .app {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // grid-template-columns: repeat(3, 1fr);
   }
 }
