@@ -3,7 +3,7 @@ import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
 import { BsSkipForward } from 'react-icons/bs';
 import { MdAlarmOff } from 'react-icons/md';
 import { useContext } from 'react';
-import { TimerContext } from './../../PomodoroTimer';
+import { TimerContext } from '../../PomodoroTimer';
 import { ControlsItem } from './ControlsItem';
 
 export const Controls = () => {

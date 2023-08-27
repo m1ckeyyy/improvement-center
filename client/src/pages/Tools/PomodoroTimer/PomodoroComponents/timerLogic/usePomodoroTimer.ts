@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { notifyBreakFinished, notifyWorkFinished } from './../Notifications/Notifications';
+import { notifyBreakFinished, notifyWorkFinished } from '../Notifications/Notifications';
 import { useSounds } from '../Sounds/sounds';
 
 export const usePomodoroTimer = ({ isRunning, secondsLeft, setSecondsLeft, currentSection, notification, alarmSound, setCurrentSection, breakTime, workTime }) => {
