@@ -1,7 +1,12 @@
 import { useEffect } from 'react';
 import { useSounds } from '../Sounds/sounds';
 
-export const useSelectMusic = ({ selectedMusicOption, setBackgroundTheme }) => {
+type MusicProps = {
+  selectedMusicOption: 'Brown Noise' | 'Rain' | 'OFF';
+  setBackgroundTheme: (option: 'Brown Noise' | 'Rain' | 'OFF') => void;
+};
+
+export const useSelectMusic = ({ selectedMusicOption, setBackgroundTheme }: MusicProps) => {
   const { rainSound, brownNoise } = useSounds();
   useEffect(() => {
     switch (selectedMusicOption) {

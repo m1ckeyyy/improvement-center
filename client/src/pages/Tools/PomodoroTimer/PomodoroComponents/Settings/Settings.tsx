@@ -13,7 +13,7 @@ export const Settings = () => {
 
   const [isMusicMenuOpen, setIsMusicMenuOpen] = useState(false);
 
-  const applySettings = (e) => {
+  const applySettings = (e: Event) => {
     notifySettingsApplied();
     e.preventDefault();
     toggleVisibility();

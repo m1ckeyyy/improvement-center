@@ -1,18 +1,17 @@
 import { useState } from 'react';
 
 export const states = () => {
-  const [timeFormat, setTimeFormat] = useState('minutes');
-  const [notification, setNotification] = useState('ON');
-  const [alarmSound, setAlarmSound] = useState('ON');
-
+  const [timeFormat, setTimeFormat] = useState<'minutes' | 'percentage'>('minutes');
+  const [notification, setNotification] = useState<'ON' | 'OFF'>('ON');
+  const [alarmSound, setAlarmSound] = useState<'ON' | 'OFF'>('ON');
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [workTime, setWorkTimePreference] = useState(25); // 25 minutes in seconds
   const [breakTime, setBreakTimePreference] = useState(5); // 5 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(workTime * 60);
-  const [currentSection, setCurrentSection] = useState('work');
-  const [selectedMusicOption, setSelectedMusicOption] = useState('OFF');
-  const [backgroundTheme, setBackgroundTheme] = useState('OFF');
+  const [currentSection, setCurrentSection] = useState<'work' | 'break'>('work');
+  const [selectedMusicOption, setSelectedMusicOption] = useState<'Brown Noise' | 'Rain' | 'OFF'>('OFF');
+  const [backgroundTheme, setBackgroundTheme] = useState<'Brown Noise' | 'Rain' | 'OFF'>('OFF');
 
   return {
     timeFormat,
