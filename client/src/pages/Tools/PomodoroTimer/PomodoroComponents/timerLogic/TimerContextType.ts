@@ -21,4 +21,5 @@ export type TimerContextType = {
   setSelectedMusicOption: (option: 'OFF' | 'Brown Noise' | 'Rain') => void;
   backgroundTheme: 'OFF' | 'Brown Noise' | 'Rain';
   setBackgroundTheme: (option: 'OFF' | 'Brown Noise' | 'Rain') => void;
+  toggleVisibility: () => void;
 };

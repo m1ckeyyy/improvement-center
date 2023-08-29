@@ -1,4 +1,4 @@
-import React, {createContext} from 'react';
+import React, { createContext } from 'react';
 import styles from './PomodoroTimer.module.scss';
 import { CircularProgressbarWithChildren as ProgressBar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -16,7 +16,7 @@ import { useFormatTimePercentage } from './PomodoroComponents/timerLogic/useForm
 import { useFormatTime } from './PomodoroComponents/timerLogic/useFormatTime';
 import { TimerContextType } from './PomodoroComponents/timerLogic/TimerContextType';
 
-export const TimerContext = createContext<TimerContextType | undefined>(undefined);
+export const TimerContext = createContext<TimerContextType>(undefined);
 
 const PomodoroTimer = () => {
   const allValues = states();

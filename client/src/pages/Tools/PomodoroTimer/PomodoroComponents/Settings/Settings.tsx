@@ -13,12 +13,17 @@ export const Settings = () => {
 
   const [isMusicMenuOpen, setIsMusicMenuOpen] = useState(false);
 
-  const applySettings = (e: Event) => {
+  const applySettings = (e: React.FormEvent<HTMLFormElement>) => {
     notifySettingsApplied();
     e.preventDefault();
     toggleVisibility();
-    setWorkTimePreference(parseInt(e.target.elements.workTimeInput.value));
-    setBreakTimePreference(parseInt(e.target.elements.breakTimeInput.value));
+
+    const formElement = e.currentTarget as HTMLFormElement;
+    const workTimeInput = formElement.elements.namedItem('workTimeInput') as HTMLInputElement;
+    const breakTimeInput = formElement.elements.namedItem('breakTimeInput') as HTMLInputElement;
+
+    setWorkTimePreference(parseInt(workTimeInput.value));
+    setBreakTimePreference(parseInt(breakTimeInput.value));
   };
 
   const toggleTimeFormat = () => {
