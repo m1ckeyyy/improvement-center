@@ -23,3 +23,28 @@ export type TimerContextType = {
   setBackgroundTheme: (option: 'OFF' | 'Brown Noise' | 'Rain') => void;
   toggleVisibility: () => void;
 };
+export const defaultState: TimerContextType = {
+  timeFormat: 'minutes',
+  setTimeFormat: () => {},
+  notification: 'ON',
+  setNotification: () => {},
+  alarmSound: 'ON',
+  setAlarmSound: () => {},
+  settingsVisible: false,
+  setSettingsVisible: () => {},
+  workTime: 25,
+  setWorkTimePreference: () => {},
+  breakTime: 5,
+  setBreakTimePreference: () => {},
+  isRunning: false,
+  setIsRunning: () => {},
+  secondsLeft: 25 * 60,
+  setSecondsLeft: () => {},
+  currentSection: 'work',
+  setCurrentSection: () => {},
+  selectedMusicOption: 'OFF',
+  setSelectedMusicOption: () => {},
+  backgroundTheme: 'OFF',
+  setBackgroundTheme: () => {},
+  toggleVisibility: () => {},
+};

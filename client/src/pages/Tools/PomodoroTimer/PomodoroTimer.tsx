@@ -14,9 +14,9 @@ import { useSkipSection } from './PomodoroComponents/timerLogic/useSkipSection';
 import { useReset } from './PomodoroComponents/timerLogic/useReset';
 import { useFormatTimePercentage } from './PomodoroComponents/timerLogic/useFormatTimePercentage';
 import { useFormatTime } from './PomodoroComponents/timerLogic/useFormatTime';
-import { TimerContextType } from './PomodoroComponents/timerLogic/TimerContextType';
-
-export const TimerContext = createContext<TimerContextType>(undefined);
+import { TimerContextType, defaultState } from './PomodoroComponents/timerLogic/TimerContextType';
+// //@ts-ignore
+export const TimerContext = createContext<TimerContextType>(defaultState);
 
 const PomodoroTimer = () => {
   const allValues = states();
