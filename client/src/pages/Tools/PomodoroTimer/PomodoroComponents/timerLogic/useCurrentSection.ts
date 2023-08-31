@@ -1,7 +1,13 @@
 import { useEffect } from 'react';
 
-// type SessionProps = {};
-export const useCurrentSection = ({ currentSection, workTime, breakTime, setSecondsLeft }) => {
+type SessionProps = {
+  currentSection: 'work' | 'break';
+  breakTime: number;
+  workTime: number;
+  setSecondsLeft: (arg: number) => void;
+};
+
+export const useCurrentSection = ({ currentSection, workTime, breakTime, setSecondsLeft }: SessionProps) => {
   useEffect(() => {
     switch (currentSection) {
       case 'work':

@@ -1,26 +1,11 @@
-export const formatTime = (prevFormat, setTimeFormat) => {
-  if (prevFormat === 'minutes') {
-    setTimeFormat('percentages');
-  } else {
-    setTimeFormat('minutes');
-  }
+export const formatTime = (setTimeFormat: (prev: any) => void) => {
+  setTimeFormat((prev: string) => (prev === 'minutes' ? 'percentage' : 'minutes'));
 };
 
-export const toggleAlarm = (setAlarmSound) => {
-  setAlarmSound((prev) => {
-    if (prev === 'ON') {
-      return 'OFF';
-    } else {
-      return 'ON';
-    }
-  });
+export const toggleAlarm = (setAlarmSound: (prev: any) => void) => {
+  setAlarmSound((prev: string) => (prev === 'ON' ? 'OFF' : 'ON'));
 };
-export const toggleNotis = (setNotification) => {
-  setNotification((prev) => {
-    if (prev === 'ON') {
-      return 'OFF';
-    } else {
-      return 'ON';
-    }
-  });
+
+export const toggleNotis = (setNotification: (arg: any) => void) => {
+  setNotification((prev: string) => (prev === 'ON' ? 'OFF' : 'ON'));
 };

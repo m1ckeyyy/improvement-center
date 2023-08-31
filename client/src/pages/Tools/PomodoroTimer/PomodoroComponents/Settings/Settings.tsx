@@ -6,10 +6,12 @@ import { IconButtons } from './components/iconButtons';
 import { MdSettingsInputComponent } from 'react-icons/md';
 import { TimerContext } from '../../PomodoroTimer';
 import { notifySettingsApplied } from '../Notifications/Notifications';
+import { TimePreferenceInput } from './components/TimePreferenceInput';
 
 export const Settings = () => {
   const { workTime, breakTime, setWorkTimePreference, setBreakTimePreference, toggleVisibility, timeFormat, setTimeFormat, notification, setNotification, alarmSound, setAlarmSound } =
     useContext(TimerContext);
+  console.log(workTime);
 
   const [isMusicMenuOpen, setIsMusicMenuOpen] = useState(false);
 
@@ -27,7 +29,7 @@ export const Settings = () => {
   };
 
   const toggleTimeFormat = () => {
-    formatTime(timeFormat, setTimeFormat);
+    formatTime(setTimeFormat);
   };
   const toggleAlarmSound = () => {
     toggleAlarm(setAlarmSound);
@@ -35,6 +37,8 @@ export const Settings = () => {
   const toggleNotifications = () => {
     toggleNotis(setNotification);
   };
+
+  // const TimePreferenceInput = React.memo(({ defaultValue, id, min, max }: InputProps) => <input type="number" defaultValue={defaultValue} id={id} min={min} max={max} required />);
 
   return (
     <div className={styles.container}>
@@ -48,11 +52,11 @@ export const Settings = () => {
           <h4>Set Time Preferences (Minutes)</h4>
           <div className={styles.workTimePreference}>
             <span>Work time: </span>
-            <input type="number" defaultValue={workTime} id="workTimeInput" min="0" max="90" />
+            <TimePreferenceInput defaultValue={workTime} id="workTimeInput" min={0} max={90} />
           </div>
           <div className={styles.breakTimePreference}>
             <span>Break time: </span>
-            <input type="number" defaultValue={breakTime} id="breakTimeInput" min="0" max="90" />
+            <TimePreferenceInput defaultValue={breakTime} id="breakTimeInput" min={0} max={90} />
           </div>
 
           <hr />
