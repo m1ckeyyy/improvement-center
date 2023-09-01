@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './../../PomodoroTimer.module.scss';
 import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
 import { BsSkipForward } from 'react-icons/bs';
@@ -6,8 +7,15 @@ import { useContext } from 'react';
 import { TimerContext } from '../../PomodoroTimer';
 import { ControlsItem } from './ControlsItem';
 
+type ControlsProps = {
+  isRunning: boolean;
+  handleStartStop: () => void;
+  handleReset: () => void;
+  handleSkipSection: () => void;
+};
+
 export const Controls = () => {
-  const { isRunning, handleStartStop, handleReset, handleSkipSection } = useContext(TimerContext);
+  const { isRunning, handleStartStop, handleReset, handleSkipSection }: ControlsProps = useContext(TimerContext);
   return (
     <div className={styles.controls}>
       <div className={styles.controlsItems}>

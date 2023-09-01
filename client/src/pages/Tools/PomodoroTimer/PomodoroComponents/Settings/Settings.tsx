@@ -7,25 +7,31 @@ import { MdSettingsInputComponent } from 'react-icons/md';
 import { TimerContext } from '../../PomodoroTimer';
 import { notifySettingsApplied } from '../Notifications/Notifications';
 import { TimePreferenceInput } from './components/TimePreferenceInput';
+import { SettingsOption } from './components/SettingsOption';
 
 export const Settings = () => {
   const { workTime, breakTime, setWorkTimePreference, setBreakTimePreference, toggleVisibility, timeFormat, setTimeFormat, notification, setNotification, alarmSound, setAlarmSound } =
     useContext(TimerContext);
-  console.log(workTime);
 
   const [isMusicMenuOpen, setIsMusicMenuOpen] = useState(false);
 
   const applySettings = (e: React.FormEvent<HTMLFormElement>) => {
-    notifySettingsApplied();
     e.preventDefault();
-    toggleVisibility();
-
     const formElement = e.currentTarget as HTMLFormElement;
     const workTimeInput = formElement.elements.namedItem('workTimeInput') as HTMLInputElement;
     const breakTimeInput = formElement.elements.namedItem('breakTimeInput') as HTMLInputElement;
 
-    setWorkTimePreference(parseInt(workTimeInput.value));
-    setBreakTimePreference(parseInt(breakTimeInput.value));
+    const newWorkTime = parseInt(workTimeInput.value);
+    const newBreakTime = parseInt(breakTimeInput.value);
+    toggleVisibility();
+
+    if (newWorkTime === workTime && newBreakTime === breakTime) {
+      return;
+    }
+
+    setWorkTimePreference(newWorkTime);
+    setBreakTimePreference(newBreakTime);
+    notifySettingsApplied();
   };
 
   const toggleTimeFormat = () => {
@@ -38,8 +44,6 @@ export const Settings = () => {
     toggleNotis(setNotification);
   };
 
-  // const TimePreferenceInput = React.memo(({ defaultValue, id, min, max }: InputProps) => <input type="number" defaultValue={defaultValue} id={id} min={min} max={max} required />);
-
   return (
     <div className={styles.container}>
       <div className={styles.settingsContainer}>
@@ -50,42 +54,42 @@ export const Settings = () => {
         <form onSubmit={applySettings}>
           <hr />
           <h4>Set Time Preferences (Minutes)</h4>
-          <div className={styles.workTimePreference}>
-            <span>Work time: </span>
+
+          <SettingsOption title="Work time: " style="workTimePreference">
             <TimePreferenceInput defaultValue={workTime} id="workTimeInput" min={0} max={90} />
-          </div>
-          <div className={styles.breakTimePreference}>
-            <span>Break time: </span>
+          </SettingsOption>
+
+          <SettingsOption title="Break time: " style="breakTimePreference">
             <TimePreferenceInput defaultValue={breakTime} id="breakTimeInput" min={0} max={90} />
-          </div>
+          </SettingsOption>
 
           <hr />
+
           <h4>Other Settings</h4>
-          <div className={styles.backgroundMusic}>
-            <span>Music: </span>
+
+          <SettingsOption title="Music: " style="backgroundMusic">
             <button type="button">
               <BackgroundMusicOptions isMusicMenuOpen={isMusicMenuOpen} setIsMusicMenuOpen={setIsMusicMenuOpen} />
             </button>
-          </div>
-          <div className={styles.alarmSound}>
-            <span>Alarm Sound: </span>
+          </SettingsOption>
+
+          <SettingsOption title="Alarm Sound: " style="alarmSound">
             <button type="button" onClick={toggleAlarmSound}>
               {alarmSound}
             </button>
-          </div>
+          </SettingsOption>
 
-          <div className={styles.toggleNotifications}>
-            <span>Notifications: </span>
+          <SettingsOption title="Notifications: " style="toggleNotifications">
             <button type="button" onClick={toggleNotifications}>
               {notification === 'ON' ? 'ON' : 'OFF'}
             </button>
-          </div>
-          <div className={styles.switchDisplay}>
-            <span>Time Format: </span>
+          </SettingsOption>
+
+          <SettingsOption title="Time Format: " style="switchDisplay">
             <button type="button" onClick={toggleTimeFormat}>
               {timeFormat === 'minutes' ? 'Minutes' : 'Percentage'}
             </button>
-          </div>
+          </SettingsOption>
           <hr />
           <IconButtons />
         </form>

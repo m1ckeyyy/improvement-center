@@ -6,6 +6,6 @@ export const toggleAlarm = (setAlarmSound: (prev: any) => void) => {
   setAlarmSound((prev: string) => (prev === 'ON' ? 'OFF' : 'ON'));
 };
 
-export const toggleNotis = (setNotification: (arg: any) => void) => {
+export const toggleNotis = (setNotification: (prev: any) => void) => {
   setNotification((prev: string) => (prev === 'ON' ? 'OFF' : 'ON'));
 };

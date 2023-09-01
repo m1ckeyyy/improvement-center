@@ -22,6 +22,9 @@ export type TimerContextType = {
   backgroundTheme: 'OFF' | 'Brown Noise' | 'Rain';
   setBackgroundTheme: (option: 'OFF' | 'Brown Noise' | 'Rain') => void;
   toggleVisibility: () => void;
+  handleStartStop: () => void;
+  handleReset: () => void;
+  handleSkipSection: () => void;
 };
 export const defaultState: TimerContextType = {
   timeFormat: 'minutes',
@@ -47,4 +50,7 @@ export const defaultState: TimerContextType = {
   backgroundTheme: 'OFF',
   setBackgroundTheme: () => {},
   toggleVisibility: () => {},
+  handleStartStop: () => {},
+  handleReset: () => {},
+  handleSkipSection: () => {},
 };

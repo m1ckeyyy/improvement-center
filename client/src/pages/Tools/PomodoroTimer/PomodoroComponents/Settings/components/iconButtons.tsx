@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './../Settings.module.scss';
 import { BiHomeAlt, BiUser } from 'react-icons/bi';
 import { AiOutlineSave } from 'react-icons/ai';

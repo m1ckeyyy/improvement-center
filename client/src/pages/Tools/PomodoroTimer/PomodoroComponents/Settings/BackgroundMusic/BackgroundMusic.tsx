@@ -1,15 +1,21 @@
+import React from 'react';
 import styles from './BackgroundMusic.module.scss';
 import { useContext } from 'react';
 import { TimerContext } from '../../../PomodoroTimer';
 
-export const BackgroundMusicOptions = ({ isMusicMenuOpen, setIsMusicMenuOpen }) => {
+type MusicProps = {
+  isMusicMenuOpen: boolean;
+  setIsMusicMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export const BackgroundMusicOptions = ({ isMusicMenuOpen, setIsMusicMenuOpen }: MusicProps) => {
   const { selectedMusicOption, setSelectedMusicOption } = useContext(TimerContext);
 
   const toggleDropdown = () => {
     setIsMusicMenuOpen((prevState) => !prevState);
   };
 
-  const selectOption = (option) => {
+  const selectOption = (option: 'OFF' | 'Brown Noise' | 'Rain') => {
     setSelectedMusicOption(option);
     setIsMusicMenuOpen(false);
   };
