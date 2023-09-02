@@ -9,6 +9,5 @@ export const useSounds = () => {
   const endSound = useRef(new Audio(endSoundFile)).current;
   const rainSound = useRef(new Audio(rainSoundFile)).current;
   const brownNoise = useRef(new Audio(brownNoiseFile)).current;
-
   return { startSound, endSound, rainSound, brownNoise };
 };

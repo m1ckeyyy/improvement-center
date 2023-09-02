@@ -4,7 +4,7 @@ import { BackgroundMusicOptions } from './BackgroundMusic/BackgroundMusic';
 import { formatTime, toggleAlarm, toggleNotis } from './components/toggles';
 import { IconButtons } from './components/iconButtons';
 import { MdSettingsInputComponent } from 'react-icons/md';
-import { TimerContext } from '../../PomodoroTimer';
+import { TimerContext } from '../../TimerContext';
 import { notifySettingsApplied } from '../Notifications/Notifications';
 import { TimePreferenceInput } from './components/TimePreferenceInput';
 import { SettingsOption } from './components/SettingsOption';
@@ -31,7 +31,7 @@ export const Settings = () => {
 
     setWorkTimePreference(newWorkTime);
     setBreakTimePreference(newBreakTime);
-    notifySettingsApplied();
+    notification === 'ON' ? notifySettingsApplied() : '';
   };
 
   const toggleTimeFormat = () => {

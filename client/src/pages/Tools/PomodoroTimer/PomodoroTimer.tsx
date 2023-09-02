@@ -14,9 +14,7 @@ import { useSkipSection } from './PomodoroComponents/timerLogic/useSkipSection';
 import { useReset } from './PomodoroComponents/timerLogic/useReset';
 import { useFormatTimePercentage } from './PomodoroComponents/timerLogic/useFormatTimePercentage';
 import { useFormatTime } from './PomodoroComponents/timerLogic/useFormatTime';
-import { TimerContextType, defaultState } from './PomodoroComponents/timerLogic/TimerContextType';
-
-export const TimerContext = createContext<TimerContextType>(defaultState);
+import { TimerContextProvider } from './TimerContext';
 
 const PomodoroTimer = () => {
   const allValues = states();
@@ -68,7 +66,7 @@ const PomodoroTimer = () => {
   const timerContextData = { ...allValues, handleStartStop, handleReset, handleSkipSection, toggleVisibility };
 
   return (
-    <TimerContext.Provider value={timerContextData}>
+    <TimerContextProvider value={timerContextData}>
       <div className={`${styles.overlayContainer}  ${backgroundTheme == 'Rain' ? styles.rain : ''} ${backgroundTheme == 'Brown Noise' ? styles.brownNoise : ''}`}>
         <div className={styles.app}>
           <div className={styles.timer}>
@@ -96,7 +94,7 @@ const PomodoroTimer = () => {
         </div>
         <ToastContainer />
       </div>
-    </TimerContext.Provider>
+    </TimerContextProvider>
   );
 };
 

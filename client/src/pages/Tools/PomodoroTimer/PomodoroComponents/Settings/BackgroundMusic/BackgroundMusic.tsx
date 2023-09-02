@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './BackgroundMusic.module.scss';
 import { useContext } from 'react';
-import { TimerContext } from '../../../PomodoroTimer';
+import { TimerContext } from '../../../TimerContext';
 
 type MusicProps = {
   isMusicMenuOpen: boolean;
