@@ -22,9 +22,4 @@ export const VolumeIcon = () => {
     <BiVolumeMute style={volumeIconStyle} size={'2em'} title="alarm sound off" />
     }
   </>;
-
-  //   color: rgb(227 227 227);
-  //     position: absolute;
-  //     top: -4em;
-  // right: 10px;
 };
