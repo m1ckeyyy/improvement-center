@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { TimerContextType, defaultState } from './PomodoroComponents/timerLogic/TimerContextType';
+import { TimerContextType, defaultState } from './TimerContextType';
 
 type ProviderProps = {
   children: React.ReactNode;
