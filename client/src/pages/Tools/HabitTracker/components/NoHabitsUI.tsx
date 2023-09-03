@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './../HabitTracker.module.scss';
+import styles from './../styles/HabitTracker.module.scss';
 import { HiOutlineDocumentAdd } from 'react-icons/hi';
 import { MdOutlineLibraryAdd } from 'react-icons/md';
 

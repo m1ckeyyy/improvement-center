@@ -29,7 +29,7 @@ export const ToolsSection = () => {
           <ToolCard
             title="Habit Tracker"
             description="Form good habits and break bad ones with our powerful habit tracker"
-            link="/habittracker"
+            link="/habit-tracker"
             imageSrc="images/habittracker.png"
             imageClassName={styles.habitTrackerImg}
           />

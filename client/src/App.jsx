@@ -14,7 +14,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/pomodoro" element={<Pomodoro />} />
-          <Route path="/habittracker" element={<HabitTracker />} />
+          <Route path="/habit-tracker" element={<HabitTracker />} />
         </Routes>
       </Suspense>
     </SuspenseRouter>
