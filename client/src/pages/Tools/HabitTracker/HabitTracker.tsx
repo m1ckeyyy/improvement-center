@@ -18,17 +18,17 @@ const HabitTracker = () => {
   const [newHabitPanelVisible, setHabitPanelVisible] = useState(false);
 
   const TEST_VALUE = 'Hello World';
-  const habitTrackerValue = { TEST_VALUE };
+  const habitTrackerValue = { setHabitPanelVisible };
 
   const habits = [];
   return (
     <HabitContextProvider value={habitTrackerValue}>
       <div className={styles.wrapContainer}>
         <div className={styles.overlayContainer}>
-          <section className={styles.habitDisplay}>{habits.length > 0 ? '' : <NoHabitsUI />}</section>
+          <section className={styles.habitDisplay}>{habits.length > 0 ? '<DisplayHabits/>' : <NoHabitsUI />}</section>
           <section className={styles.calendarWrap}>
             <CalendarContainer>
-              <Calendar onChange={onChange} value={value} className={styles.reactCalendar} />
+              <Calendar onChange={onChange} value={value} className={styles.reactCalendar} locale="en-US" />
             </CalendarContainer>
           </section>
         </div>

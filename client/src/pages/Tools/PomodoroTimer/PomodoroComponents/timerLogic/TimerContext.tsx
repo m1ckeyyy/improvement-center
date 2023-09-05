@@ -3,7 +3,7 @@ import { TimerContextType, defaultState } from './TimerContextType';
 
 type ProviderProps = {
   children: React.ReactNode;
-  value: typeof defaultState;
+  value: typeof defaultState; //or TimerContextType
 };
 
 export const TimerContext = createContext<TimerContextType>(defaultState);

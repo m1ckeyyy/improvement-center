@@ -1,3 +1,7 @@
+import React from 'react';
 export type HabitContextType = {
-  TEST_VALUE: string;
+  setHabitPanelVisible: React.Dispatch<React.SetStateAction<boolean>>;
+};
+export const defaultState: HabitContextType = {
+  setHabitPanelVisible: () => {},
 };
