@@ -1,15 +1,10 @@
 import React, { useContext } from 'react';
 import styles from './../styles/HabitTracker.module.scss';
 import { HabitContext } from './HabitContext';
-import { HiOutlineDocumentAdd } from 'react-icons/hi';
 import { MdOutlineLibraryAdd } from 'react-icons/md';
 
 export const NoHabitsUI = () => {
-  const { setHabitPanelVisible } = useContext(HabitContext);
-
-  const toggleHabitPanelVisibility = () => {
-    setHabitPanelVisible((prev) => !prev);
-  };
+  const { toggleHabitPanelVisibility } = useContext(HabitContext);
 
   return (
     <div className={styles.noHabitsUI}>

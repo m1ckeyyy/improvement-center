@@ -5,6 +5,8 @@ import { ToastContainer } from 'react-toastify';
 import { HabitContextProvider } from './components/HabitContext';
 import { NoHabitsUI } from './components/NoHabitsUI';
 import { CalendarContainer } from './styles/CalendarContainer.styled';
+import { AddNewHabitPanel } from './components/AddNewHabitPanel';
+import { DisplayHabits } from './components/DisplayHabits';
 import Calendar from 'react-calendar';
 
 type ValuePiece = Date | null;
@@ -17,15 +19,24 @@ const HabitTracker = () => {
   const [value, onChange] = useState<Value>(new Date());
   const [newHabitPanelVisible, setHabitPanelVisible] = useState(false);
 
-  const TEST_VALUE = 'Hello World';
-  const habitTrackerValue = { setHabitPanelVisible };
+  const toggleHabitPanelVisibility = () => {
+    setHabitPanelVisible((prev) => !prev);
+  };
 
-  const habits = [];
+  // const TEST_VALUE = 'Hello World';
+  const habitTrackerValue = { toggleHabitPanelVisibility };
+  console.log(newHabitPanelVisible);
+  const habits = [4];
   return (
     <HabitContextProvider value={habitTrackerValue}>
       <div className={styles.wrapContainer}>
         <div className={styles.overlayContainer}>
-          <section className={styles.habitDisplay}>{habits.length > 0 ? '<DisplayHabits/>' : <NoHabitsUI />}</section>
+          <section className={styles.habitsWrap}>
+            <div className={styles.habitsContainer}>
+              {habits.length > 0 ? newHabitPanelVisible ? <AddNewHabitPanel /> : <DisplayHabits /> : newHabitPanelVisible ? <AddNewHabitPanel /> : <NoHabitsUI />}
+            </div>
+          </section>
+
           <section className={styles.calendarWrap}>
             <CalendarContainer>
               <Calendar onChange={onChange} value={value} className={styles.reactCalendar} locale="en-US" />
@@ -38,3 +49,13 @@ const HabitTracker = () => {
   );
 };
 export default HabitTracker;
+
+/*
+2 scanerios 
+0 habits
+a) NoHabitsUI
+b) AddNewHabitPanel
+1 or multiple habits
+a) Display Habits
+b) AddNewHabitPanel
+*/
