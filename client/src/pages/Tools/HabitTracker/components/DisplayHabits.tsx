@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styles from './../styles/HabitTracker.module.scss';
-import { HabitContext } from './HabitContext';
+import { useHabitTrackerContext } from './HabitContext';
 
 export const DisplayHabits = () => {
-  const { toggleHabitPanelVisibility } = useContext(HabitContext);
+  const { toggleHabitPanelVisibility } = useHabitTrackerContext();
 
   return (
     <>

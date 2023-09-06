@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useContext } from 'react';
 import { HabitContextType, defaultState } from './HabitContextType';
 
 type ProviderProps = {
@@ -6,7 +6,8 @@ type ProviderProps = {
   value: HabitContextType;
 };
 
-export const HabitContext = createContext<HabitContextType>(defaultState);
+const HabitContext = createContext<HabitContextType>(defaultState);
+export const useHabitTrackerContext = () => useContext(HabitContext);
 
 export const HabitContextProvider = ({ children, value }: ProviderProps) => {
   return <HabitContext.Provider value={value}>{children}</HabitContext.Provider>;

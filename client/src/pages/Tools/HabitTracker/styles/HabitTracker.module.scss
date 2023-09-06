@@ -65,3 +65,40 @@ body {
   padding-left: 2%;
   width: 55%;
 }
+//    background: linear-gradient(45deg, #1f6feb, #031d27);
+
+.addNewHabitPanel {
+  font-size: 1.3rem;
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 10px;
+  width: 60%;
+  height: 70%;
+  background-color: #5d79bc;
+
+  .title {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    svg {
+      margin-right: 15px;
+    }
+  }
+  .daysOfWeek {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    label {
+      padding: 2px 0;
+      &:first-child {
+        // padding: 0;
+      }
+    }
+
+    // background-color: red;
+  }
+}
+.habitsContainer + .AddNewHabitPanel {
+  background-color: red;
+}
