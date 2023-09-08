@@ -1,41 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import styles from './../styles/HabitTracker.module.scss';
 import { useHabitTrackerContext } from './HabitContext';
 import { IoMdAddCircleOutline } from 'react-icons/io';
-type HabitDataType = {
-  name: string;
-  category: string;
-  daysOfWeek: {
-    Monday: boolean;
-    Tuesday: boolean;
-    Wednesday: boolean;
-    Thursday: boolean;
-    Friday: boolean;
-    Saturday: boolean;
-    Sunday: boolean;
-  };
-};
+import { useHabitData } from './useHabitData';
 
 export const AddNewHabitPanel: React.FC = () => {
   const { toggleHabitPanelVisibility, addHabit } = useHabitTrackerContext();
-  const [categories, setCategories] = useState(['Recharging', 'Personal Development', 'Hobbies', 'Health & Fitness']);
-
-  const [habitData, setHabitData] = useState<HabitDataType>({
-    name: '',
-    category: '',
-    daysOfWeek: {
-      Monday: false,
-      Tuesday: false,
-      Wednesday: false,
-      Thursday: false,
-      Friday: false,
-      Saturday: false,
-      Sunday: false,
-    },
-  });
-  console.log(habitData);
-
+  const { habitData, setHabitData, categories, setCategories } = useHabitData();
+  // console.log(habitData.daysOfWeek);
   const handleDayOfWeekChange = (day: string) => {
+    if (day === 'Everyday') {
+      handleEverydayClick(day);
+      return;
+    }
     setHabitData({
       ...habitData,
       daysOfWeek: {
@@ -43,6 +20,23 @@ export const AddNewHabitPanel: React.FC = () => {
         [day]: !habitData.daysOfWeek[day as keyof typeof habitData.daysOfWeek],
       },
     });
+  };
+
+  const handleEverydayClick = (day: string) => {
+    const updatedDaysOfWeek = { ...habitData.daysOfWeek };
+    //@ts-ignore
+    const allDaysChecked = Object.values(habitData.daysOfWeek).every((isChecked:boolean) => isChecked);
+    for (const key in updatedDaysOfWeek) {
+      if (Object.hasOwnProperty.call(updatedDaysOfWeek, key)) {
+        //@ts-ignore
+        allDaysChecked ? (updatedDaysOfWeek[key] = false) : (updatedDaysOfWeek[key] = true);
+      }
+    }
+    setHabitData({
+      ...habitData,
+      daysOfWeek: updatedDaysOfWeek,
+    });
+    return;
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
@@ -58,15 +52,15 @@ export const AddNewHabitPanel: React.FC = () => {
 
   return (
     <div className={styles.addNewHabitPanel}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off">
         <h2 className={styles.title}>
           <IoMdAddCircleOutline /> New Habit:
         </h2>
-        <div>
+        <div className={styles.habitName}>
           <label htmlFor="name">Habit Name:</label>
-          <input type="text" id="name" name="name" value={habitData.name} onChange={handleInputChange} required />
+          <input type="text" name="name" placeholder="Enter habit name..." value={habitData.name} onChange={handleInputChange} required />
         </div>
-        <div>
+        <div className={styles.categoryName}>
           <label htmlFor="category">Category:</label>
           <select id="category" name="category" value={habitData.category} onChange={handleInputChange} required>
             <option value="" disabled hidden>
