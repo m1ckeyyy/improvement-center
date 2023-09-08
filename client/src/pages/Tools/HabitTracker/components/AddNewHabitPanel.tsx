@@ -5,44 +5,8 @@ import { IoMdAddCircleOutline } from 'react-icons/io';
 import { useHabitData } from './useHabitData';
 
 export const AddNewHabitPanel: React.FC = () => {
-  const { toggleHabitPanelVisibility, addHabit } = useHabitTrackerContext();
-  const { habitData, setHabitData, categories, setCategories } = useHabitData();
-  // console.log(habitData.daysOfWeek);
-  const handleDayOfWeekChange = (day: string) => {
-    if (day === 'Everyday') {
-      handleEverydayClick(day);
-      return;
-    }
-    setHabitData({
-      ...habitData,
-      daysOfWeek: {
-        ...habitData.daysOfWeek,
-        [day]: !habitData.daysOfWeek[day as keyof typeof habitData.daysOfWeek],
-      },
-    });
-  };
-
-  const handleEverydayClick = (day: string) => {
-    const updatedDaysOfWeek = { ...habitData.daysOfWeek };
-    //@ts-ignore
-    const allDaysChecked = Object.values(habitData.daysOfWeek).every((isChecked:boolean) => isChecked);
-    for (const key in updatedDaysOfWeek) {
-      if (Object.hasOwnProperty.call(updatedDaysOfWeek, key)) {
-        //@ts-ignore
-        allDaysChecked ? (updatedDaysOfWeek[key] = false) : (updatedDaysOfWeek[key] = true);
-      }
-    }
-    setHabitData({
-      ...habitData,
-      daysOfWeek: updatedDaysOfWeek,
-    });
-    return;
-  };
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
-    const { name, value } = event.target;
-    setHabitData({ ...habitData, [name]: value });
-  };
+  const { toggleHabitPanelVisibility, addHabit } = useHabitTrackerContext()!;
+  const { habitData, categories, handleDayOfWeekChange, handleInputChange } = useHabitData();
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -50,16 +14,19 @@ export const AddNewHabitPanel: React.FC = () => {
     toggleHabitPanelVisibility();
   };
 
+  // console.log(habitData.daysOfWeek);
   return (
     <div className={styles.addNewHabitPanel}>
       <form onSubmit={handleSubmit} autoComplete="off">
         <h2 className={styles.title}>
           <IoMdAddCircleOutline /> New Habit:
         </h2>
+
         <div className={styles.habitName}>
           <label htmlFor="name">Habit Name:</label>
           <input type="text" name="name" placeholder="Enter habit name..." value={habitData.name} onChange={handleInputChange} required />
         </div>
+
         <div className={styles.categoryName}>
           <label htmlFor="category">Category:</label>
           <select id="category" name="category" value={habitData.category} onChange={handleInputChange} required>
@@ -75,6 +42,7 @@ export const AddNewHabitPanel: React.FC = () => {
             })}
           </select>
         </div>
+
         <div className={styles.daysOfWeek}>
           <label>Days of the Week:</label>
           {Object.keys(habitData.daysOfWeek).map((day) => {
@@ -89,8 +57,10 @@ export const AddNewHabitPanel: React.FC = () => {
           })}
         </div>
 
-        <button type="submit">Add Habit</button>
-        <button type="button" onClick={toggleHabitPanelVisibility}>
+        <button type="submit" className={styles.addHabitBtn}>
+          Add Habit
+        </button>
+        <button type="button" className={styles.cancelBtn} onClick={toggleHabitPanelVisibility}>
           Cancel
         </button>
       </form>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-type HabitDataType = {
+export type HabitDataType = {
   name: string;
   category: string;
   daysOfWeek: {
@@ -32,5 +32,39 @@ export const useHabitData = () => {
   });
   const [categories, setCategories] = useState(['Recharging', 'Personal Development', 'Hobbies', 'Health & Fitness']);
 
-  return { habitData, setHabitData, categories, setCategories };
+  const handleDayOfWeekChange = (day: string) => {
+    if (day === 'Everyday') {
+      handleEverydayClick(day);
+      return;
+    }
+    setHabitData({
+      ...habitData,
+      daysOfWeek: {
+        ...habitData.daysOfWeek,
+        [day]: !habitData.daysOfWeek[day as keyof typeof habitData.daysOfWeek],
+      },
+    });
+  };
+  const handleEverydayClick = (day: string) => {
+    const daysOfWeek = { ...habitData.daysOfWeek };
+    const allDaysChecked = Object.values(habitData.daysOfWeek).every((isChecked: boolean) => isChecked);
+    for (const key in daysOfWeek) {
+      if (Object.hasOwnProperty.call(daysOfWeek, key)) {
+        //@ts-ignore
+        allDaysChecked ? (daysOfWeek[key] = false) : (daysOfWeek[key] = true);
+      }
+    }
+    setHabitData({
+      ...habitData,
+      daysOfWeek: daysOfWeek,
+    });
+    return;
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setHabitData({ ...habitData, [name]: value });
+  };
+
+  return { habitData, categories, handleDayOfWeekChange, handleEverydayClick, handleInputChange };
 };

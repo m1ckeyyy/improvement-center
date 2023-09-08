@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/HabitTracker.module.scss';
-import { useContext, createContext, useState } from 'react';
+import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { HabitContextProvider } from './components/HabitContext';
 // import { useHabitTrackerContext } from './components/HabitContext';
@@ -8,28 +8,26 @@ import { NoHabitsUI } from './components/NoHabitsUI';
 import { CalendarContainer } from './styles/CalendarContainer.styled';
 import { AddNewHabitPanel } from './components/AddNewHabitPanel';
 import { DisplayHabits } from './components/DisplayHabits';
+import { HabitDataType } from './components/useHabitData';
 import Calendar from 'react-calendar';
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-// const HabitTrackerContext = createContext({});
-// export const useHabitTrackerContext = () => useContext(HabitTrackerContext);
-
 const HabitTracker = () => {
   const [value, onChange] = useState<Value>(new Date());
   const [newHabitPanelVisible, setHabitPanelVisible] = useState(false);
+  const [habits, setHabits] = useState<HabitDataType[]>([]);
 
   const toggleHabitPanelVisibility = () => {
     setHabitPanelVisible((prev) => !prev);
   };
-  const addHabit = (obj: {}) => {
-    console.log('Added Habit');
+  const addHabit = (newHabit: HabitDataType) => {
+    console.log('Added Habit: ', newHabit);
+    setHabits([...habits, newHabit]);
   };
   const habitTrackerValue = { toggleHabitPanelVisibility, addHabit };
-  console.log(newHabitPanelVisible);
-
-  const habits = [];
+  console.log(habits.length);
 
   return (
     <HabitContextProvider value={habitTrackerValue}>

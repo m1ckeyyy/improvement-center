@@ -3,7 +3,7 @@ import styles from './../styles/HabitTracker.module.scss';
 import { useHabitTrackerContext } from './HabitContext';
 
 export const DisplayHabits = () => {
-  const { toggleHabitPanelVisibility } = useHabitTrackerContext();
+  const { toggleHabitPanelVisibility, habits } = useHabitTrackerContext()!;
 
   return (
     <>

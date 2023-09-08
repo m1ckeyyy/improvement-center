@@ -77,17 +77,22 @@ body {
   width: 100%;
   height: 100%;
   background-color: #5d79bc;
-
+  // background: linear-gradient(45deg, #020202, #5d79bc);
+  background: linear-gradient(102deg, #242527, #1a55e2);
+  form {
+    height: 100%;
+  }
   .title {
+    font-size: 2.7rem;
+
     display: flex;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
     svg {
       margin-right: 15px;
     }
   }
   .habitName {
-    // background-color: red;
     padding-bottom: 10px;
     input {
       font-size: 1.5rem;
@@ -119,12 +124,36 @@ body {
         width: 25px;
         height: 25px;
         cursor: pointer;
+        accent-color: #e4e9ed;
       }
     }
+  }
+  .addHabitBtn,
+  .cancelBtn {
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1.7rem;
+    padding: 10px;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    &:hover {
+      transition: all 0.15s ease;
 
-    // background-color: red;
+      background-color: #061133;
+      color: white;
+      border: 2px solid white;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  .addHabitBtn {
+    margin-right: 20px;
   }
 }
-.habitsContainer + .AddNewHabitPanel {
-  background-color: red;
-}
+// .habitsContainer + .AddNewHabitPanel {
+//   // background-color: red;
+// }

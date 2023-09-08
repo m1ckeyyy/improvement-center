@@ -1,9 +1,13 @@
-// import React from 'react';
+import { HabitDataType } from './useHabitData';
+
 export type HabitContextType = {
   toggleHabitPanelVisibility: () => void;
-  addHabit: (obj: {}) => void;
+  addHabit: (obj: HabitDataType) => void;
+  // habits: HabitDataType;
 };
-export const defaultState: HabitContextType = {
-  toggleHabitPanelVisibility: () => {},
-  addHabit: (obj: {}) => {},
-};
+
+// export const defaultState: HabitContextType = {
+//   toggleHabitPanelVisibility: () => {},
+//   addHabit: (obj: HabitDataType) => {},
+//   habits: [],
+// };
