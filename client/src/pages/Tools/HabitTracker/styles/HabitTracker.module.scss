@@ -34,10 +34,14 @@ body {
   border-radius: 15px;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
 }
 .noHabitsUI {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   .addFirstHabitBtn {
     opacity: 0.3;
     cursor: pointer;
@@ -109,6 +113,39 @@ body {
     padding: 10px 0;
     display: flex;
     flex-direction: column;
+    .calendarIcon {
+      margin-right: 14px;
+    }
+    .everydayBtn {
+      display: flex;
+      align-items: center;
+      .arrowIcon {
+        margin-right: 7px;
+      }
+
+      cursor: pointer;
+      margin-bottom: 13px;
+      font-size: 1.3rem;
+      padding: 3px 10px;
+      border: none;
+      background-color: #4c65ab;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      border: 2px solid #abb7ff40;
+      color: white;
+
+      &:hover {
+        transition: all 0.15s ease;
+        transform: translateX(5px);
+
+        background-color: #061133;
+        color: white;
+        border: 2px solid white;
+      }
+      &:active {
+        transform: scale(0.95);
+      }
+    }
     label {
       display: flex;
       align-items: center;
@@ -141,6 +178,7 @@ body {
     border: 2px solid transparent;
     &:hover {
       transition: all 0.15s ease;
+      transform: translateX(5px);
 
       background-color: #061133;
       color: white;
@@ -157,3 +195,66 @@ body {
 // .habitsContainer + .AddNewHabitPanel {
 //   // background-color: red;
 // }
+.displayHabits {
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .buttonsContainer {
+    .newHabitBtn {
+      margin-right: 7px;
+    }
+    .newHabitBtn,
+    .editHabitBtn {
+      // display: flex;
+      // align-items: center;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 1.7rem;
+      padding: 10px;
+      border: none;
+      background-color: white;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      border: 2px solid gray;
+      &:hover {
+        transition: all 0.15s ease;
+        transform: translateX(5px);
+        background-color: #061133;
+        color: white;
+        border: 2px solid white;
+      }
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+  .habit {
+    .habitDays {
+      border-radius: 10px;
+      padding: 3px 10px;
+      margin: 0 2px;
+    }
+    .Monday {
+      background-color: #87ceeb;
+    }
+    .Tuesday {
+      background-color: #98fb98;
+    }
+    .Wednesday {
+      background-color: #e6e6fa;
+    }
+    .Thursday {
+      background-color: #ff6b6b;
+    }
+    .Friday {
+      background-color: #708090;
+    }
+    .Saturday {
+      background-color: #daa520;
+    }
+    .Sunday {
+      background-color: #da70d6;
+    }
+  }
+}

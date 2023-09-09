@@ -4,7 +4,7 @@ import { useHabitTrackerContext } from './HabitContext';
 import { MdOutlineLibraryAdd } from 'react-icons/md';
 
 export const NoHabitsUI = () => {
-  const { toggleHabitPanelVisibility } = useHabitTrackerContext();
+  const { toggleHabitPanelVisibility } = useHabitTrackerContext()!;
 
   return (
     <div className={styles.noHabitsUI}>

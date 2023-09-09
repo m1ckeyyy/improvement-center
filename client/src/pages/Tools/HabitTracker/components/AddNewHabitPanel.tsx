@@ -2,7 +2,9 @@ import React from 'react';
 import styles from './../styles/HabitTracker.module.scss';
 import { useHabitTrackerContext } from './HabitContext';
 import { IoMdAddCircleOutline } from 'react-icons/io';
+import { MdOutlineToday } from 'react-icons/md';
 import { useHabitData } from './useHabitData';
+import { BsArrowRight } from 'react-icons/bs';
 
 export const AddNewHabitPanel: React.FC = () => {
   const { toggleHabitPanelVisibility, addHabit } = useHabitTrackerContext()!;
@@ -14,7 +16,6 @@ export const AddNewHabitPanel: React.FC = () => {
     toggleHabitPanelVisibility();
   };
 
-  // console.log(habitData.daysOfWeek);
   return (
     <div className={styles.addNewHabitPanel}>
       <form onSubmit={handleSubmit} autoComplete="off">
@@ -44,7 +45,16 @@ export const AddNewHabitPanel: React.FC = () => {
         </div>
 
         <div className={styles.daysOfWeek}>
-          <label>Days of the Week:</label>
+          <label>
+            <MdOutlineToday className={styles.calendarIcon} />
+            Days of the Week:
+          </label>
+          <label>
+            <button type="button" name="Everyday" className={styles.everydayBtn} onClick={() => handleDayOfWeekChange('Everyday')}>
+              <BsArrowRight className={styles.arrowIcon} />
+              <span>Set for every day</span>
+            </button>
+          </label>
           {Object.keys(habitData.daysOfWeek).map((day) => {
             const dayOfWeek = day as keyof typeof habitData.daysOfWeek;
             const isChecked = habitData.daysOfWeek[dayOfWeek];

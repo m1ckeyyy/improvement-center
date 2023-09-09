@@ -11,8 +11,8 @@ import { DisplayHabits } from './components/DisplayHabits';
 import { HabitDataType } from './components/useHabitData';
 import Calendar from 'react-calendar';
 
-type ValuePiece = Date | null;
-type Value = ValuePiece | [ValuePiece, ValuePiece];
+type DateValue = Date | null;
+type Value = DateValue | [DateValue, DateValue];
 
 const HabitTracker = () => {
   const [value, onChange] = useState<Value>(new Date());
@@ -26,8 +26,8 @@ const HabitTracker = () => {
     console.log('Added Habit: ', newHabit);
     setHabits([...habits, newHabit]);
   };
-  const habitTrackerValue = { toggleHabitPanelVisibility, addHabit };
-  console.log(habits.length);
+  const habitTrackerValue = { toggleHabitPanelVisibility, addHabit, habits };
+  // console.log(habits);
 
   return (
     <HabitContextProvider value={habitTrackerValue}>

@@ -3,8 +3,8 @@ import { useState } from 'react';
 export type HabitDataType = {
   name: string;
   category: string;
+  completed: boolean;
   daysOfWeek: {
-    Everyday: boolean;
     Monday: boolean;
     Tuesday: boolean;
     Wednesday: boolean;
@@ -19,8 +19,8 @@ export const useHabitData = () => {
   const [habitData, setHabitData] = useState<HabitDataType>({
     name: '',
     category: '',
+    completed: false,
     daysOfWeek: {
-      Everyday: false,
       Monday: false,
       Tuesday: false,
       Wednesday: false,
@@ -37,6 +37,7 @@ export const useHabitData = () => {
       handleEverydayClick(day);
       return;
     }
+
     setHabitData({
       ...habitData,
       daysOfWeek: {
@@ -58,7 +59,6 @@ export const useHabitData = () => {
       ...habitData,
       daysOfWeek: daysOfWeek,
     });
-    return;
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
