@@ -15,8 +15,10 @@ export const DisplayHabits = () => {
   //   })
   // );
   useEffect(() => {
-    const newHabits = habits;
-    console.log('ej halo hey: ', newHabits);
+    // [{...},{...},{...}]
+    const newHabits = { ...habits };
+    console.log('ej halo hey: ', habits);
+    console.log('exit array: ', newHabits);
   }, [habits]);
   // const test: { [index: string]: string } = { aa: 'yeah' };
 
@@ -31,35 +33,15 @@ export const DisplayHabits = () => {
           <p>Completed: {habit.completed ? 'Yes' : 'No'}</p>
           <>
             Days:
-            {Object.entries(habit.daysOfWeek).forEach(([day, completed]: TDay) => {
-              const allDaysChecked = Object.values(habit.daysOfWeek).every((isChecked: boolean) => isChecked);
-              const noDaysChecked = Object.values(habit.daysOfWeek).every((isChecked: boolean) => !isChecked);
-              if (allDaysChecked || noDaysChecked) {
-                return;
-              }
-            })}
-            {/* {Object.entries(habit.daysOfWeek)
+            {Object.entries(habit.daysOfWeek)
               .filter(([day, isCompleted]: TDay) => isCompleted)
               .map(([day, isCompleted]: TDay) => {
-                if (day === 'Everyday') return;
-                const allDaysChecked = Object.values(habit.daysOfWeek).every((isChecked: boolean) => isChecked);
-                const noDaysChecked = Object.values(habit.daysOfWeek).every((isChecked: boolean) => !isChecked);
-
-                if (allDaysChecked || noDaysChecked) {
-                  return (
-                    <span key="Everyday" className={`${styles.habitDays} ${styles.everyday}`}>
-                      Everyday
-                    </span>
-                  );
-                  //Just print it once, stop the loop now
-                }
-
                 return (
                   <span key={day} className={`${styles.habitDays} ${styles[day]}`}>
                     {day}
                   </span>
                 );
-              })} */}
+              })}
           </>
         </div>
       ))}

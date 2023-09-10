@@ -12,6 +12,7 @@ export const AddNewHabitPanel: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    //format
     addHabit(habitData);
     toggleHabitPanelVisibility();
   };
