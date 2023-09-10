@@ -3,7 +3,6 @@ import styles from './styles/HabitTracker.module.scss';
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { HabitContextProvider } from './components/HabitContext';
-// import { useHabitTrackerContext } from './components/HabitContext';
 import { NoHabitsUI } from './components/NoHabitsUI';
 import { CalendarContainer } from './styles/CalendarContainer.styled';
 import { AddNewHabitPanel } from './components/AddNewHabitPanel';
@@ -51,13 +50,3 @@ const HabitTracker = () => {
   );
 };
 export default HabitTracker;
-
-/*
-2 scanerios 
-0 habits
-a) NoHabitsUI
-b) AddNewHabitPanel
-1 or multiple habits
-a) Display Habits
-b) AddNewHabitPanel
-*/

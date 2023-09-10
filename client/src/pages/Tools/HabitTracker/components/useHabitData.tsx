@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export type HabitDataType = {
   name: string;
@@ -46,6 +46,17 @@ export const useHabitData = () => {
       },
     });
   };
+  // useEffect(() => {
+  //   //format no-days to every-day
+  //   console.log('habitData ', habitData.daysOfWeek);
+
+  //   const noDaysSelected = Object.values(habitData.daysOfWeek).every((e) => e === false);
+  //   if (noDaysSelected) {
+  //     for (const key of Object.keys(habitData.daysOfWeek)) {
+  //       habitData.daysOfWeek[key as keyof typeof habitData.daysOfWeek] = true;
+  //     }
+  //   }
+  // }, [habitData]);
   const handleEverydayClick = (day: string) => {
     const daysOfWeek = { ...habitData.daysOfWeek };
     const allDaysChecked = Object.values(habitData.daysOfWeek).every((isChecked: boolean) => isChecked);
