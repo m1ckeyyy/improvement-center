@@ -3,7 +3,7 @@ import styles from './../styles/HabitTracker.module.scss';
 import { useHabitTrackerContext } from './HabitContext';
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import { MdOutlineToday } from 'react-icons/md';
-import { useHabitData } from './useHabitData';
+import { useHabitData } from './../hooks/useHabitData';
 import { BsArrowRight } from 'react-icons/bs';
 
 export const AddNewHabitPanel: React.FC = () => {

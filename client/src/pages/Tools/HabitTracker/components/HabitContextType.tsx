@@ -1,4 +1,4 @@
-import { HabitDataType } from './useHabitData';
+import { HabitDataType } from './../hooks/useHabitData';
 
 export type HabitContextType = {
   toggleHabitPanelVisibility: () => void;

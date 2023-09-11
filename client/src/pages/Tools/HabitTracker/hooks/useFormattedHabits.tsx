@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { HabitDataType } from './../components/useHabitData';
+import { HabitDataType } from './../hooks/useHabitData';
 
 type TDay = [string, boolean];
 

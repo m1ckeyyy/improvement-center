@@ -7,7 +7,7 @@ import { NoHabitsUI } from './components/NoHabitsUI';
 import { CalendarContainer } from './styles/CalendarContainer.styled';
 import { AddNewHabitPanel } from './components/AddNewHabitPanel';
 import { DisplayHabits } from './components/DisplayHabits';
-import { HabitDataType } from './components/useHabitData';
+import { HabitDataType } from './hooks/useHabitData';
 import Calendar from 'react-calendar';
 
 type DateValue = Date | null;
