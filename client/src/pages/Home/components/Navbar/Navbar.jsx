@@ -7,7 +7,8 @@ import { useNavbarVisiblity } from './components/useNavbarVisiblity';
 import styles from './navbar.module.scss';
 
 export function Navbar() {
-  const { isMenuOpen, setIsMenuOpen, showNav, navBackground } = useNavbarVisiblity();
+
+  const { isMenuOpen, setIsMenuOpen, navBackground,showNav,setShowNav } = useNavbarVisiblity();
 
   useClickOutside(isMenuOpen, setIsMenuOpen);
 
@@ -15,14 +16,16 @@ export function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+ 
+
   return (
     <div className={styles.navContainer}>
       <header className={`${styles.header} ${showNav ? '' : styles.hideNav} ${navBackground ? styles.navBackground : ''}`}>
         <HomeIcon />
 
         <ul className={`${styles.navbar} ${isMenuOpen ? styles.menuOpen : ''}`}>
-          <NavbarElement to="home" content="Home" scrollableLink={true} duration={500} offset={0} />
-          <NavbarElement to="tools" content="Tools" scrollableLink={true} duration={500} offset={20} />
+          <NavbarElement to="home" content="Home" scrollableLink={true} duration={500} offset={0}   />
+          <NavbarElement to="tools" content="Tools" scrollableLink={true} duration={500} offset={20}  />
           <NavbarElement to="about" content="About" scrollableLink={true} duration={500} offset={-30} />
           <NavbarElement to="/login" content="Login" mobileDisplay={true} />
           <NavbarElement to="/register" content="Register" mobileDisplay={true} />

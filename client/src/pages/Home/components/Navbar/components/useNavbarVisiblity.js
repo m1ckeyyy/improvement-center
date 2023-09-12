@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 export const useNavbarVisiblity = () => {
+    const [showNav, setShowNav] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showNav, setShowNav] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [navBackground, setNavBackground] = useState(false);
 
@@ -36,5 +36,5 @@ export const useNavbarVisiblity = () => {
     };
   }, [prevScrollY]);
 
-  return { isMenuOpen, setIsMenuOpen, showNav, navBackground };
+  return { isMenuOpen, setIsMenuOpen, showNav, navBackground , setShowNav };
 };

@@ -6,6 +6,10 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node"
+    // "paths": {
+    //   "hooks/*": ["hooks/*"]
+    // }
+
     // "lib": ["es2017"]
   }
 }
