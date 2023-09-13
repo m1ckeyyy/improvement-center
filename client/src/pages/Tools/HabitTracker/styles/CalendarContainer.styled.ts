@@ -27,6 +27,7 @@ export const CalendarContainer = styled.div`
   .react-calendar__month-view__weekdays {
     .react-calendar__month-view__weekdays__weekday {
       overflow: initial !important;
+      display: none;
     }
     padding-left: 3px;
     padding-right: 3px;

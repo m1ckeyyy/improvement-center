@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import { HabitDataType } from './../hooks/useHabitData';
-
-type TDay = [string, boolean];
+import { HabitDataType, DaysOfWeek } from './../hooks/useHabitData';
 
 export function useFormattedHabits(habits: HabitDataType[]) {
   const [formattedHabits, setFormattedHabits] = useState<HabitDataType[]>([]);
@@ -15,8 +13,10 @@ export function useFormattedHabits(habits: HabitDataType[]) {
           habit.daysOfWeek[key as keyof typeof habit.daysOfWeek] = true;
         }
       }
-      // Remove daysOfWeek that are set to false, and modify the array
-      // Object.entries(habit.daysOfWeek).filter(([day, isCompleted]: TDay) => isCompleted);
+      const filteredDays = Object.entries(habit.daysOfWeek).filter(([day, isTrue]) => isTrue);
+      const filteredDaysObject: DaysOfWeek = Object.fromEntries(filteredDays);
+
+      habit.daysOfWeek = filteredDaysObject;
 
       return habit;
     });

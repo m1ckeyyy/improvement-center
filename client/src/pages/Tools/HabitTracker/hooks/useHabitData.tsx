@@ -1,18 +1,19 @@
-import {  useState } from 'react';
+import { useState } from 'react';
 
+export type DaysOfWeek = {
+  Monday?: boolean;
+  Tuesday?: boolean;
+  Wednesday?: boolean;
+  Thursday?: boolean;
+  Friday?: boolean;
+  Saturday?: boolean;
+  Sunday?: boolean;
+};
 export type HabitDataType = {
   name: string;
   category: string;
   completed: boolean;
-  daysOfWeek: {
-    Monday: boolean;
-    Tuesday: boolean;
-    Wednesday: boolean;
-    Thursday: boolean;
-    Friday: boolean;
-    Saturday: boolean;
-    Sunday: boolean;
-  };
+  daysOfWeek: DaysOfWeek;
 };
 
 export const useHabitData = () => {
@@ -46,24 +47,13 @@ export const useHabitData = () => {
       },
     });
   };
-  // useEffect(() => {
-  //   //format no-days to every-day
-  //   console.log('habitData ', habitData.daysOfWeek);
 
-  //   const noDaysSelected = Object.values(habitData.daysOfWeek).every((e) => e === false);
-  //   if (noDaysSelected) {
-  //     for (const key of Object.keys(habitData.daysOfWeek)) {
-  //       habitData.daysOfWeek[key as keyof typeof habitData.daysOfWeek] = true;
-  //     }
-  //   }
-  // }, [habitData]);
   const handleEverydayClick = (day: string) => {
     const daysOfWeek = { ...habitData.daysOfWeek };
     const allDaysChecked = Object.values(habitData.daysOfWeek).every((isChecked: boolean) => isChecked);
     for (const key in daysOfWeek) {
       if (Object.hasOwnProperty.call(daysOfWeek, key)) {
-        //@ts-ignore
-        allDaysChecked ? (daysOfWeek[key] = false) : (daysOfWeek[key] = true);
+        allDaysChecked ? (daysOfWeek[key as keyof typeof habitData.daysOfWeek] = false) : (daysOfWeek[key as keyof typeof habitData.daysOfWeek] = true);
       }
     }
     setHabitData({
