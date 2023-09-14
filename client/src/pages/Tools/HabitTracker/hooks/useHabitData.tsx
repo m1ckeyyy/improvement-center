@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 export type DaysOfWeek = {
   Monday?: boolean;
@@ -10,6 +11,7 @@ export type DaysOfWeek = {
   Sunday?: boolean;
 };
 export type HabitDataType = {
+  id: string;
   name: string;
   category: string;
   completed: boolean;
@@ -18,6 +20,7 @@ export type HabitDataType = {
 
 export const useHabitData = () => {
   const [habitData, setHabitData] = useState<HabitDataType>({
+    id:nanoid(),
     name: '',
     category: '',
     completed: false,
@@ -31,6 +34,7 @@ export const useHabitData = () => {
       Sunday: false,
     },
   });
+  console.log(habitData)
   const [categories, setCategories] = useState(['Recharging', 'Personal Development', 'Hobbies', 'Health & Fitness']);
 
   const handleDayOfWeekChange = (day: string) => {

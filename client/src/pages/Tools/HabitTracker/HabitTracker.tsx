@@ -25,8 +25,8 @@ const HabitTracker = () => {
     console.log('Added Habit: ', newHabit);
     setHabits([...habits, newHabit]);
   };
-  const habitTrackerValue = { toggleHabitPanelVisibility, addHabit, habits };
-  // console.log(habits);
+  const habitTrackerValue = { toggleHabitPanelVisibility, addHabit, habits,setHabits };
+  console.log(habits);
 
   return (
     <HabitContextProvider value={habitTrackerValue}>

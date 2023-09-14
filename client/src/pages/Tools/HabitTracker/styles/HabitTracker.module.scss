@@ -245,21 +245,32 @@ body {
   }
   .habit {
     margin-bottom: 30px;
+    h3{font-size: 1.5rem;}
+    p{font-size: 1.2rem;}
     h3,
     p {
       margin-bottom: 3px;
     }
-    .daysLabel {
-      margin-bottom: 3px;
+    .completedToggle{
+      display: flex;
+      align-items: center;
+      svg{
+        cursor:pointer;
+        margin-left:10px;
+      }
     }
     .daysTiles {
       display: flex;
-      width: 50%;
+      width: 100%;
+      gap:10px 0;
+      margin-top: 7px;
+      flex-wrap: wrap;
+      font-size: 1.1rem;
     }
 
     .habitDays {
       border-radius: 10px;
-      padding: 3px 10px;
+      padding: 3px 15px;
       margin: 0 2px;
     }
     .Monday {
@@ -272,16 +283,16 @@ body {
       background-color: #e6e6fa;
     }
     .Thursday {
-      background-color: #ff6b6b;
+      background-color: #fc8b8b;
     }
     .Friday {
-      background-color: #708090;
+      background-color: #9da7e8;
     }
     .Saturday {
       background-color: #daa520;
     }
     .Sunday {
-      background-color: #da70d6;
+      background-color: #da7fd7;
     }
   }
 }
