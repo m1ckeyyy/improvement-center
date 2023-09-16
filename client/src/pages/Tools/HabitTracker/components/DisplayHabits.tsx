@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './../styles/HabitTracker.module.scss';
 import { useHabitTrackerContext } from './HabitContext';
 import { MdOutlineLibraryAdd } from 'react-icons/md';
-import {BsToggleOff,BsToggleOn} from 'react-icons/bs'
+import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
 import { useFormattedHabits } from './../hooks/useFormattedHabits';
 import { HabitDataType } from './../hooks/useHabitData';
-import { CurrentDate } from './CurrentDate';
+import { SelectedDate } from './SelectedDate';
 
 export const DisplayHabits = () => {
   const { toggleHabitPanelVisibility, habits, setHabits } = useHabitTrackerContext()!;
@@ -13,27 +13,22 @@ export const DisplayHabits = () => {
   // console.log('f: ', formattedHabits);
   // const test: { [index: string]: string } = { aa: 'yeah' };
 
-  const toggleHabitCompletion = (habitToUpdate:HabitDataType) => {
-    setHabits((habits:HabitDataType[]) =>
-      habits.map((habit) =>
-        habit.id === habitToUpdate.id
-          ? { ...habit, completed: !habit.completed }
-          : habit
-      )
-    );
+  const toggleHabitCompletion = (habitToUpdate: HabitDataType) => {
+    setHabits((habits: HabitDataType[]) => habits.map((habit) => (habit.id === habitToUpdate.id ? { ...habit, completed: !habit.completed } : habit)));
   };
-  
 
   return (
     <div className={styles.displayHabits}>
-      <CurrentDate />
+      <SelectedDate />
 
       {formattedHabits.map((habit, index) => {
         return (
-          <div key={index} className={styles.habit} >
+          <div key={index} className={styles.habit}>
             <h3>{habit.name}</h3>
             <p>Category: {habit.category}</p>
-            <p className={styles.completedToggle} onClick={()=>toggleHabitCompletion(habit)}>Completed: {habit.completed ? <BsToggleOn size='25'/> : <BsToggleOff size='25'/>}</p>
+            <p className={styles.completedToggle} onClick={() => toggleHabitCompletion(habit)}>
+              Completed: {habit.completed ? <BsToggleOn size="25" /> : <BsToggleOff size="25" />}
+            </p>
             <div className={styles.daysTiles}>
               {Object.entries(habit.daysOfWeek).map(([day, _]) => {
                 return (

@@ -4,11 +4,6 @@ export type HabitContextType = {
   toggleHabitPanelVisibility: () => void;
   addHabit: (newHabit: HabitDataType) => void;
   habits: HabitDataType[];
-  setHabits: React.Dispatch<React.SetStateAction<HabitDataType[]>>
+  setHabits: React.Dispatch<React.SetStateAction<HabitDataType[]>>;
+  selectedDay: Date | any;
 };
-
-// export const defaultState: HabitContextType = {
-//   toggleHabitPanelVisibility: () => {},
-//   addHabit: (obj: HabitDataType) => {},
-//   habits: [],
-// };

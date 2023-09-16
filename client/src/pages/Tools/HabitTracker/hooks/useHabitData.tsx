@@ -20,7 +20,7 @@ export type HabitDataType = {
 
 export const useHabitData = () => {
   const [habitData, setHabitData] = useState<HabitDataType>({
-    id:nanoid(),
+    id: nanoid(),
     name: '',
     category: '',
     completed: false,
@@ -34,7 +34,7 @@ export const useHabitData = () => {
       Sunday: false,
     },
   });
-  console.log(habitData)
+  // console.log(habitData)
   const [categories, setCategories] = useState(['Recharging', 'Personal Development', 'Hobbies', 'Health & Fitness']);
 
   const handleDayOfWeekChange = (day: string) => {
