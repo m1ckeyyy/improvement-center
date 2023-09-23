@@ -26,9 +26,7 @@ export const DisplayHabits = () => {
           <div key={index} className={styles.habit}>
             <h3>{habit.name}</h3>
             <p>Category: {habit.category}</p>
-            <p className={styles.completedToggle} onClick={() => toggleHabitCompletion(habit)}>
-              Completed: {habit.completed ? <BsToggleOn size="25" /> : <BsToggleOff size="25" />}
-            </p>
+            <p className={styles.completedToggle}>Completed: {habit.completed ? <BsToggleOn size="25" onClick={() => toggleHabitCompletion(habit)}/> : <BsToggleOff size="25" onClick={() => toggleHabitCompletion(habit)}/>}</p>
             <div className={styles.daysTiles}>
               {Object.entries(habit.daysOfWeek).map(([day, _]) => {
                 return (

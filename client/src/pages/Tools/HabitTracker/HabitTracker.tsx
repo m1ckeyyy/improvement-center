@@ -8,6 +8,7 @@ import { CalendarContainer } from './styles/CalendarContainer.styled';
 import { AddNewHabitPanel } from './components/AddNewHabitPanel';
 import { DisplayHabits } from './components/DisplayHabits';
 import { HabitDataType } from './hooks/useHabitData';
+import { Clock } from './components/Clock';
 import Calendar from 'react-calendar';
 
 type DateValue = Date | null;
@@ -33,6 +34,7 @@ const HabitTracker = () => {
         <div className={styles.overlayContainer}>
           <section className={styles.habitsWrap}>
             <div className={styles.habitsContainer}>
+              <Clock />
               {habits.length > 0 ? newHabitPanelVisible ? <AddNewHabitPanel /> : <DisplayHabits /> : newHabitPanelVisible ? <AddNewHabitPanel /> : <NoHabitsUI />}
             </div>
           </section>

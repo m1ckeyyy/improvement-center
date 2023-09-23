@@ -9,7 +9,6 @@ body {
 .wrapContainer {
   // background: linear-gradient(45deg, #1a191b, #c6948c);
   background: linear-gradient(338deg, rgba(72, 80, 93, 1) 12%, rgba(23, 89, 184, 1) 39%, rgb(72, 87, 87) 81%);
-
   height: 100dvh;
 }
 .overlayContainer {
@@ -30,6 +29,7 @@ body {
   // border: 2px solid white;
 }
 .habitsContainer {
+  position: relative;
   background-color: #c7c5c5;
   border-radius: 15px;
   height: 100%;
@@ -200,16 +200,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  .currentDate {
-    font-size: 1.4rem;
-    background-color: lightblue;
+  .selectedDate {
+    font-size: 1.6rem;
     padding: 10px 0;
-    border-radius: 10px;
     display: flex;
-    justify-content: center;
+    align-items: center;
     width: 100%;
-    border: 2px solid rgba(133, 194, 184, 0.89);
     margin-bottom: 30px;
+    font-weight: normal;
+    span {
+      cursor: pointer;
+
+      font-weight: bold;
+    }
   }
   .buttonsContainer {
     display: flex;
@@ -245,24 +248,28 @@ body {
   }
   .habit {
     margin-bottom: 30px;
-    h3{font-size: 1.5rem;}
-    p{font-size: 1.2rem;}
+    h3 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
     h3,
     p {
       margin-bottom: 3px;
     }
-    .completedToggle{
+    .completedToggle {
       display: flex;
       align-items: center;
-      svg{
-        cursor:pointer;
-        margin-left:10px;
+      svg {
+        cursor: pointer;
+        margin-left: 10px;
       }
     }
     .daysTiles {
       display: flex;
       width: 100%;
-      gap:10px 0;
+      gap: 10px 0;
       margin-top: 7px;
       flex-wrap: wrap;
       font-size: 1.1rem;
@@ -295,4 +302,16 @@ body {
       background-color: #da7fd7;
     }
   }
+}
+.clock {
+  cursor: pointer;
+  font-size: 1.2rem;
+  background-color: transparent;
+  // width: 100%;
+  color: #ffffffa8;
+  position: absolute;
+  right: 0;
+  top: -35px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
