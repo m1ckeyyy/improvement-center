@@ -15,17 +15,19 @@ type DateValue = Date | null;
 type Value = DateValue | [DateValue, DateValue];
 
 const HabitTracker = () => {
-  const [selectedDay, onChange] = useState<Value>(new Date());
+  const [selectedDay, setSelectedDay] = useState<Value>(new Date());
   const [newHabitPanelVisible, setHabitPanelVisible] = useState(false);
   const [habits, setHabits] = useState<HabitDataType[]>([]);
 
   const toggleHabitPanelVisibility = () => {
     setHabitPanelVisible((prev) => !prev);
   };
+
   const addHabit = (newHabit: HabitDataType) => {
     console.log('Added Habit: ', newHabit);
     setHabits([...habits, newHabit]);
   };
+
   const habitTrackerValue = { toggleHabitPanelVisibility, addHabit, habits, setHabits, selectedDay };
   // console.log(habits);
   return (
@@ -41,7 +43,7 @@ const HabitTracker = () => {
 
           <section className={styles.calendarWrap}>
             <CalendarContainer>
-              <Calendar onChange={onChange} value={selectedDay} className={styles.reactCalendar} locale="en-US" />
+              <Calendar onChange={setSelectedDay} value={selectedDay} className={styles.reactCalendar} locale="en-US" />
             </CalendarContainer>
           </section>
         </div>

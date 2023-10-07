@@ -7,5 +7,5 @@ export const useTimeFormatState = () => {
     setTimeFormat((prevTimeFormat) => (prevTimeFormat === 'numeric' ? 'long' : 'numeric'));
   };
 
-  return { timeFormat, setTimeFormat, toggleTimeFormat };
+  return { timeFormat, toggleTimeFormat };
 };

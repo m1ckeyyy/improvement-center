@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './../styles/HabitTracker.module.scss';
-import { useHabitTrackerContext } from './HabitContext';
+// import { useHabitTrackerContext } from './HabitContext';
 import { useTimeFormatState } from '../hooks/useTimeFormatState';
 
 export const Clock = () => {
