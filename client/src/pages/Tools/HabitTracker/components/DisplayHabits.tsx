@@ -7,6 +7,7 @@ import { useFormattedHabits } from './../hooks/useFormattedHabits';
 import { HabitDataType } from './../hooks/useHabitData';
 import { SelectedDate } from './SelectedDate';
 import { useFormattedSelectedDays } from './../hooks/useFormattedSelectedDay';
+import { NoHabitsForToday } from './NoHabitsForToday';
 
 export const DisplayHabits = () => {
   const { toggleHabitPanelVisibility, habits, setHabits } = useHabitTrackerContext()!;
@@ -20,6 +21,7 @@ export const DisplayHabits = () => {
   return (
     <div className={styles.displayHabits}>
       <SelectedDate />
+      {/* { <NoHabitsForToday /> } */}
 
       {formattedHabits
         .filter((habit) => Object.keys(habit.daysOfWeek).includes(selectedDayOfWeek))
@@ -44,6 +46,7 @@ export const DisplayHabits = () => {
             </div>
           );
         })}
+      {formattedHabits.length === 0 && <p>No habits for {selectedDayOfWeek}</p>}
       <div className={styles.buttonsContainer}>
         <button onClick={toggleHabitPanelVisibility} className={styles.newHabitBtn}>
           <span>Add new habit</span> <MdOutlineLibraryAdd size={24} />
