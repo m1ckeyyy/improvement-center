@@ -212,6 +212,11 @@ body {
       cursor: pointer;
 
       font-weight: bold;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: rgb(56, 59, 215);
+      }
     }
   }
   .buttonsContainer {
