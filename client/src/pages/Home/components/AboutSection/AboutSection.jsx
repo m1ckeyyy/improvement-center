@@ -18,7 +18,7 @@ export const AboutSection = () => {
         <div className={styles.leftContent}>
           <div className={styles.aboutText}>
             <p>
-              Hi, I'm <TextHighlight>Mikolaj Krawczynski</TextHighlight>, the creator of this website. I'm a web developer with a passion for creating beautiful and functional websites.
+              Hi, I'm <TextHighlight>Mikolaj Krawczynski</TextHighlight>, the creator of this website. I'm a QA / Web Dev with a passion for developing secure projects.
             </p>
             <br />
             <p>
